@@ -85,9 +85,8 @@ export default Text;
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: RF(13),
-    top: 1,
-    fontFamily: 'Poppins-Regular',
+    fontSize: RF(14),
+    fontFamily: 'Montserrat-Regular',
   },
   center: {
     textAlign: 'center',
@@ -96,21 +95,20 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   regular: {
-    fontSize: RF(12),
-    top: 1,
-    fontFamily: 'Poppins-Regular',
+    fontSize: RF(16),
+    fontFamily: 'Montserrat-Regular',
   },
   medium: {
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Montserrat-Medium',
   },
   medium_italic: {
     fontFamily: '500',
   },
   semiBold: {
-    fontFamily: 'Poppins-SemiBold',
+    fontFamily: 'Montserrat-SemiBold',
   },
   bold: {
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'Montserrat-Bold',
   },
   bolder: {
     fontFamily: '800',
