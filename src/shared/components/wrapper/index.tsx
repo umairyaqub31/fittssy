@@ -48,7 +48,7 @@ const Wrapper = (props: Props) => {
         {
           backgroundColor: props?.bgClr ? props?.bgClr : '#fff',
           paddingTop: props?.isTop ? RF(50) : 0,
-          paddingHorizontal: props?.isPaddingH ? RF(20) : 0,
+          paddingHorizontal: props?.isPaddingH ? props?.isPaddingH : RF(20),
           marginHorizontal: props?.isMarginHorizontal ? RF(20) : 0,
         },
       ]}>
