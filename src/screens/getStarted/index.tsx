@@ -1,6 +1,7 @@
 import {getstarted3} from '@assets';
 import {PrimaryButton, Text, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';
+import {navigate} from '@services';
 import {RF} from '@theme';
 import React from 'react';
 import {
@@ -45,7 +46,7 @@ const GetStarted = () => {
             title={'Get Started'}
             bgColor={colors.primary}
             textColor={colors.white}
-            onPress={() => {}}
+            onPress={() => navigate('GetInformation', '')}
           />
           <View style={styles.signInView}>
             <Text regular color={colors.white}>

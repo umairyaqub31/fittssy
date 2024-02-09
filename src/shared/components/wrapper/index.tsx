@@ -47,8 +47,8 @@ const Wrapper = (props: Props) => {
         props.viewStyle,
         {
           backgroundColor: props?.bgClr ? props?.bgClr : '#fff',
-          paddingTop: props?.isTop ? RF(50) : 0,
-          paddingHorizontal: props?.isPaddingH ? RF(20) : 0,
+          paddingTop: props?.isTop ? RF(43) : 0,
+          paddingHorizontal: props?.isPaddingH ? props?.isPaddingH : RF(20),
           marginHorizontal: props?.isMarginHorizontal ? RF(20) : 0,
         },
       ]}>

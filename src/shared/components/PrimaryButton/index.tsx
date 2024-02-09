@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {RF} from '@theme';
+import {useTheme} from '@react-navigation/native';
 
 interface Props extends TouchableOpacityProps {
   title?: any;
@@ -29,6 +30,8 @@ const PrimaryButton = (props: Props) => {
     containerStyle,
     ...otherProps
   } = props;
+  const theme: any = useTheme();
+  const colors = theme.colors;
   return (
     <View
       style={[
@@ -36,7 +39,7 @@ const PrimaryButton = (props: Props) => {
         containerStyle && containerStyle,
         {
           height: height ? height : RF(50),
-          backgroundColor: bgColor,
+          backgroundColor: bgColor ? bgColor : colors.primary,
         },
       ]}>
       <Text
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
     // backgroundColor: primary,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 24,
+    borderRadius: 34,
   },
   medium: {color: '#fff', fontWeight: '600'},
 });
