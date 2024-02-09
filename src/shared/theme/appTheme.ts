@@ -40,6 +40,7 @@ export const darkThemeStyle = {
     card: '#222222',
     background: '#FFFFFF',
     white: '#FFFFFF',
+    lightGray: '#1717179E',
   },
 };
 
@@ -52,5 +53,6 @@ export const defaultTheme = {
     card: '#F0F0F0',
     background: '#FFFFFF',
     white: '#FFFFFF',
+    lightGray: '#F6F6F6',
   },
 };
