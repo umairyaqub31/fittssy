@@ -1,42 +1,46 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from 'react-native';
 import React from 'react';
 import {RF} from '@theme';
+import {useTheme} from '@react-navigation/native';
+import {StyleSheet, Text, View, TouchableOpacityProps} from 'react-native';
 
 interface Props extends TouchableOpacityProps {
+  mt?: any;
   title?: any;
-  bgColor?: any;
-  textColor?: any;
-  height?: any;
   width?: any;
-  disabled?: any;
+  height?: any;
   f_Size?: any;
+  f_Weight?: any;
+  bgColor?: any;
+  disabled?: any;
+  textColor?: any;
   containerStyle?: any;
 }
-const PrimaryButton = (props: Props) => {
+const PrimaryButton = (props: Partial<Props>) => {
   const {
+    mt,
     title,
+    width,
+    f_Size,
+    f_Weight,
     height,
+    bgColor,
     disabled,
     textColor,
-    bgColor,
-    f_Size,
     containerStyle,
     ...otherProps
   } = props;
+  const theme: any = useTheme();
+  const colors = theme.colors;
   return (
     <View
       style={[
         styles.button,
         containerStyle && containerStyle,
         {
+          width: width ? RF(width) : RF(200),
+          marginTop: mt ? mt : RF(10),
           height: height ? height : RF(50),
-          backgroundColor: bgColor,
+          backgroundColor: bgColor ? bgColor : colors.primary,
         },
       ]}>
       <Text
@@ -46,6 +50,7 @@ const PrimaryButton = (props: Props) => {
           {
             color: textColor,
             fontSize: f_Size ? f_Size : RF(16),
+            fontWeight: f_Weight ? f_Weight : '600',
           },
         ]}>
         {title}
@@ -59,10 +64,11 @@ export default PrimaryButton;
 const styles = StyleSheet.create({
   button: {
     width: '100%',
-    // backgroundColor: primary,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 24,
+    borderRadius: 34,
+    alignSelf: 'center',
+    marginBottom: RF(20),
   },
-  medium: {color: '#fff', fontWeight: '600'},
+  medium: {color: '#fff'},
 });

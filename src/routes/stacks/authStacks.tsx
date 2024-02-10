@@ -1,14 +1,30 @@
 import React from 'react';
-import {GetInformation, GetStarted, Login} from '@screens';
 import {createStackNavigator} from '@react-navigation/stack';
+import {
+  CreateNew,
+  Exercise,
+  GetStarted,
+  Login,
+  GetInformation,
+  WorkOut,
+  SearchExercise,
+  SearchWorkOut,
+} from '@screens';
 
 const Stack = createStackNavigator();
 
 const AuthStack = ({route}: any) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      {/* <Stack.Screen name="GetInformation" component={GetInformation} /> */}
+      {/* //.......kinza.......// */}
+      <Stack.Screen name="CreateNew" component={CreateNew} />
+      <Stack.Screen name="Exercise" component={Exercise} />
+      <Stack.Screen name="WorkOut" component={WorkOut} />
+      <Stack.Screen name="SearchExercise" component={SearchExercise} />
+      <Stack.Screen name="SearchWorkOut" component={SearchWorkOut} />
+
       <Stack.Screen name="GetStarted" component={GetStarted} />
+      <Stack.Screen name="GetInformation" component={GetInformation} />
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );

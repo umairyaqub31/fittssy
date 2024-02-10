@@ -1,6 +1,41 @@
-import Wrapper from './wrapper';
 import Text from './text';
-import SelectGender from './selectGender';
+import Wrapper from './wrapper';
+import BackHeader from './backHeader';
+import Gradient from './gradient';
+import GradientList from './gradientList';
+import SelectGender from './getInformationComponents/selectGender';
+import SelectAge from './getInformationComponents/selectAge';
 import PrimaryButton from './PrimaryButton';
+import CustomInput from './customInput';
+import SelectHeight from './getInformationComponents/selectHeight';
+import WheelScrollPicker from './wheelScrollPicker';
+import DropDown from './dropDown';
+import Search from './search';
+import ToggleButton from './toggleButton';
+import CustomOverlay from './overlay';
+import PlanBox from './planBox';
+import ToggleList from './toggleList';
+import SearchToSelect from './searchToSelect';
+import HistoryHeader from './historyHeader';
 
-export {Wrapper, Text, PrimaryButton, SelectGender};
+export {
+  Search,
+  Wrapper,
+  DropDown,
+  Text,
+  SelectAge,
+  PrimaryButton,
+  SelectGender,
+  CustomInput,
+  SelectHeight,
+  WheelScrollPicker,
+  BackHeader,
+  Gradient,
+  GradientList,
+  ToggleButton,
+  CustomOverlay,
+  PlanBox,
+  ToggleList,
+  SearchToSelect,
+  HistoryHeader,
+};
