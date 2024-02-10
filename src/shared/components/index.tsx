@@ -9,8 +9,18 @@ import PrimaryButton from './PrimaryButton';
 import CustomInput from './customInput';
 import SelectHeight from './getInformationComponents/selectHeight';
 import WheelScrollPicker from './wheelScrollPicker';
+import DropDown from './dropDown';
+import Search from './search';
+import ToggleButton from './toggleButton';
+import CustomOverlay from './overlay';
+import PlanBox from './planBox';
+import ToggleList from './toggleList';
+import SearchToSelect from './searchToSelect';
+
 export {
+  Search,
   Wrapper,
+  DropDown,
   Text,
   SelectAge,
   PrimaryButton,
@@ -18,5 +28,12 @@ export {
   CustomInput,
   SelectHeight,
   WheelScrollPicker,
-  BackHeader, Gradient, GradientList
+  BackHeader,
+  Gradient,
+  GradientList,
+  ToggleButton,
+  CustomOverlay,
+  PlanBox,
+  ToggleList,
+  SearchToSelect,
 };

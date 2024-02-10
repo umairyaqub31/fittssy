@@ -8,7 +8,7 @@ import {StyleSheet} from 'react-native';
 interface Props extends LinearGradientProps {
   clrs?: any;
 }
-const Gradient = (props: Props) => {
+const Gradient = (props: Partial<Props>) => {
   const {clrs} = props;
   return (
     <LinearGradient

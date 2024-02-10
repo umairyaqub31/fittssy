@@ -1,9 +1,9 @@
 import React from 'react';
 import Text from '../text';
-import Gradient from '../gradient';
-import {FlatList, Pressable, View} from 'react-native';
 import {RF} from '@theme';
+import Gradient from '../gradient';
 import {navigate} from '@services';
+import {FlatList, Pressable, View} from 'react-native';
 
 const GradientList = ({
   data,
@@ -19,11 +19,12 @@ const GradientList = ({
     if (item == 'Exercise') {
       navigate('Exercise', '');
     } else if (item == 'Workout') {
-      navigate('Workout', '');
+      navigate('WorkOut', '');
     } else if (item == 'Workout Plan') {
       navigate('Workout_Plan', '');
     }
   };
+
   return (
     <FlatList
       data={data}
@@ -31,20 +32,29 @@ const GradientList = ({
       keyExtractor={(item, index) => index.toString()}
       renderItem={({item, index}) => {
         return (
-          <Pressable
-            style={{
-              justifyContent: 'center',
-            }}
-            onPress={() => onSelect(item, index)}>
-            <Gradient clrs={selected == index ? true : false}>
-              <Text
-                color={selected == index ? 'white' : 'black'}
-                semiBold
-                style={{marginLeft: RF(28), marginTop: RF(20)}}>
-                {item}
-              </Text>
-            </Gradient>
-          </Pressable>
+          <>
+            <Pressable
+              style={{
+                justifyContent: 'center',
+              }}
+              onPress={() => onSelect(item, index)}>
+              <Gradient clrs={selected == index ? true : false}>
+                <Text
+                  color={selected == index ? 'white' : 'black'}
+                  semiBold
+                  style={{marginLeft: RF(28), marginTop: RF(20)}}>
+                  {item}
+                </Text>
+              </Gradient>
+            </Pressable>
+            <View
+              style={{
+                height: 1,
+                backgroundColor: '#EAEAEA',
+                marginHorizontal: RF(20),
+              }}
+            />
+          </>
         );
       }}
     />

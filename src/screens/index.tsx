@@ -5,6 +5,19 @@ import Login from './login';
 
 //...............kinza...........................//
 import CreateNew from './createNew';
-import Exercise from './exercise';
+import Exercise from './exercise/overview';
+import WorkOut from './workout/overview';
+import SearchExercise from './exercise/searchExercise';
+import SearchWorkOut from './workout/searchWorkOut';
 
-export {GetStarted, Home, Login, CreateNew, Exercise,GetInformation};
+export {
+  GetStarted,
+  Home,
+  Login,
+  CreateNew,
+  Exercise,
+  SearchExercise,
+  GetInformation,
+  WorkOut,
+  SearchWorkOut,
+};
