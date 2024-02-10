@@ -4,23 +4,26 @@ import Text from '../../text';
 import {flex, icon, margin, RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
 import {female, male} from '@assets';
+import {useDispatch, useSelector} from 'react-redux';
+import {setGetStartedData} from '@redux';
 
-interface Props {
-  initialState?: any;
-  onPress: (text: any) => void;
-}
+interface Props {}
 
 const SelectGender = (props: Props) => {
-  const {initialState, onPress} = props;
+  const {} = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(colors);
-  // console.log(initialState, '........initialState');
-
+  const dispatch = useDispatch();
+  const {getStartedData} = useSelector((state: any) => state.root.general);
   const maleCard =
-    initialState?.gender == 'Male' ? colors.primary : colors.card;
+    getStartedData?.gender == 'Male' ? colors.primary : colors.card;
   const femaleCard =
-    initialState?.gender == 'Female' ? colors.primary : colors.card;
+    getStartedData?.gender == 'Female' ? colors.primary : colors.card;
+
+  const handleGender = (text: any) => {
+    dispatch(setGetStartedData({...getStartedData, gender: text}));
+  };
 
   return (
     <>
@@ -33,7 +36,7 @@ const SelectGender = (props: Props) => {
       <View style={flex.rowBetween}>
         <Pressable
           style={[styles.card, {backgroundColor: femaleCard}]}
-          onPress={() => onPress('Female')}>
+          onPress={() => handleGender('Female')}>
           <Image source={female} style={icon._54} />
           <Text size={20} semiBold style={margin.top_16}>
             Female
@@ -41,7 +44,7 @@ const SelectGender = (props: Props) => {
         </Pressable>
         <Pressable
           style={[styles.card, {backgroundColor: maleCard}]}
-          onPress={() => onPress('Male')}>
+          onPress={() => handleGender('Male')}>
           <Image source={male} style={icon._54} />
           <Text size={20} semiBold style={margin.top_16}>
             Male

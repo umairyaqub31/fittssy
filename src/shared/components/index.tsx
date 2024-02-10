@@ -6,6 +6,11 @@ import PrimaryButton from './PrimaryButton';
 import CustomInput from './customInput';
 import SelectHeight from './getInformationComponents/selectHeight';
 import WheelScrollPicker from './wheelScrollPicker';
+import ShiftCards from './shiftCards';
+import SelectWeight from './getInformationComponents/selectWeight';
+import SelectCard from './getInformationComponents/card';
+import Content from './getInformationComponents/content';
+import GradientCard from './gradientCard';
 export {
   Wrapper,
   Text,
@@ -15,4 +20,9 @@ export {
   CustomInput,
   SelectHeight,
   WheelScrollPicker,
+  ShiftCards,
+  SelectWeight,
+  SelectCard,
+  Content,
+  GradientCard,
 };
