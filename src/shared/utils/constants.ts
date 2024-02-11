@@ -32,3 +32,25 @@ export const plan = [
     status: 'Switch',
   },
 ];
+
+export const category = [
+  {title: 'Abs'},
+  {title: 'Back'},
+  {title: 'Biceps'},
+  {title: 'Cardio'},
+  {title: 'Chest'},
+  {title: 'Legs'},
+  {title: 'Shoulders'},
+  {title: 'Triceps'},
+  {title: 'Other'},
+];
+
+export const abs = [
+  {title: 'Ab-Wheel Rollout'},
+  {title: 'Cable Crunch'},
+  {title: 'Crunch'},
+  {title: 'Decline Crunch'},
+  {title: 'Dragon Flag'},
+  {title: 'Plank'},
+  {title: 'Side Plank'},
+];

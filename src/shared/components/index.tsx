@@ -16,6 +16,7 @@ import CustomOverlay from './overlay';
 import PlanBox from './planBox';
 import ToggleList from './toggleList';
 import SearchToSelect from './searchToSelect';
+import CrunchBox from './crunchBox';
 
 export {
   Search,
@@ -36,4 +37,5 @@ export {
   PlanBox,
   ToggleList,
   SearchToSelect,
+  CrunchBox,
 };

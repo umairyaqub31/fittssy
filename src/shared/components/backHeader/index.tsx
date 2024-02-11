@@ -6,13 +6,21 @@ import {useTheme} from '@react-navigation/native';
 import {Image, Pressable, StyleSheet, View} from 'react-native';
 
 const BackHeader = ({
+  edit,
+  width,
   title,
+  onEdit,
   endIcon,
+  endTitle,
   navigation,
 }: {
+  edit?: any;
+  width?: any;
   title?: any;
+  onEdit?: any;
   endIcon?: any;
   navigation?: any;
+  endTitle?: any;
 }) => {
   const theme: any = useTheme();
   const colors = theme.colors;
@@ -25,23 +33,39 @@ const BackHeader = ({
         onPress={() => navigation.goBack()}>
         <Image source={back} style={styles.img} />
       </Pressable>
-      <View style={styles.txtView}>
+      <View style={[styles.txtView, {width: width ? width : '70%'}]}>
         <Text bold size={16}>
           {title}
         </Text>
       </View>
 
-      {endIcon && (
+      {endIcon ? (
         <View style={styles.imgView}>
           <Image source={plus} style={styles.image} />
         </View>
-      )}
+      ) : edit ? (
+        <Pressable style={styles.border} onPress={onEdit}>
+          <Text color={theme?.colors?.primary} size={14} medium>
+            {endTitle ? endTitle : 'Edit'}
+          </Text>
+        </Pressable>
+      ) : null}
     </View>
   );
 };
 
 const useStyles = (theme: any) =>
   StyleSheet.create({
+    border: {
+      width: RF(73),
+      height: RF(35),
+      borderWidth: 1,
+      borderRadius: 20,
+      borderColor: theme?.colors?.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginRight: 30,
+    },
     image: {width: RF(25), height: RF(25)},
     imgView: {
       width: RF(50),
@@ -54,7 +78,7 @@ const useStyles = (theme: any) =>
     },
     img: {width: RF(6), height: RF(11)},
     txtView: {
-      width: '70%',
+      // width: '65%',
       alignItems: 'center',
     },
     main: {

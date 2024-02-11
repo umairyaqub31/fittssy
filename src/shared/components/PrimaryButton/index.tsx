@@ -5,6 +5,7 @@ import {StyleSheet, Text, View, TouchableOpacityProps} from 'react-native';
 
 interface Props extends TouchableOpacityProps {
   mt?: any;
+  border?: any;
   title?: any;
   width?: any;
   height?: any;
@@ -17,6 +18,7 @@ interface Props extends TouchableOpacityProps {
 const PrimaryButton = (props: Partial<Props>) => {
   const {
     mt,
+    border,
     title,
     width,
     f_Size,
@@ -30,29 +32,37 @@ const PrimaryButton = (props: Partial<Props>) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   return (
-    <View
-      style={[
-        styles.button,
-        containerStyle && containerStyle,
-        {
-          width: width ? RF(width) : RF(200),
-          marginTop: mt ? mt : RF(10),
-          height: height ? height : RF(50),
-          backgroundColor: bgColor ? bgColor : colors.primary,
-        },
-      ]}>
-      <Text
-        {...otherProps}
+    <>
+      <View
         style={[
-          styles.medium,
+          styles.button,
+          containerStyle && containerStyle,
           {
-            color: textColor,
-            fontSize: f_Size ? f_Size : RF(16),
+            marginTop: mt ? mt : RF(10),
+            height: height ? height : RF(50),
+            width: width ? RF(width) : RF(200),
+            backgroundColor: bgColor
+              ? bgColor
+              : border
+              ? 'white'
+              : colors.primary,
+            borderWidth: border ? 1 : 0,
+            borderColor: border ? theme?.colors?.primary : null,
           },
         ]}>
-        {title}
-      </Text>
-    </View>
+        <Text
+          {...otherProps}
+          style={[
+            styles.medium,
+            {
+              color: border ? theme?.colors?.primary : textColor,
+              fontSize: f_Size ? f_Size : RF(16),
+            },
+          ]}>
+          {title}
+        </Text>
+      </View>
+    </>
   );
 };
 

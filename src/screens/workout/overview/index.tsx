@@ -14,8 +14,19 @@ import React, {useState} from 'react';
 import {goal, list, plan} from '@utils';
 import {useTheme} from 'react-native-elements';
 import {FlatList, Image, Pressable, ScrollView, View} from 'react-native';
+import {RouteProp} from '@react-navigation/native';
 
-const WorkOut = ({navigation}: any) => {
+interface Props {
+  navigation?: any;
+  route: RouteProp<{
+    params: {
+      data?: any;
+    };
+  }>;
+}
+
+const WorkOut = (props: Props) => {
+  const {data} = props?.route?.params;
   const theme: any = useTheme();
   const [selected, setSelected] = useState<any>(-1);
   const [overlay, setOverlay] = useState<any>(false);
@@ -41,7 +52,7 @@ const WorkOut = ({navigation}: any) => {
   return (
     <>
       <BackHeader title={'Create New Workout'} />
-      {selected == 2 ? (
+      {selected == 2 || data == 2 ? (
         <View style={styles.outerView}>
           <Pressable style={styles.innerView} onPress={onAddExr}>
             <Image source={plus} style={styles.pImg} />

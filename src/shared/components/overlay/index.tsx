@@ -23,7 +23,7 @@ const CustomOverlay = (props: Partial<Props>) => {
       onBackdropPress={toggleOverlay}
       overlayStyle={[
         styles.main,
-        {height: RF(height), width: width ? width : RF(320)},
+        {height: height ? RF(height) : RF(200), width: width ? width : RF(320)},
       ]}>
       {props.children}
     </Overlay>

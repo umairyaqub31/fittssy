@@ -9,6 +9,10 @@ import Exercise from './exercise/overview';
 import WorkOut from './workout/overview';
 import SearchExercise from './exercise/searchExercise';
 import SearchWorkOut from './workout/searchWorkOut';
+import AbsExercise from './workout/absExercise';
+import NewWorkOut from './workout/newWorkout';
+import EditWorkOut from './workout/EditWorkOut';
+import StartWorkOut from './workout/startWorkOut';
 
 export {
   GetStarted,
@@ -20,4 +24,8 @@ export {
   GetInformation,
   WorkOut,
   SearchWorkOut,
+  AbsExercise,
+  NewWorkOut,
+  EditWorkOut,
+  StartWorkOut,
 };
