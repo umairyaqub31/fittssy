@@ -1,12 +1,18 @@
 import {StyleSheet, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {RF} from '@theme';
 import Text from '../text';
 import ScrollPicker from 'react-native-wheel-scrollview-picker';
 
 import {useTheme} from '@react-navigation/native';
 
-const WheelScrollPicker = () => {
+interface Props {
+  data?: any;
+  handleChange: (value: any) => void;
+}
+
+const WheelScrollPicker = (props: Props) => {
+  const {data, handleChange} = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   return (
@@ -15,24 +21,34 @@ const WheelScrollPicker = () => {
         style={{
           height: RF(250),
           width: RF(65),
-          borderWidth: 1,
+          backgroundColor: 'green',
           //   alignItems: 'center',
           justifyContent: 'center',
         }}>
+        <View
+          style={{
+            position: 'absolute',
+            height: RF(35),
+            borderRadius: 22,
+            width: RF(65),
+            backgroundColor: colors.card,
+            opacity: 0.5,
+            zIndex: 0.5,
+            alignSelf: 'center',
+          }}
+        />
         <ScrollPicker
-          dataSource={['1', '2', '3', '4', '5', '6', '7']}
-          selectedIndex={3}
+          dataSource={data}
+          selectedIndex={2}
           renderItem={(item, data, index) => {
-            console.log(index, '.....index');
-
             return (
               <>
                 <Text
                   size={18}
-                  semiBold
+                  medium
                   center
-                  style={{width: '100%'}}
-                  color={index == true ? '#000' : colors.fadeGray}>
+                  style={{opacity: index === true ? 1 : 0.5}}
+                  color={index === true ? '#000' : colors.grayText}>
                   {item}
                 </Text>
               </>
@@ -40,13 +56,15 @@ const WheelScrollPicker = () => {
             //
           }}
           onValueChange={(data, selectedIndex) => {
-            console.log(data);
+            handleChange(data);
+            // console.log(data);
           }}
-          wrapperHeight={250}
+          wrapperHeight={RF(250)}
           wrapperBackground="#FFFFFF"
-          itemHeight={RF(30)}
-          highlightColor="#d8d8d8"
-          highlightBorderWidth={2}
+          itemHeight={RF(35)}
+          highlightColor={'#fff'}
+          activeItemTextStyle={styles.height}
+          itemTextStyle={styles.height}
         />
       </View>
     </>
@@ -55,4 +73,9 @@ const WheelScrollPicker = () => {
 
 export default WheelScrollPicker;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  height: {
+    height: 50,
+    color: 'red',
+  },
+});

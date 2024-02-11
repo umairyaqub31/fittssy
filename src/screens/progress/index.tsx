@@ -1,10 +1,12 @@
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, View, ImageBackground} from 'react-native';
 import React, {useState} from 'react';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {useTheme} from '@react-navigation/native';
 import {HistoryHeader, PrimaryButton} from '@components';
 import {Text} from '@components';
 import {RF, SCREEN_HEIGHT, SCREEN_WIDTH} from '@theme';
+import {gradientFlex, unSelect} from '@assets';
+import moment from 'moment';
 const ProgressOverview = () => {
   const [selected, setSelected] = useState('');
   const [screenToShow, setScreenToShow] = useState('calendar');
@@ -96,25 +98,14 @@ const ProgressOverview = () => {
           <View
             style={[styles.row, {justifyContent: 'center', marginBottom: 20}]}>
             <Text style={styles.dateText} size={18} regular>
-              {selected}
+              {moment(selected).format('MMMM DD, YYYY')}
             </Text>
           </View>
 
           <View style={{flex: 1}}>
             <FlatList
               showsVerticalScrollIndicator={false}
-              // refreshControl={
-              //   <RefreshControl
-              //     enabled={true}
-              //     colors={['#9Bd35A', '#689F38']}
-              //     refreshing={refreshing}
-              //     onRefresh={handleRefresh}
-              //   />
-              // }
               data={[1, 2, 3, 4, 5]}
-              // ListEmptyComponent={
-              //   loading ? null : <EmptyList description={'No data found'} />
-              // }
               renderItem={({item, index}) => (
                 <ListItem
                   selectedItemIndex={selectedItemIndex}
@@ -123,10 +114,6 @@ const ProgressOverview = () => {
                   item={item}
                   index={index}
                   styles={styles}
-                  //   handleAccept={handleAccept}
-                  //   handleReject={handleReject}
-                  //   acceptLoading={acceptLoading}
-                  //   rejectLoading={rejectLoading}
                 />
               )}
             />
@@ -143,160 +130,175 @@ const ListItem = (props: any) => {
   const {colors, item, index, styles, selectedItemIndex} = props;
   return (
     <View style={styles.listItemContainer}>
-      <View style={[styles.row, {marginBottom: 4}]}>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={12}
-          thin>
-          Training:{' '}
-        </Text>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={14}
-          medium>
-          00:40:08{' '}
-        </Text>
-        <View
-          style={[
-            styles.verticleLine,
-            {
-              backgroundColor:
-                index == selectedItemIndex ? colors.primary : colors.grayText,
-            },
-          ]}
-        />
-
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={12}
-          thin>
-          {' '}
-          Actual:{' '}
-        </Text>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={14}
-          medium>
-          00:13:12{' '}
-        </Text>
-        <View
-          style={[
-            styles.verticleLine,
-            {
-              backgroundColor:
-                index == selectedItemIndex ? colors.primary : colors.grayText,
-            },
-          ]}
-        />
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={12}
-          thin>
-          {' '}
-          Rest:{' '}
-        </Text>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={14}
-          medium>
-          00:27:59{' '}
-        </Text>
-      </View>
-
-      <View style={[styles.row]}>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={12}
-          thin>
-          Idle:{' '}
-        </Text>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={14}
-          medium>
-          00:00:00{' '}
-        </Text>
-        <View
-          style={[
-            styles.verticleLine,
-            {
-              backgroundColor:
-                index == selectedItemIndex ? colors.primary : colors.grayText,
-            },
-          ]}
-        />
-
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={12}
-          thin>
-          {' '}
-          Complete:{' '}
-        </Text>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={14}
-          medium>
-          8{' '}
-        </Text>
-        <View
-          style={[
-            styles.verticleLine,
-            {
-              backgroundColor:
-                index == selectedItemIndex ? colors.primary : colors.grayText,
-            },
-          ]}
-        />
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={12}
-          thin>
-          {' '}
-          Weight:{' '}
-        </Text>
-        <Text
-          style={{
-            color: index == selectedItemIndex ? colors.primary : colors.text,
-          }}
-          size={14}
-          medium>
-          6896.0 kg{' '}
-        </Text>
-      </View>
-
-      <View style={styles.lineStyle} />
-
-      <Text
-        style={{
-          color: index == selectedItemIndex ? colors.primary : colors.text,
+      <ImageBackground
+        source={index == selectedItemIndex ? gradientFlex : unSelect}
+        imageStyle={{
+          height: '100%',
+          resizeMode: 'stretch',
         }}
-        size={18}
-        semiBold>
-        Workout 2
-      </Text>
+        style={{
+          height: '100%',
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          //   backgroundColor: colors.card,
+          borderRadius: RF(16),
+        }}>
+        <View style={[styles.row, {marginBottom: 4}]}>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={12}
+            thin>
+            Training:{' '}
+          </Text>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={14}
+            medium>
+            00:40:08{' '}
+          </Text>
+          <View
+            style={[
+              styles.verticleLine,
+              {
+                backgroundColor:
+                  index == selectedItemIndex ? colors.primary : colors.grayText,
+              },
+            ]}
+          />
+
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={12}
+            thin>
+            {' '}
+            Actual:{' '}
+          </Text>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={14}
+            medium>
+            00:13:12{' '}
+          </Text>
+          <View
+            style={[
+              styles.verticleLine,
+              {
+                backgroundColor:
+                  index == selectedItemIndex ? colors.primary : colors.grayText,
+              },
+            ]}
+          />
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={12}
+            thin>
+            {' '}
+            Rest:{' '}
+          </Text>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={14}
+            medium>
+            00:27:59{' '}
+          </Text>
+        </View>
+
+        <View style={[styles.row]}>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={12}
+            thin>
+            Idle:{' '}
+          </Text>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={14}
+            medium>
+            00:00:00{' '}
+          </Text>
+          <View
+            style={[
+              styles.verticleLine,
+              {
+                backgroundColor:
+                  index == selectedItemIndex ? colors.primary : colors.grayText,
+              },
+            ]}
+          />
+
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={12}
+            thin>
+            {' '}
+            Complete:{' '}
+          </Text>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={14}
+            medium>
+            8{' '}
+          </Text>
+          <View
+            style={[
+              styles.verticleLine,
+              {
+                backgroundColor:
+                  index == selectedItemIndex ? colors.primary : colors.grayText,
+              },
+            ]}
+          />
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={12}
+            thin>
+            {' '}
+            Weight:{' '}
+          </Text>
+          <Text
+            style={{
+              color: index == selectedItemIndex ? colors.primary : colors.text,
+            }}
+            size={14}
+            medium>
+            6896.0 kg{' '}
+          </Text>
+        </View>
+
+        <View style={styles.lineStyle} />
+
+        <Text
+          style={{
+            color: index == selectedItemIndex ? colors.primary : colors.text,
+          }}
+          size={18}
+          semiBold>
+          Workout 2
+        </Text>
+      </ImageBackground>
     </View>
   );
 };
@@ -338,7 +340,6 @@ const useStyles = (colors: any) =>
       backgroundColor: colors.card,
       marginBottom: 20,
       borderRadius: 16,
-      padding: 10,
     },
     verticleLine: {
       height: '65%',

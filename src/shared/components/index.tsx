@@ -18,6 +18,11 @@ import ToggleList from './toggleList';
 import SearchToSelect from './searchToSelect';
 import HistoryHeader from './historyHeader';
 
+import ShiftCards from './shiftCards';
+import SelectWeight from './getInformationComponents/selectWeight';
+import SelectCard from './getInformationComponents/card';
+import Content from './getInformationComponents/content';
+import GradientCard from './gradientCard';
 export {
   Search,
   Wrapper,
@@ -38,4 +43,9 @@ export {
   ToggleList,
   SearchToSelect,
   HistoryHeader,
+  ShiftCards,
+  SelectWeight,
+  SelectCard,
+  Content,
+  GradientCard,
 };

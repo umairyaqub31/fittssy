@@ -1,34 +1,40 @@
 export const demo = [{title: 'demo'}];
-
-export const list = [
-  {title: 'Existing Workout Plan', index: 0},
-  {title: 'New Workout Plan', index: 1},
-  {title: 'New Workout', index: 2},
+export const data = [
+  {id: 0, heading: 'Gym', desc: 'With strength training equipment'},
+  {id: 1, heading: 'Home', desc: 'With minimal heavy equipment'},
 ];
-
-export const goal = [
-  {title: 'Maintaining', index: 0},
-  {title: 'Bulking', index: 1},
-  {title: 'Cutting', index: 2},
-];
-
-export const plan = [
+export const data2 = [
   {
-    label: 'Bulking: 3 Days',
-    index: 0,
-    description: 'Benji 3 Day Plan',
-    status: 'Current',
+    id: 0,
+    heading: 'Beginner',
+    desc: 'New to lifting weights & unfamiliar with most exercises',
   },
   {
-    label: 'Bulking: 3 Days',
-    index: 1,
-    description: 'pmegyes’s 3 Day Plan',
-    status: 'Switch',
+    id: 1,
+    heading: 'Intermediate',
+    desc: 'Familiar with most exercises & comfortable working out',
   },
   {
-    label: 'Bulking: 4 Days',
-    index: 2,
-    description: '5day PPL Plan',
-    status: 'Switch',
+    id: 2,
+    heading: 'Advanced',
+    desc: 'Experienced with training & will often help out friends who are just starting',
+  },
+];
+
+export const data3 = [
+  {
+    id: 0,
+    heading: 'Maintaining',
+    desc: 'Staying healthy & having good cardiovascular health',
+  },
+  {
+    id: 1,
+    heading: 'Bulking',
+    desc: 'Focus on gaining muscle size building strength',
+  },
+  {
+    id: 2,
+    heading: 'Cutting',
+    desc: 'Focus on losing body fat or lose weight in general',
   },
 ];
