@@ -1,4 +1,10 @@
-import {FlatList, StyleSheet, View, ImageBackground} from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  ImageBackground,
+  Pressable,
+} from 'react-native';
 import React, {useState} from 'react';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {useTheme} from '@react-navigation/native';
@@ -7,6 +13,7 @@ import {Text} from '@components';
 import {RF, SCREEN_HEIGHT, SCREEN_WIDTH} from '@theme';
 import {gradientFlex, unSelect} from '@assets';
 import moment from 'moment';
+import {navigate} from '@services';
 const ProgressOverview = () => {
   const [selected, setSelected] = useState('');
   const [screenToShow, setScreenToShow] = useState('calendar');
@@ -19,6 +26,10 @@ const ProgressOverview = () => {
     console.log('selected day', day);
     setSelected(day.dateString);
     setScreenToShow('list');
+  };
+
+  const handlePressWorkout = () => {
+    navigate('WorkoutDetail', {selectedDate: selected});
   };
 
   return (
@@ -114,6 +125,7 @@ const ProgressOverview = () => {
                   item={item}
                   index={index}
                   styles={styles}
+                  onPress={handlePressWorkout}
                 />
               )}
             />
@@ -127,9 +139,9 @@ const ProgressOverview = () => {
 export default ProgressOverview;
 
 const ListItem = (props: any) => {
-  const {colors, item, index, styles, selectedItemIndex} = props;
+  const {colors, item, index, styles, selectedItemIndex, onPress} = props;
   return (
-    <View style={styles.listItemContainer}>
+    <Pressable style={styles.listItemContainer} onPress={onPress}>
       <ImageBackground
         source={index == selectedItemIndex ? gradientFlex : unSelect}
         imageStyle={{
@@ -299,7 +311,7 @@ const ListItem = (props: any) => {
           Workout 2
         </Text>
       </ImageBackground>
-    </View>
+    </Pressable>
   );
 };
 

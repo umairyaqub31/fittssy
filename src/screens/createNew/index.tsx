@@ -10,7 +10,7 @@ const CreateNew = ({navigation}: any) => {
 
   return (
     <View>
-      <BackHeader title={'Create New'} navigation={navigation} />
+      <BackHeader title={'Create New'} startIcon navigation={navigation} />
       <View style={styles.mt} />
       <GradientList data={data} selected={selected} setSelected={setSelected} />
     </View>

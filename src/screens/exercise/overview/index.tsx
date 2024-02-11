@@ -17,7 +17,11 @@ const Exercise = ({navigation}: any) => {
 
   return (
     <>
-      <BackHeader title={'Create New Exercise'} navigation={navigation} />
+      <BackHeader
+        title={'Create New Exercise'}
+        startIcon
+        navigation={navigation}
+      />
       <ScrollView showsVerticalScrollIndicator={false}>
         <CustomInput label="Name" placeHolder={'Exercise Set 1'} />
 

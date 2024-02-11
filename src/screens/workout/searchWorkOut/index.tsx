@@ -1,4 +1,6 @@
-import React from 'react';
+import {category} from '@utils';
+import {navigate} from '@services';
+import React, {useState} from 'react';
 import {SearchToSelect} from '@components';
 import {RouteProp} from '@react-navigation/native';
 
@@ -13,9 +15,21 @@ interface Props {
 const SearchWorkOut = (props: Props) => {
   const {title} = props.route?.params;
 
+  const onOpen = (item: any, index: any) => {
+    if (item?.title == 'Abs') {
+      navigate('AbsExercise', {title: item?.title});
+    }
+  };
+
   return (
     <>
-      <SearchToSelect title={title} endIcon />
+      <SearchToSelect
+        endIcon
+        gradient
+        title={title}
+        data={category}
+        onOpen={onOpen}
+      />
     </>
   );
 };

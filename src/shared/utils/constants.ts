@@ -38,3 +38,25 @@ export const data3 = [
     desc: 'Focus on losing body fat or lose weight in general',
   },
 ];
+
+export const category = [
+  {title: 'Abs'},
+  {title: 'Back'},
+  {title: 'Biceps'},
+  {title: 'Cardio'},
+  {title: 'Chest'},
+  {title: 'Legs'},
+  {title: 'Shoulders'},
+  {title: 'Triceps'},
+  {title: 'Other'},
+];
+
+export const abs = [
+  {title: 'Ab-Wheel Rollout'},
+  {title: 'Cable Crunch'},
+  {title: 'Crunch'},
+  {title: 'Decline Crunch'},
+  {title: 'Dragon Flag'},
+  {title: 'Plank'},
+  {title: 'Side Plank'},
+];

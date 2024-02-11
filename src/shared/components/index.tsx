@@ -17,6 +17,7 @@ import PlanBox from './planBox';
 import ToggleList from './toggleList';
 import SearchToSelect from './searchToSelect';
 import HistoryHeader from './historyHeader';
+import CrunchBox from './crunchBox';
 
 import ShiftCards from './shiftCards';
 import SelectWeight from './getInformationComponents/selectWeight';
@@ -48,4 +49,5 @@ export {
   SelectCard,
   Content,
   GradientCard,
+  CrunchBox,
 };
