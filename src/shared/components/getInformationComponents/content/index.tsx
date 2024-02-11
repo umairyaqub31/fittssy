@@ -6,7 +6,7 @@ import {useTheme} from '@react-navigation/native';
 import PrimaryButton from '../../PrimaryButton';
 
 interface Props {
-  onPress: () => void;
+  onPress: (text: any) => void;
   desc_1?: any;
   desc_2?: any;
 }
@@ -23,7 +23,7 @@ const Content = (props: Props) => {
       <Text size={13} center style={[margin.top_16]} color={colors.grayText}>
         {desc_2}
       </Text>
-      <Pressable
+      <View
         style={{
           position: 'absolute',
           bottom: RF(40),
@@ -36,7 +36,7 @@ const Content = (props: Props) => {
           textColor={colors.theme}
           containerStyle={margin.top_56}
         />
-      </Pressable>
+      </View>
     </>
   );
 };

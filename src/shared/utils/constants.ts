@@ -38,3 +38,53 @@ export const data3 = [
     desc: 'Focus on losing body fat or lose weight in general',
   },
 ];
+export const data4 = [
+  {
+    id: 0,
+    heading: 'I’ll Create My Own Workout',
+    desc: 'I already have a workout plan.',
+  },
+  {
+    id: 1,
+    heading: 'Help me Find A New Workout',
+    desc: 'Match me with the perfect workout plan.',
+  },
+];
+export const data5 = [
+  {
+    id: 0,
+    heading: '1 to 2',
+  },
+  {
+    id: 1,
+    heading: '3 to 4',
+  },
+  {
+    id: 2,
+    heading: '5 to 6',
+  },
+  {
+    id: 3,
+    heading: 'More than 7',
+  },
+];
+export const data6 = [
+  {
+    id: 0,
+    cat: 'General',
+    days: '3 days',
+    heading: 'Classic Bodybuilding Routine',
+  },
+  {
+    id: 1,
+    cat: 'Bulking',
+    days: '4 days',
+    heading: 'Spark Your Testosterone',
+  },
+  {
+    id: 2,
+    cat: 'Bulking',
+    days: '3 days',
+    heading: 'Rest/Pause Training Program',
+  },
+];

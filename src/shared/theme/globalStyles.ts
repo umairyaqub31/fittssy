@@ -95,6 +95,9 @@ export const margin: any = {
   left_8: {
     marginLeft: RF(8),
   },
+  left_14: {
+    marginLeft: RF(14),
+  },
   left_16: {
     marginLeft: RF(16),
   },

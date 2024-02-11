@@ -5,5 +5,17 @@ const female = require('./female.png');
 const male = require('./male.png');
 const gradientFlex = require('./SHAPES/gradientFlex.png');
 const unSelect = require('./SHAPES/unSelect.png');
+const squareGradient = require('./SHAPES/squareGradient.png');
+const graySquare = require('./SHAPES/graySquare.png');
 
-export {home, getstarted3, back, female, male, gradientFlex, unSelect};
+export {
+  home,
+  getstarted3,
+  back,
+  female,
+  male,
+  gradientFlex,
+  unSelect,
+  squareGradient,
+  graySquare,
+};
