@@ -1,20 +1,26 @@
-import {home} from '@assets';
+import {home, prof, progress, stat, workout} from '@assets';
 import {navigate} from '@services';
 import React, {useState} from 'react';
 import HomeStack from '../stacks/homeStack';
 import {useTheme} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-import {Image, Pressable, StyleSheet} from 'react-native';
+import {Image, View, Pressable, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import WorkOutStack from '../stacks/workOutStack';
+import ProgressStack from '../stacks/progressStack';
+import IsnsightStack from '../stacks/insightsStack';
+import ProfileStack from '../stacks/profileStack';
+import {RF} from '@theme';
 
 const Tab = createBottomTabNavigator();
 
 const MainTabs = ({navigation}: any) => {
   const theme: any = useTheme();
+  const colors = theme.colors;
   const dispatch = useDispatch();
   const {isModalVisible} = useSelector((state: any) => state.root.user);
 
-  const styles = useStyles(theme.colors);
+  const styles = useStyles(colors);
   const [activeStack, setActiveStack] = useState('HomeStack');
 
   return (
@@ -22,13 +28,11 @@ const MainTabs = ({navigation}: any) => {
       screenOptions={({route: {name}}) => ({
         headerShown: false,
         keyboardHidesTabBar: true,
-        tabBarStyle:
-          // isModalVisible == false ?
-          styles.tabBarStyle,
-        //  : {display: 'none'},
+        tabBarStyle: styles.tabBarStyle,
         tabBarActiveTintColor: '#00538F',
         tabBarInactiveTintColor: '#949494',
         tabBarIconStyle: styles.tabIcon,
+        tabBarShowLabel: false,
       })}>
       <Tab.Screen
         name="Home"
@@ -37,10 +41,78 @@ const MainTabs = ({navigation}: any) => {
           tabBarIcon: ({tintColor, color, focused}: any) => (
             <TabBarIcon
               source={home}
-              color={color}
+              color={colors.card}
               styles={styles}
               focused={focused}
               stack={'Home'}
+              activeStack={activeStack}
+              setActiveStack={setActiveStack}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Workout"
+        component={WorkOutStack}
+        options={{
+          tabBarIcon: ({tintColor, color, focused}: any) => (
+            <TabBarIcon
+              source={workout}
+              color={colors.card}
+              styles={styles}
+              focused={focused}
+              stack={'Workout'}
+              activeStack={activeStack}
+              setActiveStack={setActiveStack}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Progress"
+        component={ProgressStack}
+        options={{
+          tabBarIcon: ({tintColor, color, focused}: any) => (
+            <TabBarIcon
+              source={progress}
+              color={colors.card}
+              styles={styles}
+              focused={focused}
+              stack={'Progress'}
+              activeStack={activeStack}
+              setActiveStack={setActiveStack}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="InsightOverview"
+        component={IsnsightStack}
+        options={{
+          tabBarIcon: ({tintColor, color, focused}: any) => (
+            <TabBarIcon
+              source={stat}
+              color={colors.card}
+              styles={styles}
+              focused={focused}
+              stack={'InsightOverview'}
+              activeStack={activeStack}
+              setActiveStack={setActiveStack}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ProfileOverview"
+        component={ProfileStack}
+        options={{
+          tabBarIcon: ({tintColor, color, focused}: any) => (
+            <TabBarIcon
+              source={prof}
+              color={colors.card}
+              styles={styles}
+              focused={focused}
+              stack={'ProfileOverview'}
               activeStack={activeStack}
               setActiveStack={setActiveStack}
             />
@@ -88,24 +160,49 @@ const TabBarIcon = ({
   return (
     <Pressable
       style={{
-        height: 8,
-        // width: 30,
-        // alignItems: 'center',
-        // justifyContent: 'center',
+        height: RF(55),
+        width: RF(55),
+        borderWidth: 1,
+        borderRadius: RF(30),
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderColor: focused ? '#36D8AA' : color,
       }}
       onPress={() => {
         onPressTab(stack, activeStack, setActiveStack, handleCaptureFlag);
       }}>
-      <Image
-        source={source}
-        style={[
-          styles.image,
-          {
-            tintColor: focused ? '#00538F' : '#949494',
-          },
-        ]}
-        resizeMode={'contain'}
-      />
+      <View
+        style={{
+          height: RF(45),
+          width: RF(45),
+          borderWidth: 1,
+          borderColor: focused ? '#36D8AA' : color,
+          borderRadius: RF(30),
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <View
+          style={{
+            height: RF(35),
+            width: RF(35),
+            borderWidth: 1,
+            borderColor: focused ? '#36D8AA' : color,
+            borderRadius: RF(30),
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image
+            source={source}
+            style={[
+              styles.image,
+              {
+                tintColor: '#949494',
+              },
+            ]}
+            resizeMode={'contain'}
+          />
+        </View>
+      </View>
     </Pressable>
   );
 };
@@ -120,8 +217,14 @@ const useStyles = (colors: any) =>
     },
     tabBarStyle: {
       height: 75,
-      backgroundColor: '#fff',
-      paddingBottom: 15.5,
+      width: '100%',
+      alignSelf: 'center',
+      borderTopRightRadius: 40,
+      borderTopLeftRadius: 40,
+      // backgroundColor: 'rgba(246, 246, 246, 1)',
+      // backgroundColor: 'red',
+      paddingBottom: 0,
+      elevation: 0,
       borderTopWidth: 0,
     },
   });

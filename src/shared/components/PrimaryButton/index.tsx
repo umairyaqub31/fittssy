@@ -1,59 +1,74 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from 'react-native';
 import React from 'react';
 import {RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
+import {StyleSheet, Text, View, TouchableOpacityProps} from 'react-native';
 
 interface Props extends TouchableOpacityProps {
+  mt?: any;
+  border?: any;
   title?: any;
-  bgColor?: any;
-  textColor?: any;
-  height?: any;
   width?: any;
-  disabled?: any;
+  height?: any;
   f_Size?: any;
+  f_Weight?: any;
+  bgColor?: any;
+  disabled?: any;
+  textColor?: any;
   containerStyle?: any;
 }
-const PrimaryButton = (props: Props) => {
+const PrimaryButton = (props: Partial<Props>) => {
   const {
+    mt,
+    border,
     title,
+    width,
+    f_Size,
+    f_Weight,
     height,
+    bgColor,
     disabled,
     textColor,
-    bgColor,
-    f_Size,
     containerStyle,
     ...otherProps
   } = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   return (
-    <View
-      style={[
-        styles.button,
-        containerStyle && containerStyle,
-        {
-          height: height ? height : RF(50),
-          backgroundColor: bgColor ? bgColor : colors.primary,
-        },
-      ]}>
-      <Text
-        {...otherProps}
+    <>
+      <View
         style={[
-          styles.medium,
+          styles.button,
+          containerStyle && containerStyle,
           {
             color: textColor,
             fontSize: f_Size ? f_Size : RF(16),
+            fontWeight: f_Weight ? f_Weight : '600',
+            marginTop: mt ? mt : RF(10),
+
+            height: height ? height : RF(50),
+            width: width ? RF(width) : '100%',
+            backgroundColor: bgColor
+              ? bgColor
+              : border
+              ? 'white'
+              : colors.primary,
+            borderWidth: border ? 1 : 0,
+            borderColor: border ? theme?.colors?.primary : null,
           },
         ]}>
-        {title}
-      </Text>
-    </View>
+        <Text
+          {...otherProps}
+          style={[
+            styles.medium,
+            {
+              color: border ? theme?.colors?.primary : textColor,
+              fontSize: f_Size ? f_Size : RF(16),
+            },
+          ]}>
+          {title}
+        </Text>
+      </View>
+    </>
   );
 };
 
@@ -62,10 +77,10 @@ export default PrimaryButton;
 const styles = StyleSheet.create({
   button: {
     width: '100%',
-    // backgroundColor: primary,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 34,
+    alignSelf: 'center',
   },
-  medium: {color: '#fff', fontWeight: '600'},
+  medium: {color: '#fff'},
 });

@@ -2,61 +2,72 @@ import {RF} from '@theme';
 import React from 'react';
 import {
   View,
-  TextInput,
-  TextInputProps,
   Image,
+  TextInput,
+  StyleSheet,
+  TextInputProps,
   TouchableOpacity,
 } from 'react-native';
 import Text from '../text';
-import useStyles from './styles';
+import {useTheme} from '@react-navigation/native';
 
 interface Props extends TextInputProps {
+  m_Top?: any;
+  color?: any;
+  errors?: any;
+  endIcon?: any;
+  fontSize?: any;
   label?: string;
   error?: string;
-  color?: any;
   startIcon?: any;
-  endIcon?: any;
-  m_Vertical?: any;
-  m_Top?: any;
   tintColor?: any;
-  tintColorStart?: any;
+  m_Vertical?: any;
   VerifyButton?: any;
   OptionalText?: any;
+  tintColorStart?: any;
   onPress?: () => void;
-  errors?: any;
-  fontSize?: any;
+  placeHolder?: any;
+  inputStyle?: any;
+  labelStyle?: any;
 }
 
 const CustomInput = (props: Props) => {
   const {
     label,
     error,
-    onPress,
-    m_Vertical,
     m_Top,
-    startIcon,
-    endIcon,
-    VerifyButton,
-    tintColor,
-    tintColorStart,
-    OptionalText,
-    errors,
-    fontSize,
     color,
+    errors,
+    onPress,
+    endIcon,
+    fontSize,
+    startIcon,
+    tintColor,
+    m_Vertical,
+    VerifyButton,
+    OptionalText,
+    tintColorStart,
+    placeHolder,
+    inputStyle,
+    labelStyle,
     ...otherProps
   } = props;
-
-  const styles = useStyles({});
+  const theme: any = useTheme();
+  const styles = useStyles(theme?.colors);
 
   return (
     <View
       style={[
         styles.container,
-        {marginVertical: m_Vertical, marginTop: m_Top},
+        {marginVertical: m_Vertical, marginTop: m_Top ? m_Top : RF(20)},
       ]}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && (
+        <Text style={[styles.label, labelStyle]} semiBold>
+          {label}
+        </Text>
+      )}
 
-      <View style={[styles.InputContainer]}>
+      <View style={[styles.InputContainer, inputStyle]}>
         {startIcon && (
           <TouchableOpacity onPress={onPress}>
             <Image
@@ -72,15 +83,17 @@ const CustomInput = (props: Props) => {
           </TouchableOpacity>
         )}
         <TextInput
-          placeholder=""
+          placeholder={placeHolder}
+          placeholderTextColor={color ? color : theme?.colors?.txtGray}
           style={[
             styles.input,
             error !== '' && styles.errorInput,
             {
               padding: 0,
+              fontWeight: '500',
               paddingHorizontal: RF(20),
-              fontSize: fontSize,
-              color: color,
+              fontSize: fontSize ? fontSize : RF(14),
+              color: color ? color : theme?.colors?.txtGray,
             },
           ]}
           {...otherProps}
@@ -95,8 +108,7 @@ const CustomInput = (props: Props) => {
               style={{
                 width: RF(20),
                 height: RF(20),
-                marginBottom: RF(4),
-                marginRight: RF(6),
+                marginRight: RF(24),
               }}
               resizeMode={'contain'}
             />
@@ -106,5 +118,40 @@ const CustomInput = (props: Props) => {
     </View>
   );
 };
+
+const useStyles = (colors: any) =>
+  StyleSheet.create({
+    container: {
+      justifyContent: 'center',
+    },
+    InputContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderColor: colors?.borderGray,
+      borderWidth: 1,
+      height: RF(48),
+      borderRadius: 35,
+    },
+    label: {
+      marginBottom: RF(12),
+    },
+    input: {
+      flex: 1,
+      color: '#1A3D7C',
+      alignItems: 'center',
+    },
+    errorInput: {
+      borderColor: 'red',
+    },
+    errorText: {
+      color: 'red',
+      fontSize: RF(12),
+    },
+    buttonText: {
+      color: 'white',
+      fontSize: 16,
+      fontWeight: '500',
+    },
+  });
 
 export default CustomInput;

@@ -21,6 +21,7 @@ interface Props extends TextProps {
   medium?: any;
   boldest?: any;
   regular?: any;
+  thin?: any;
   semiBold?: any;
   belowLine?: any;
   medium_italic?: any;
@@ -49,6 +50,7 @@ const Text = (props: Partial<Props>) => {
     belowLine,
     regular_italic,
     medium_italic,
+    thin,
   } = props;
   const theme: any = useTheme();
   const colors = theme.colors;
@@ -68,8 +70,9 @@ const Text = (props: Partial<Props>) => {
         boldest && styles.boldest,
         regular && styles.regular,
         semiBold && styles.semiBold,
+        thin && styles.thin,
         top && {marginTop: RF(25)},
-        size && {fontSize: RF(size)},
+        size && {fontSize: size},
         align && {textAlign: 'center'},
         medium_italic && styles.medium_italic,
         regular_italic && styles.regular_italic,
@@ -93,6 +96,10 @@ const styles = StyleSheet.create({
   },
   right: {
     textAlign: 'right',
+  },
+  thin: {
+    fontSize: RF(16),
+    fontWeight: '400',
   },
   regular: {
     fontSize: RF(16),

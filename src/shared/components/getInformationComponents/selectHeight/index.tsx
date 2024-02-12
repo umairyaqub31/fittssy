@@ -58,7 +58,9 @@ const SelectHeight = (props: Props) => {
         value={selected == 'ft' ? `${feet}'${inch}"` : `${feet}${inch}`}
         style={styles.input}
       />
-      <Pressable onPress={() => handleHeight(concatHeight)}>
+      <Pressable
+        style={margin.top_56}
+        onPress={() => handleHeight(concatHeight)}>
         <PrimaryButton
           title={'Next'}
           textColor={colors.theme}

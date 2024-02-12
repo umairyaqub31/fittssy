@@ -19,6 +19,7 @@ import {useFocusEffect, useTheme} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {data, data2, data3, data4, data5, data6} from '@utils';
 import {setGetStartedData} from '@redux';
+import {navigate} from '@services';
 
 const GetInformation = () => {
   const theme: any = useTheme();
@@ -37,9 +38,9 @@ const GetInformation = () => {
 
   useEffect(() => {
     console.log(currentStep, '........currentStep');
-    if (getStartedData) {
+    if (getStartedData && currentStep !== 0.99) {
       setTimeout(() => {
-        setCurrentStep(parseFloat((currentStep + 0.09).toFixed(2))); // Round to one decimal place
+        setCurrentStep(parseFloat((currentStep + 0.09).toFixed(2)));
       }, 500);
     }
   }, [getStartedData]);
@@ -65,11 +66,12 @@ const GetInformation = () => {
 
   const hadleTracking = (title: any) => {
     setTrack(title);
-    dispatch(setGetStartedData({...getStartedData}));
+    dispatch(setGetStartedData({...getStartedData, trackKey: title}));
   };
   const handleContent = (title: any) => {
     if (currentStep == 0.9) {
       setWorkoutPlan(title);
+      dispatch(setGetStartedData({...getStartedData, daysPerWeek: title}));
     }
     setTimeout(() => {
       setCurrentStep(parseFloat((currentStep + 0.09).toFixed(2))); // Round to one decimal place
@@ -78,15 +80,23 @@ const GetInformation = () => {
 
   const handlePlan = (title: any) => {
     setPlan(title);
-    dispatch(setGetStartedData({...getStartedData}));
+    setCurrentStep(currentStep);
+    dispatch(setGetStartedData({...getStartedData, workoutPlan: title}));
+    navigate('Login', '');
   };
 
-  console.log(getStartedData, '........currentStep');
+  console.log(currentStep, '........currentStep');
 
   return (
     <Wrapper isTop>
       <View style={flex.rowSimple}>
-        <Pressable style={{height: RF(25), width: RF(25)}} onPress={handleBack}>
+        <Pressable
+          style={{
+            height: RF(25),
+            width: RF(25),
+            justifyContent: 'center',
+          }}
+          onPress={handleBack}>
           <Image source={back} style={[icon._16, {tintColor: colors.text}]} />
         </Pressable>
         <Progress.Bar {...bar_props(colors, styles, currentStep)} />

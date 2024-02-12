@@ -44,6 +44,12 @@ export const darkThemeStyle = {
     theme: '#000',
     background: '#FFFFFF',
     white: '#FFFFFF',
+    dullGray: '#1717179E',
+    borderGray: '#17171757',
+    txtgray: '#464646',
+    grey: '#303030',
+    gray: '#D6D6D6',
+    _gray: '#858585',
   },
 };
 
@@ -60,5 +66,11 @@ export const defaultTheme = {
     lightGray: '#EAEAEA',
     background: '#FFFFFF',
     white: '#FFFFFF',
+    dullGray: '#F6F6F6',
+    borderGray: '#EAEAEA',
+    txtgray: '#464646',
+    grey: '#CFCFCF',
+    gray: '#D6D6D6',
+    _gray: '#858585',
   },
 };
