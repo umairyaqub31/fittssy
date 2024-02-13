@@ -1,19 +1,37 @@
-import {FlatList, ImageBackground, Pressable, StyleSheet} from 'react-native';
+import {
+  FlatList,
+  ImageBackground,
+  PressableProps,
+  StyleSheet,
+} from 'react-native';
 import React, {useState} from 'react';
 import {margin, RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
 import Text from '../../text';
 import GradientCard from '../../gradientCard';
 
-interface Props {
+interface Props extends PressableProps {
   data?: any;
   title?: any;
-  onPress: (title: any) => void;
+  desc_2?: any;
+  onPress?: (title: any) => void;
   initialState?: any;
+  noFlatList?: any;
+  cardStyle?: any;
+  innerSyle?: any;
 }
 
 const SelectCard = (props: Props) => {
-  const {data, title, initialState, onPress} = props;
+  const {
+    data,
+    innerSyle,
+    noFlatList,
+    cardStyle,
+    desc_2,
+    title,
+    initialState,
+    onPress,
+  } = props;
   const theme: any = useTheme();
   const colors = theme.colors;
 
@@ -22,67 +40,31 @@ const SelectCard = (props: Props) => {
       <Text size={24} semiBold center style={margin.top_56}>
         {title}
       </Text>
-      <FlatList
-        data={data}
-        contentContainerStyle={margin.top_40}
-        renderItem={({item}: any) => {
-          return (
-            // <Pressable
-            //   onPress={() => onPress(item.heading)}
-            //   style={{
-            //     height: RF(106),
-            //     width: '100%',
-            //     marginBottom: RF(20),
-            //   }}>
-            //   <ImageBackground
-            //     source={
-            //       initialState === item?.heading ? gradientFlex : unSelect
-            //     }
-            //     imageStyle={{
-            //       height: '100%',
-            //       resizeMode: 'stretch',
-            //     }}
-            //     style={{
-            //       height: '100%',
-            //       width: '100%',
-            //       alignItems: 'center',
-            //       justifyContent: 'center',
-            //       //   backgroundColor: colors.card,
-            //       borderRadius: RF(16),
-            //     }}>
-            //     <Text
-            //       size={20}
-            //       semiBold
-            //       color={
-            //         initialState === item?.heading
-            //           ? colors.primary
-            //           : colors.text
-            //       }>
-            //       {item?.heading}
-            //     </Text>
-            //     <Text
-            //       size={16}
-            //       center
-            //       color={
-            //         initialState === item?.heading
-            //           ? colors.primary
-            //           : colors.grayText
-            //       }
-            //       style={margin.top_12}>
-            //       {item?.desc}
-            //     </Text>
-            //   </ImageBackground>
-            // </Pressable>
-            <>
-              <GradientCard
-                onPress={() => onPress(item.heading)}
-                item={item}
-                initialState={initialState}
-              />
-            </>
-          );
-        }}
-      />
+      {desc_2 && (
+        <Text size={13} center style={[margin.top_16]} color={colors.grayText}>
+          {desc_2}
+        </Text>
+      )}
+      {noFlatList ? null : (
+        <FlatList
+          data={data}
+          contentContainerStyle={margin.top_40}
+          renderItem={({item}: any) => {
+            return (
+              <>
+                <GradientCard
+                  {...props}
+                  cardStyle={cardStyle}
+                  innerSyle={innerSyle}
+                  onPress={() => onPress && onPress(item.heading)}
+                  item={item}
+                  initialState={initialState}
+                />
+              </>
+            );
+          }}
+        />
+      )}
     </>
   );
 };

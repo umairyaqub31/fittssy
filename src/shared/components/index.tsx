@@ -18,6 +18,7 @@ import ToggleList from './toggleList';
 import SearchToSelect from './searchToSelect';
 import HistoryHeader from './historyHeader';
 import CrunchBox from './crunchBox';
+import TabBarIcon from './tabBarIcon';
 
 import ShiftCards from './shiftCards';
 import SelectWeight from './getInformationComponents/selectWeight';
@@ -28,6 +29,7 @@ export {
   Search,
   Wrapper,
   DropDown,
+  TabBarIcon,
   Text,
   SelectAge,
   PrimaryButton,

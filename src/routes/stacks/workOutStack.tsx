@@ -3,13 +3,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {
   CreateNew,
   Exercise,
-  WorkOut,
   SearchExercise,
   SearchWorkOut,
   AbsExercise,
   NewWorkOut,
   EditWorkOut,
   StartWorkOut,
+  WorkOut,
 } from '@screens';
 
 const Stack = createStackNavigator();

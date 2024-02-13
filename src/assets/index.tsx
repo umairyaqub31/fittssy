@@ -5,6 +5,8 @@ const female = require('./female.png');
 const male = require('./male.png');
 const gradientFlex = require('./SHAPES/gradientFlex.png');
 const unSelect = require('./SHAPES/unSelect.png');
+const squareGradient = require('./SHAPES/squareGradient.png');
+const graySquare = require('./SHAPES/graySquare.png');
 const next = require('./next.png');
 const search = require('./search.png');
 const greenBox = require('./greenBox.png');
@@ -22,6 +24,13 @@ const line = require('./line.png');
 const p_link = require('./p_link.png');
 const display = require('./display.png');
 const gradient = require('./gradient.png');
+const hiddenEye = require('./hiddenEye.png');
+const google = require('./google.png');
+const apple = require('./apple.png');
+const progress = require('./progress.png');
+const workout = require('./workout.png');
+const prof = require('./prof.png');
+const stat = require('./stat.png');
 
 export {
   line,
@@ -30,6 +39,10 @@ export {
   back,
   female,
   male,
+  gradientFlex,
+  unSelect,
+  squareGradient,
+  graySquare,
   next,
   search,
   greenBox,
@@ -46,4 +59,11 @@ export {
   p_link,
   display,
   gradient,
+  hiddenEye,
+  google,
+  apple,
+  progress,
+  workout,
+  prof,
+  stat,
 };

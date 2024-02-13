@@ -1,15 +1,15 @@
 import React from 'react';
-import {Home} from '@screens';
+import {InsightOverview, ProfileOverview} from '@screens';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-const HomeStack = ({route, navigation}: any) => {
+const ProfileStack = ({route, navigation}: any) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="Profile" component={ProfileOverview} />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default ProfileStack;

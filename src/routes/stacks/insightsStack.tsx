@@ -1,15 +1,15 @@
 import React from 'react';
-import {Home} from '@screens';
+import {InsightOverview} from '@screens';
 import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-const HomeStack = ({route, navigation}: any) => {
+const IsnsightStack = ({route, navigation}: any) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="Insight" component={InsightOverview} />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default IsnsightStack;

@@ -44,8 +44,9 @@ const PrimaryButton = (props: Partial<Props>) => {
             fontSize: f_Size ? f_Size : RF(16),
             fontWeight: f_Weight ? f_Weight : '600',
             marginTop: mt ? mt : RF(10),
+
             height: height ? height : RF(50),
-            width: width ? RF(width) : RF(200),
+            width: width ? RF(width) : '100%',
             backgroundColor: bgColor
               ? bgColor
               : border
@@ -80,7 +81,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 34,
     alignSelf: 'center',
-    marginBottom: RF(20),
   },
   medium: {color: '#fff'},
 });

@@ -27,6 +27,8 @@ interface Props extends TextInputProps {
   tintColorStart?: any;
   onPress?: () => void;
   placeHolder?: any;
+  inputStyle?: any;
+  labelStyle?: any;
 }
 
 const CustomInput = (props: Props) => {
@@ -46,6 +48,8 @@ const CustomInput = (props: Props) => {
     OptionalText,
     tintColorStart,
     placeHolder,
+    inputStyle,
+    labelStyle,
     ...otherProps
   } = props;
   const theme: any = useTheme();
@@ -57,9 +61,13 @@ const CustomInput = (props: Props) => {
         styles.container,
         {marginVertical: m_Vertical, marginTop: m_Top ? m_Top : RF(20)},
       ]}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && (
+        <Text style={[styles.label, labelStyle]} semiBold>
+          {label}
+        </Text>
+      )}
 
-      <View style={[styles.InputContainer]}>
+      <View style={[styles.InputContainer, inputStyle]}>
         {startIcon && (
           <TouchableOpacity onPress={onPress}>
             <Image
@@ -100,8 +108,7 @@ const CustomInput = (props: Props) => {
               style={{
                 width: RF(20),
                 height: RF(20),
-                marginBottom: RF(4),
-                marginRight: RF(6),
+                marginRight: RF(24),
               }}
               resizeMode={'contain'}
             />
@@ -116,7 +123,6 @@ const useStyles = (colors: any) =>
   StyleSheet.create({
     container: {
       justifyContent: 'center',
-      paddingLeft: RF(25),
     },
     InputContainer: {
       flexDirection: 'row',
@@ -125,11 +131,9 @@ const useStyles = (colors: any) =>
       borderWidth: 1,
       height: RF(48),
       borderRadius: 35,
-      marginRight: RF(20),
     },
     label: {
-      fontWeight: '600',
-      marginBottom: RF(15),
+      marginBottom: RF(12),
     },
     input: {
       flex: 1,

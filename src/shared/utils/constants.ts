@@ -1,4 +1,38 @@
 export const demo = [{title: 'demo'}];
+
+export const list = [
+  {title: 'Existing Workout Plan', index: 0},
+  {title: 'New Workout Plan', index: 1},
+  {title: 'New Workout', index: 2},
+];
+
+export const goal = [
+  {title: 'Maintaining', index: 0},
+  {title: 'Bulking', index: 1},
+  {title: 'Cutting', index: 2},
+];
+
+export const plan = [
+  {
+    label: 'Bulking: 3 Days',
+    index: 0,
+    description: 'Benji 3 Day Plan',
+    status: 'Current',
+  },
+  {
+    label: 'Bulking: 3 Days',
+    index: 1,
+    description: 'pmegyes’s 3 Day Plan',
+    status: 'Switch',
+  },
+  {
+    label: 'Bulking: 4 Days',
+    index: 2,
+    description: '5day PPL Plan',
+    status: 'Switch',
+  },
+];
+
 export const data = [
   {id: 0, heading: 'Gym', desc: 'With strength training equipment'},
   {id: 1, heading: 'Home', desc: 'With minimal heavy equipment'},
@@ -36,6 +70,56 @@ export const data3 = [
     id: 2,
     heading: 'Cutting',
     desc: 'Focus on losing body fat or lose weight in general',
+  },
+];
+export const data4 = [
+  {
+    id: 0,
+    heading: 'I’ll Create My Own Workout',
+    desc: 'I already have a workout plan.',
+  },
+  {
+    id: 1,
+    heading: 'Help me Find A New Workout',
+    desc: 'Match me with the perfect workout plan.',
+  },
+];
+export const data5 = [
+  {
+    id: 0,
+    heading: '1 to 2',
+  },
+  {
+    id: 1,
+    heading: '3 to 4',
+  },
+  {
+    id: 2,
+    heading: '5 to 6',
+  },
+  {
+    id: 3,
+    heading: 'More than 7',
+  },
+];
+export const data6 = [
+  {
+    id: 0,
+    cat: 'General',
+    days: '3 days',
+    heading: 'Classic Bodybuilding Routine',
+  },
+  {
+    id: 1,
+    cat: 'Bulking',
+    days: '4 days',
+    heading: 'Spark Your Testosterone',
+  },
+  {
+    id: 2,
+    cat: 'Bulking',
+    days: '3 days',
+    heading: 'Rest/Pause Training Program',
   },
 ];
 

@@ -41,6 +41,12 @@ export const margin: any = {
   Vertical_24: {
     marginVertical: RF(24),
   },
+  Vertical_32: {
+    marginVertical: RF(32),
+  },
+  Vertical_40: {
+    marginVertical: RF(40),
+  },
   Horizontal_2: {
     marginHorizontal: RF(2),
   },
@@ -71,6 +77,9 @@ export const margin: any = {
   top_16: {
     marginTop: RF(16),
   },
+  top_20: {
+    marginTop: RF(20),
+  },
   top_24: {
     marginTop: RF(24),
   },
@@ -94,6 +103,9 @@ export const margin: any = {
   },
   left_8: {
     marginLeft: RF(8),
+  },
+  left_14: {
+    marginLeft: RF(14),
   },
   left_16: {
     marginLeft: RF(16),
@@ -136,6 +148,9 @@ export const margin: any = {
   },
   bottom_24: {
     marginBottom: RF(24),
+  },
+  bottom_32: {
+    marginBottom: RF(32),
   },
   bottom_40: {
     marginBottom: RF(40),

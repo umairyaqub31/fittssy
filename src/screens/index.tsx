@@ -1,31 +1,40 @@
 import GetStarted from './getStarted';
-import GetInformation from './getInformation';
-import Home from './home';
-import Login from './login';
+import GetInformation from './authScreens/getInformation';
+import Home from './homeTab/home';
+import Login from './authScreens/login';
+import Register from './authScreens/createAccount';
 
 //...............Create Workout...........................//
-import CreateNew from './createNew';
-import Exercise from './exercise/overview';
-import WorkOut from './workout/overview';
-import SearchExercise from './exercise/searchExercise';
-import SearchWorkOut from './workout/searchWorkOut';
-import AbsExercise from './workout/absExercise';
-import NewWorkOut from './workout/newWorkout';
-import EditWorkOut from './workout/EditWorkOut';
-import StartWorkOut from './workout/startWorkOut';
+// import Overview from './creatWorkoutTab/overview';
+import CreateNew from './workoutPlanStack/createNew';
+import Exercise from './workoutPlanStack/exercise/overview';
+import WorkOut from './workoutPlanStack/overview';
+import SearchExercise from './workoutPlanStack/exercise/searchExercise';
+import SearchWorkOut from './workoutPlanStack/searchWorkOut';
+import AbsExercise from './workoutPlanStack/absExercise';
+import NewWorkOut from './workoutPlanStack/newWorkout';
+import EditWorkOut from './workoutPlanStack/EditWorkOut';
+import StartWorkOut from './workoutPlanStack/startWorkOut';
 
 //..............Progress....................//
-import ProgressOverview from './progress';
-import WorkoutDetail from './progress/workoutDetail';
-import WorkoutLogs from './progress/workoutDetail/logs';
-import WorkoutNotes from './progress/workoutDetail/notes';
-import WorkoutBody from './progress/workoutDetail/body';
-import WorkoutPhotos from './progress/workoutDetail/photos';
+import ProgressOverview from './progressStack';
+import WorkoutDetail from './progressStack/workoutDetail';
+import WorkoutLogs from './progressStack/workoutDetail/logs';
+import WorkoutNotes from './progressStack/workoutDetail/notes';
+import WorkoutBody from './progressStack/workoutDetail/body';
+import WorkoutPhotos from './progressStack/workoutDetail/photos';
+
+//..............Insight....................//
+import InsightOverview from './insightsStack';
+
+//................Insight.............//
+import ProfileOverview from './profileStack';
 
 export {
   GetStarted,
   Home,
   Login,
+  Register,
   CreateNew,
   Exercise,
   SearchExercise,
@@ -40,9 +49,16 @@ export {
   WorkoutNotes,
   WorkoutBody,
   WorkoutPhotos,
-  //.......................
+
+  // Overview,
   AbsExercise,
   NewWorkOut,
   EditWorkOut,
   StartWorkOut,
+
+  //................Insight.............//
+  InsightOverview,
+
+  //................Profile.............//
+  ProfileOverview,
 };

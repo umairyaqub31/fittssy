@@ -15,10 +15,11 @@ import {
   Text,
   Wrapper,
 } from '@components';
-import {useTheme} from '@react-navigation/native';
+import {useFocusEffect, useTheme} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-import {data, data2, data3} from '@utils';
+import {data, data2, data3, data4, data5, data6} from '@utils';
 import {setGetStartedData} from '@redux';
+import {navigate} from '@services';
 
 const GetInformation = () => {
   const theme: any = useTheme();
@@ -27,16 +28,19 @@ const GetInformation = () => {
   const dispatch = useDispatch();
   const [currentStep, setCurrentStep] = useState(0);
   const [workout, setWorkout] = useState('');
+  const [workoutPlan, setWorkoutPlan] = useState('');
+  const [track, setTrack] = useState('');
   const [fitnessLevel, setFitnessLevel] = useState('');
   const [goal, setGoal] = useState('');
+  const [plan, setPlan] = useState('');
 
   const {getStartedData} = useSelector((state: any) => state.root.general);
 
   useEffect(() => {
     console.log(currentStep, '........currentStep');
-    if (getStartedData) {
+    if (getStartedData && currentStep !== 0.99) {
       setTimeout(() => {
-        setCurrentStep(parseFloat((currentStep + 0.09).toFixed(2))); // Round to one decimal place
+        setCurrentStep(parseFloat((currentStep + 0.09).toFixed(2)));
       }, 500);
     }
   }, [getStartedData]);
@@ -54,25 +58,54 @@ const GetInformation = () => {
     setFitnessLevel(title);
     dispatch(setGetStartedData({...getStartedData, fitnessLevel: title}));
   };
+
   const yourGoal = (title: any) => {
     setGoal(title);
     dispatch(setGetStartedData({...getStartedData, yourGoal: title}));
   };
+
+  const hadleTracking = (title: any) => {
+    setTrack(title);
+    dispatch(setGetStartedData({...getStartedData, trackKey: title}));
+  };
   const handleContent = (title: any) => {
-    setGoal(title);
-    dispatch(setGetStartedData({...getStartedData, yourGoal: title}));
+    if (currentStep == 0.9) {
+      setWorkoutPlan(title);
+      dispatch(setGetStartedData({...getStartedData, daysPerWeek: title}));
+    }
+    setTimeout(() => {
+      setCurrentStep(parseFloat((currentStep + 0.09).toFixed(2))); // Round to one decimal place
+    }, 500);
   };
 
-  console.log(getStartedData, '........currentStep');
+  const handlePlan = (title: any) => {
+    setPlan(title);
+    setCurrentStep(currentStep);
+    dispatch(setGetStartedData({...getStartedData, workoutPlan: title}));
+    navigate('Login', '');
+  };
+
+  console.log(currentStep, '........currentStep');
 
   return (
     <Wrapper isTop>
       <View style={flex.rowSimple}>
-        <Pressable onPress={handleBack}>
+        <Pressable
+          style={{
+            height: RF(25),
+            width: RF(25),
+            justifyContent: 'center',
+          }}
+          onPress={handleBack}>
           <Image source={back} style={[icon._16, {tintColor: colors.text}]} />
         </Pressable>
         <Progress.Bar {...bar_props(colors, styles, currentStep)} />
       </View>
+      {currentStep == 0.99 && (
+        <Text center color={colors.primary} style={margin.top_12}>
+          Skip
+        </Text>
+      )}
       {currentStep == 0 && <SelectGender />}
       {currentStep == 0.09 && <SelectAge />}
       {currentStep == 0.18 && <SelectHeight />}
@@ -118,31 +151,57 @@ const GetInformation = () => {
           />
         </>
       )}
-      {/* {currentStep == 0.72 && (
+      {currentStep == 0.72 && (
         <>
           <SelectCard
             title={'Tracking is Key, but you’ll need a workout plan'}
-            data={data3}
-            onPress={handleSelect}
-            initialState={select}
+            desc_2={
+              'In Fittssy you track workouts by logging reps and sets lke workout journal. Each workout session starts from your workout plan:'
+            }
+            data={data4}
+            onPress={hadleTracking}
+            initialState={track}
           />
         </>
-      )} */}
-      {/* {currentStep == 0.81 && (
+      )}
+      {currentStep == 0.81 && (
         <>
-          <Text onPress={() => handleSelect}>0.81</Text>
+          <Content
+            onPress={handleContent}
+            desc_1={'Great! Let’s find your workout'}
+            desc_2={
+              'We base our initial recommendation on what you told us about yourself. You can always explore all the workouts we have to offer or even create your own afterwards in the FIind Workout tab.'
+            }
+          />
         </>
-      )} */}
-      {/* {currentStep == 0.91 && (
+      )}
+      {currentStep == 0.9 && (
         <>
-          <Text onPress={() => handleSelect}>0.90</Text>
+          <SelectCard
+            cardStyle={{height: RF(70)}}
+            title={'How many days per week you workout?'}
+            desc_2={'This determines the number of days in your workout plan.'}
+            data={data5}
+            onPress={handleContent}
+            initialState={workoutPlan}
+          />
         </>
-      )} */}
-      {/* {currentStep == 1 && (
+      )}
+      {currentStep == 0.99 && (
         <>
-          <Text onPress={() => handleSelect}>1</Text>
+          <SelectCard
+            cardStyle={{height: RF(85)}}
+            innerSyle={{paddingLeft: RF(14), alignItems: 'flex-start'}}
+            title={'Select a Workout Plan'}
+            desc_2={
+              'Based on your experience as an Intermediate and our goal of Building Muscle, here are some 3 to 4 day workout programs'
+            }
+            data={data6}
+            onPress={handlePlan}
+            initialState={plan}
+          />
         </>
-      )} */}
+      )}
     </Wrapper>
   );
 };
