@@ -3,7 +3,8 @@ import GetInformation from './authScreens/getInformation';
 import Home from './homeTab/home';
 import Login from './authScreens/login';
 import Register from './authScreens/createAccount';
-
+import ForgotPassword from './authScreens/forgotPassword';
+import VerificatioOTP from './authScreens/verificationOTP';
 //...............Create Workout...........................//
 // import Overview from './creatWorkoutTab/overview';
 import CreateNew from './workoutPlanStack/createNew';
@@ -26,8 +27,8 @@ import WorkoutPhotos from './progressStack/workoutDetail/photos';
 
 //..............Insight....................//
 import InsightOverview from './insightsStack';
-
-//................Insight.............//
+import CurrentPlan from './insightsStack/currentPlan';
+//................Profile.............//
 import ProfileOverview from './profileStack';
 
 export {
@@ -35,6 +36,8 @@ export {
   Home,
   Login,
   Register,
+  ForgotPassword,
+  VerificatioOTP,
   CreateNew,
   Exercise,
   SearchExercise,
@@ -58,7 +61,7 @@ export {
 
   //................Insight.............//
   InsightOverview,
-
+  CurrentPlan,
   //................Profile.............//
   ProfileOverview,
 };

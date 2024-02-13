@@ -38,7 +38,7 @@ const SearchToSelect = (props: Partial<Props>) => {
   };
 
   return (
-    <>
+    <View>
       <BackHeader title={title} endIcon={endIcon} />
       <Search onSubmitEditing={onSubmitEditing} />
 
@@ -84,7 +84,7 @@ const SearchToSelect = (props: Partial<Props>) => {
           );
         }}
       />
-    </>
+    </View>
   );
 };
 
