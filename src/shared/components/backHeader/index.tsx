@@ -39,7 +39,7 @@ const BackHeader = ({
       )}
 
       <View style={[styles.txtView, {width: width ? width : '70%'}]}>
-        <Text bold size={16}>
+        <Text bold size={16} center>
           {title}
         </Text>
       </View>
@@ -87,10 +87,8 @@ const useStyles = (theme: any) =>
       alignItems: 'center',
     },
     main: {
-      marginTop: RF(40),
       flexDirection: 'row',
       alignItems: 'center',
-      marginHorizontal: RF(20),
     },
     container: {
       width: RF(46),

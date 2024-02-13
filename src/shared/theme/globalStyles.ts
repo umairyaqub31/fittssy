@@ -214,6 +214,15 @@ export const padding: any = {
   left_8: {
     paddingLeft: RF(8),
   },
+  left_10: {
+    paddingLeft: RF(10),
+  },
+  left_12: {
+    paddingLeft: RF(12),
+  },
+  left_14: {
+    paddingLeft: RF(14),
+  },
   left_16: {
     paddingLeft: RF(16),
   },

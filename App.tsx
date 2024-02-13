@@ -9,6 +9,7 @@ import {defaultTheme, darkThemeStyle} from '@theme';
 import {PersistGate} from 'redux-persist/integration/react';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {ModalProvider} from '@hooks';
 
 const App = () => {
   const [active, setActive] = useState(true);
@@ -28,7 +29,9 @@ const App = () => {
       <PersistGate persistor={persistor}>
         <SafeAreaProvider>
           <NavigationContainer ref={navigationRef} theme={appTheme as any}>
-            <Routes />
+            <ModalProvider>
+              <Routes />
+            </ModalProvider>
           </NavigationContainer>
         </SafeAreaProvider>
       </PersistGate>

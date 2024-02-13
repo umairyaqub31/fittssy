@@ -34,41 +34,39 @@ const PrimaryButton = (props: Partial<Props>) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   return (
-    <>
-      <View
-        style={[
-          styles.button,
-          containerStyle && containerStyle,
-          {
-            color: textColor,
-            fontSize: f_Size ? f_Size : RF(16),
-            fontWeight: f_Weight ? f_Weight : '600',
-            marginTop: mt ? mt : RF(10),
+    <View
+      style={[
+        styles.button,
+        containerStyle && containerStyle,
+        {
+          color: textColor,
+          fontSize: f_Size ? f_Size : RF(16),
+          fontWeight: f_Weight ? f_Weight : '600',
+          marginTop: mt ? mt : RF(10),
 
-            height: height ? height : RF(50),
-            width: width ? RF(width) : '100%',
-            backgroundColor: bgColor
-              ? bgColor
-              : border
-              ? 'white'
-              : colors.primary,
-            borderWidth: border ? 1 : 0,
-            borderColor: border ? theme?.colors?.primary : null,
+          height: height ? height : RF(50),
+          width: width ? RF(width) : '100%',
+          backgroundColor: bgColor
+            ? bgColor
+            : border
+            ? 'white'
+            : colors.primary,
+          borderWidth: border ? 1 : 0,
+          borderColor: border ? theme?.colors?.primary : null,
+        },
+      ]}>
+      <Text
+        {...otherProps}
+        style={[
+          styles.medium,
+          {
+            color: border ? theme?.colors?.primary : textColor,
+            fontSize: f_Size ? f_Size : RF(16),
           },
         ]}>
-        <Text
-          {...otherProps}
-          style={[
-            styles.medium,
-            {
-              color: border ? theme?.colors?.primary : textColor,
-              fontSize: f_Size ? f_Size : RF(16),
-            },
-          ]}>
-          {title}
-        </Text>
-      </View>
-    </>
+        {title}
+      </Text>
+    </View>
   );
 };
 

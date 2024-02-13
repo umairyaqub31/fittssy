@@ -19,7 +19,7 @@ import SearchToSelect from './searchToSelect';
 import HistoryHeader from './historyHeader';
 import CrunchBox from './crunchBox';
 import TabBarIcon from './tabBarIcon';
-
+import BorderGradientCard from './borderGradientCard';
 import ShiftCards from './shiftCards';
 import SelectWeight from './getInformationComponents/selectWeight';
 import SelectCard from './getInformationComponents/card';
@@ -40,6 +40,7 @@ export {
   BackHeader,
   Gradient,
   GradientList,
+  BorderGradientCard,
   ToggleButton,
   CustomOverlay,
   PlanBox,
