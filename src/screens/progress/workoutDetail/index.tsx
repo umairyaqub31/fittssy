@@ -25,7 +25,7 @@ const WorkoutDetail = (props: Partial<Props>) => {
       <View style={{flex: 1, marginTop: 10}}>
         <TopTabs />
       </View>
-      <Text>WorkoutDetail</Text>
+      {/* <Text>WorkoutDetail</Text> */}
     </View>
   );
 };
