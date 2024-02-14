@@ -27,6 +27,9 @@ import Content from './getInformationComponents/content';
 import GradientCard from './gradientCard';
 import WorkoutItem from './workoutItem';
 import AddButton from './addButton';
+import CurrentPlanCard from './currentPlanCard';
+import Current from './currentPlanCard/current';
+import AllPlan from './currentPlanCard/allPlan';
 export {
   Search,
   Wrapper,
@@ -57,4 +60,7 @@ export {
   GradientCard,
   CrunchBox,
   AddButton,
+  CurrentPlanCard,
+  Current,
+  AllPlan,
 };

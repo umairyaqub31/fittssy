@@ -111,7 +111,7 @@ const MainTabs = ({navigation}: any) => {
               source={prof}
               color={colors.card}
               styles={styles}
-              focused={focused}
+              noTintColor={true}
               stack={'ProfileOverview'}
               activeStack={activeStack}
               setActiveStack={setActiveStack}
@@ -146,6 +146,7 @@ const TabBarIcon = ({
   activeStack,
   setActiveStack,
   handleCaptureFlag,
+  noTintColor,
 }: {
   source: any;
   styles?: any;
@@ -155,6 +156,7 @@ const TabBarIcon = ({
   stack: any;
   activeStack?: any;
   setActiveStack?: any;
+  noTintColor?: any;
   handleCaptureFlag?: any;
 }) => {
   return (
@@ -196,7 +198,13 @@ const TabBarIcon = ({
             style={[
               styles.image,
               {
-                tintColor: '#949494',
+                tintColor: focused
+                  ? '#949494'
+                  : noTintColor
+                  ? null
+                  : 'rgba(207, 207, 207, 1)',
+                height: (noTintColor && RF(42)) || RF(24),
+                width: (noTintColor && RF(42)) || RF(24),
               },
             ]}
             resizeMode={'contain'}

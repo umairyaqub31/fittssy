@@ -1,30 +1,16 @@
 import {FlatList, StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
-import {BackHeader, BorderGradientCard, Text, Wrapper} from '@components';
+import {
+  BackHeader,
+  BorderGradientCard,
+  CurrentPlanCard,
+  Text,
+  Wrapper,
+} from '@components';
 import {useTheme} from '@react-navigation/native';
 import {flex, margin, padding, RF} from '@theme';
 import {Pressable} from 'react-native';
-
-const data = [
-  {
-    id: 0,
-    day: 'Day 1',
-    dayColor: 'rgba(36, 145, 255, 1)',
-    dayCardColor: 'rgba(36, 145, 255, 0.14)',
-  },
-  {
-    id: 2,
-    day: 'Day 2',
-    dayColor: 'rgba(54, 216, 170, 1)',
-    dayCardColor: 'rgba(54, 216, 170, 0.14)',
-  },
-  {
-    id: 3,
-    day: 'Day 3',
-    dayColor: 'rgba(255, 191, 113, 1)',
-    dayCardColor: 'rgba(255, 189, 113, 0.14)',
-  },
-];
+import {currentPlanData} from '@utils';
 
 const CurrentPlan = ({route, navigation}: any) => {
   const {item} = route.params;
@@ -34,10 +20,7 @@ const CurrentPlan = ({route, navigation}: any) => {
 
   const handleCard = (item: any) => {
     setSelected(item.id);
-    // navigate('CurrentPlan', {item});
   };
-  const unselectgradientColor = [colors.white, colors.white, colors.white];
-
   return (
     <Wrapper isTop>
       <BackHeader title={item.title2} startIcon navigation={navigation} />
@@ -56,43 +39,14 @@ const CurrentPlan = ({route, navigation}: any) => {
           </Text>
         </BorderGradientCard>
         <FlatList
-          data={data}
+          data={currentPlanData}
           renderItem={({item}: any) => {
             return (
-              <Pressable onPress={() => handleCard(item)}>
-                <BorderGradientCard
-                  start={{x: 0, y: 0}}
-                  end={{x: 0.3, y: 2}}
-                  style={styles.gradientCard}
-                  colors={
-                    selected == item.id
-                      ? colors.gradientCard
-                      : unselectgradientColor
-                  }>
-                  <View style={[flex.row, padding.left_12]}>
-                    <View
-                      style={[
-                        styles.dayCard,
-                        {
-                          backgroundColor: item.dayCardColor,
-                          borderColor: item.dayColor,
-                        },
-                      ]}>
-                      <Text semiBold color={item.dayColor}>
-                        {item.day}
-                      </Text>
-                    </View>
-                    <Text
-                      size={16}
-                      semiBold
-                      color={
-                        selected == item.id ? colors.primary : colors.text
-                      }>
-                      Benji Chest-Back
-                    </Text>
-                  </View>
-                </BorderGradientCard>
-              </Pressable>
+              <CurrentPlanCard
+                item={item}
+                selected={selected}
+                onPress={handleCard}
+              />
             );
           }}
         />

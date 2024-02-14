@@ -29,6 +29,7 @@ interface Props extends TextInputProps {
   placeHolder?: any;
   inputStyle?: any;
   labelStyle?: any;
+  containerStyle?: any;
 }
 
 const CustomInput = (props: Props) => {
@@ -50,6 +51,7 @@ const CustomInput = (props: Props) => {
     placeHolder,
     inputStyle,
     labelStyle,
+    containerStyle,
     ...otherProps
   } = props;
   const theme: any = useTheme();
@@ -60,6 +62,7 @@ const CustomInput = (props: Props) => {
       style={[
         styles.container,
         {marginVertical: m_Vertical, marginTop: m_Top ? m_Top : RF(20)},
+        containerStyle,
       ]}>
       {label && (
         <Text style={[styles.label, labelStyle]} semiBold>

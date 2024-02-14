@@ -144,3 +144,24 @@ export const abs = [
   {title: 'Plank'},
   {title: 'Side Plank'},
 ];
+
+export const currentPlanData = [
+  {
+    id: 0,
+    day: 'Day 1',
+    dayColor: 'rgba(36, 145, 255, 1)',
+    dayCardColor: 'rgba(36, 145, 255, 0.14)',
+  },
+  {
+    id: 2,
+    day: 'Day 2',
+    dayColor: 'rgba(54, 216, 170, 1)',
+    dayCardColor: 'rgba(54, 216, 170, 0.14)',
+  },
+  {
+    id: 3,
+    day: 'Day 3',
+    dayColor: 'rgba(255, 191, 113, 1)',
+    dayCardColor: 'rgba(255, 189, 113, 0.14)',
+  },
+];
