@@ -113,7 +113,7 @@ const Login = () => {
         <Text
           color={colors.primary}
           bold
-          onPress={() => navigate('Register', '')}>
+          onPress={() => navigate('GetInformation', '')}>
           Sign Up
         </Text>
       </Text>

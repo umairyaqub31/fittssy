@@ -26,6 +26,7 @@ import SelectCard from './getInformationComponents/card';
 import Content from './getInformationComponents/content';
 import GradientCard from './gradientCard';
 import WorkoutItem from './workoutItem';
+import AddButton from './addButton';
 export {
   Search,
   Wrapper,
@@ -55,4 +56,5 @@ export {
   Content,
   GradientCard,
   CrunchBox,
+  AddButton,
 };

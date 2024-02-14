@@ -6,6 +6,8 @@ const initialState: any = {
   authToken: null,
   isLoggedIn: false,
   isModalVisible: false,
+  getStarted: false,
+  Info: '',
 };
 
 export const userReducer = createSlice({
@@ -33,6 +35,12 @@ export const userReducer = createSlice({
       state.authToken = null;
       state.isLoggedIn = false;
     },
+    setGetStarted: (state, action) => {
+      state.getStarted = action.payload;
+    },
+    setInfo: (state, action) => {
+      state.info = action.payload;
+    },
   },
 });
 
@@ -43,6 +51,8 @@ export const {
   setAuthToken,
   setIsLoggedIn,
   setIsModalVisible,
+  setGetStarted,
+  setInfo,
 } = userReducer.actions;
 
 export default userReducer.reducer;

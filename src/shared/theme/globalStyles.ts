@@ -20,6 +20,11 @@ export const flex: any = {
     justifyContent: 'space-around',
     alignItems: 'center',
   },
+  rowCenter: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 };
 
 export const margin: any = {

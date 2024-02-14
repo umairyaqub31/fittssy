@@ -18,7 +18,7 @@ import {
 import {useFocusEffect, useTheme} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {data, data2, data3, data4, data5, data6} from '@utils';
-import {setGetStartedData} from '@redux';
+import {setGetStartedData, setInfo} from '@redux';
 import {navigate} from '@services';
 
 const GetInformation = () => {
@@ -82,7 +82,8 @@ const GetInformation = () => {
     setPlan(title);
     setCurrentStep(currentStep);
     dispatch(setGetStartedData({...getStartedData, workoutPlan: title}));
-    navigate('Login', '');
+    dispatch(setInfo('completed'));
+    navigate('Register', '');
   };
 
   console.log(currentStep, '........currentStep');

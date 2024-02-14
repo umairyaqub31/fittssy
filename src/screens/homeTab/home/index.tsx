@@ -3,17 +3,15 @@ import {
   FlatList,
   Image,
   ImageBackground,
-  StyleSheet,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {RF} from '@theme';
-import {Text, WorkoutItem} from '@components';
+import {margin, RF} from '@theme';
+import {AddButton, Text, WorkoutItem, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import useStyles from './styles';
 import {back, exercise, next} from '@assets';
-import {navigate} from '@services';
 
 const Home = () => {
   const theme: any = useTheme();
@@ -27,19 +25,18 @@ const Home = () => {
     // navigate('WorkoutDetail', {selectedDate: selected});
   };
   return (
-    <View style={{marginHorizontal: RF(20)}}>
+    <Wrapper>
       <View style={styles.MainContainer}>
         <View style={styles.ImageView}>
           <Image source={back} style={styles.ImageStyle} />
         </View>
-        <View style={styles.rowStyles}>
-          <Text size={16} bold color={'rgba(13, 13, 13, 1)'}>
-            Today
-          </Text>
+        <Text size={16} bold color={'rgba(13, 13, 13, 1)'}>
+          Today
           <Text size={14} regular color={'rgba(13, 13, 13, 1)'}>
             (Wed 27/11/23)
           </Text>
-        </View>
+        </Text>
+
         <View style={styles.ImageView}>
           <Image source={next} style={styles.ImageStyle} />
         </View>
@@ -101,35 +98,40 @@ const Home = () => {
       {selectedTab === 'exerciseOfTheDay' ? (
         <LinearGradient
           colors={['#fff', '#fff']}
-          style={{width: '100%', height: '55%', marginTop: RF(20)}}>
+          style={{
+            width: '100%',
+            height: '40%',
+            marginTop: RF(20),
+          }}>
           <ImageBackground
             source={exercise}
-            style={styles.ImageBackgroundStyle}>
-            <Text size={18} medium color={'rgba(209, 209, 209, 1)'}>
-              Workout log is empty
-            </Text>
-          </ImageBackground>
+            style={styles.ImageBackgroundStyle}></ImageBackground>
+          <Text center size={18} medium color={'rgba(209, 209, 209, 1)'}>
+            Workout log is empty
+          </Text>
         </LinearGradient>
       ) : (
-        <View>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={[1, 2, 3, 4, 5]}
-            renderItem={({item, index}) => (
-              <WorkoutItem
-                selectedItemIndex={selectedItemIndex}
-                setSelectedItemIndex={setSelectedItemIndex}
-                colors={colors}
-                item={item}
-                index={index}
-                styles={styles}
-                onPress={handlePressWorkout}
-              />
-            )}
-          />
-        </View>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={[1, 2, 3, 4, 5]}
+          renderItem={({item, index}) => (
+            <WorkoutItem
+              selectedItemIndex={selectedItemIndex}
+              setSelectedItemIndex={setSelectedItemIndex}
+              colors={colors}
+              item={item}
+              index={index}
+              styles={styles}
+              onPress={handlePressWorkout}
+            />
+          )}
+        />
       )}
-    </View>
+      <View
+        style={{marginTop: selectedTab === 'exerciseOfTheDay' ? RF(80) : 0}}>
+        <AddButton center />
+      </View>
+    </Wrapper>
   );
 };
 

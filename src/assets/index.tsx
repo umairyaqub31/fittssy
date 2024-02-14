@@ -32,6 +32,7 @@ const workout = require('./workout.png');
 const prof = require('./prof.png');
 const stat = require('./stat.png');
 const exercise = require('./exercise.png');
+const copy = require('./copy.png');
 
 export {
   exercise,
@@ -44,6 +45,7 @@ export {
   gradientFlex,
   unSelect,
   squareGradient,
+  copy,
   graySquare,
   next,
   search,

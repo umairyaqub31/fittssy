@@ -93,7 +93,7 @@ const useStyles = (colors: any) =>
       borderWidth: 1,
       borderColor: colors?.colors?.lightGray,
       borderRadius: 30,
-      marginVertical: RF(11),
+      marginTop: RF(11),
     },
     bgImg: {
       width: RF(69),

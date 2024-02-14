@@ -7,6 +7,7 @@ import ForgotPassword from './authScreens/forgotPassword';
 import VerificatioOTP from './authScreens/verificationOTP';
 //...............Create Workout...........................//
 // import Overview from './creatWorkoutTab/overview';
+import MyPlans from './workoutPlanStack/myPlans';
 import CreateNew from './workoutPlanStack/createNew';
 import Exercise from './workoutPlanStack/exercise/overview';
 import WorkOut from './workoutPlanStack/overview';
@@ -53,11 +54,12 @@ export {
   WorkoutBody,
   WorkoutPhotos,
 
-  // Overview,
+  // Workout,
   AbsExercise,
   NewWorkOut,
   EditWorkOut,
   StartWorkOut,
+  MyPlans,
 
   //................Insight.............//
   InsightOverview,
