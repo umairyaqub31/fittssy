@@ -1,6 +1,7 @@
 import {getstarted3} from '@assets';
 import {PrimaryButton, Text, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';
+import {setGetStarted} from '@redux';
 import {navigate} from '@services';
 import {RF} from '@theme';
 import React from 'react';
@@ -12,10 +13,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useDispatch} from 'react-redux';
 
 const GetStarted = () => {
   const theme: any = useTheme();
   const colors = theme.colors;
+  const dispatch = useDispatch();
+
+  const getStarted = () => {
+    dispatch(setGetStarted(true));
+    navigate('GetInformation', '');
+  };
+
   return (
     <ImageBackground
       source={getstarted3}
@@ -46,13 +55,13 @@ const GetStarted = () => {
             title={'Get Started'}
             bgColor={colors.primary}
             textColor={colors.white}
-            onPress={() => navigate('GetInformation', '')}
+            onPress={getStarted}
           />
           <View style={styles.signInView}>
             <Text regular color={colors.white}>
               Already have an account?{' '}
             </Text>
-            <Pressable onPress={() => {}}>
+            <Pressable onPress={() => navigate('Login', '')}>
               <Text color={colors.primary}>Sign In</Text>
             </Pressable>
           </View>
