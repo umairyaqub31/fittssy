@@ -3,6 +3,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  ScrollView,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -41,6 +42,7 @@ const Home = () => {
           <Image source={next} style={styles.ImageStyle} />
         </View>
       </View>
+
       <View style={{width: RF(170), marginTop: RF(20), gap: RF(4)}}>
         <Text size={22} regular color={'rgba(13, 13, 13, 1)'}>
           Welcome back
@@ -101,7 +103,6 @@ const Home = () => {
           style={{
             width: '100%',
             height: '40%',
-            borderWidth: 1,
             marginTop: RF(20),
           }}>
           <ImageBackground
@@ -112,25 +113,30 @@ const Home = () => {
           </Text>
         </LinearGradient>
       ) : (
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={[1, 2, 3, 4, 5]}
-          renderItem={({item, index}) => (
-            <WorkoutItem
-              selectedItemIndex={selectedItemIndex}
-              setSelectedItemIndex={setSelectedItemIndex}
-              colors={colors}
-              item={item}
-              index={index}
-              styles={styles}
-              onPress={handlePressWorkout}
-            />
-          )}
-        />
+        <View style={{marginTop: RF(10), flex: 1}}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={[1, 2, 3, 4, 5]}
+            renderItem={({item, index}) => (
+              <WorkoutItem
+                selectedItemIndex={selectedItemIndex}
+                colors={colors}
+                item={item}
+                index={index}
+                onPress={handlePressWorkout}
+              />
+            )}
+          />
+        </View>
       )}
       <View
-        style={{marginTop: selectedTab === 'exerciseOfTheDay' ? RF(80) : 0}}>
-        <AddButton center />
+        style={{
+          position: 'absolute',
+          bottom: RF(15),
+          alignSelf: 'center',
+          zIndex: 100,
+        }}>
+        <AddButton center title={'Create New'} />
       </View>
     </Wrapper>
   );
