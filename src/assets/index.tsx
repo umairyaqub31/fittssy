@@ -31,8 +31,10 @@ const progress = require('./progress.png');
 const workout = require('./workout.png');
 const prof = require('./prof.png');
 const stat = require('./stat.png');
+const exercise = require('./exercise.png');
 
 export {
+  exercise,
   line,
   home,
   getstarted3,

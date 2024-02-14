@@ -25,11 +25,13 @@ import SelectWeight from './getInformationComponents/selectWeight';
 import SelectCard from './getInformationComponents/card';
 import Content from './getInformationComponents/content';
 import GradientCard from './gradientCard';
+import WorkoutItem from './workoutItem';
 export {
   Search,
   Wrapper,
   DropDown,
   TabBarIcon,
+  WorkoutItem,
   Text,
   SelectAge,
   PrimaryButton,
