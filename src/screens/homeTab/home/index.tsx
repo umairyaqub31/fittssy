@@ -13,6 +13,7 @@ import {useTheme} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import useStyles from './styles';
 import {back, exercise, next} from '@assets';
+import {navigate} from '@services';
 
 const Home = () => {
   const theme: any = useTheme();
@@ -22,8 +23,13 @@ const Home = () => {
   const [selected, setSelected] = useState('');
 
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
-  const handlePressWorkout = () => {
+  const handlePressWorkout = (index: any) => {
+    console.log(index, 'sssss');
+    setSelectedItemIndex(index);
     // navigate('WorkoutDetail', {selectedDate: selected});
+  };
+  const handleCreateNew = () => {
+    navigate('CreateNew', '');
   };
   return (
     <Wrapper>
@@ -136,7 +142,7 @@ const Home = () => {
           alignSelf: 'center',
           zIndex: 100,
         }}>
-        <AddButton center title={'Create New'} />
+        <AddButton center title={'Create New'} onPress={handleCreateNew} />
       </View>
     </Wrapper>
   );

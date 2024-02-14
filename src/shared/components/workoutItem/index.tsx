@@ -15,14 +15,14 @@ interface Props {
   item?: any;
   index?: any;
   selectedItemIndex?: any;
-  onPress: any;
+  onPress: (i: any) => void;
 }
 
 const WorkoutItem = (props: Props) => {
   const {colors, item, index, selectedItemIndex, onPress} = props;
   const styles = useStyles(colors);
   return (
-    <Pressable style={styles.listItemContainer} onPress={onPress}>
+    <Pressable style={styles.listItemContainer} onPress={() => onPress(index)}>
       <ImageBackground
         source={index == selectedItemIndex ? gradientFlex : unSelect}
         imageStyle={{
