@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, Modal, StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
 import {
   AddButton,
@@ -13,16 +13,22 @@ import {useTheme} from '@react-navigation/native';
 import {flex, margin, RF} from '@theme';
 import {copy} from '@assets';
 import {navigate} from '@services';
+import {useModal} from '@hooks';
 
 const MyPlans = () => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const [select, setSelect] = useState('All');
+  const {isModalVisible, openModal, closeModal} = useModal();
 
   const handleCreateNew = () => {
     navigate('CreateNew', '');
   };
   const handleCopyPrevious = () => {};
+
+  const handleEdit = (desc: any) => {
+    console.log(desc);
+  };
 
   return (
     <Wrapper>
@@ -54,6 +60,7 @@ const MyPlans = () => {
                 label={item?.label}
                 description={item?.description}
                 status={item?.status}
+                onClickEdit={handleEdit}
               />
             );
           }}
@@ -67,6 +74,9 @@ const MyPlans = () => {
           onPress={handleCopyPrevious}
         />
       </View>
+      <Modal visible={isModalVisible} transparent animationType="slide">
+        <Text onPress={closeModal}>ssssssssss</Text>
+      </Modal>
     </Wrapper>
   );
 };

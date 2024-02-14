@@ -10,9 +10,11 @@ import {
   View,
 } from 'react-native';
 import {dots, greenBox} from '@assets';
+import {useModal} from '@hooks';
 
 const PlanBox = ({
   onPress,
+  onClickEdit,
   label,
   description,
   status,
@@ -21,6 +23,7 @@ const PlanBox = ({
   label?: any;
   description?: any;
   status?: any;
+  onClickEdit: (i: any) => void;
 }) => {
   const theme: any = useTheme();
   const styles = useStyles(theme);
@@ -53,7 +56,9 @@ const PlanBox = ({
         <Text color={'black'} size={12} regular style={styles.ml}>
           {label}
         </Text>
-        <Image source={dots} style={styles.img} />
+        <Pressable onPress={() => onClickEdit(description)}>
+          <Image source={dots} style={styles.img} />
+        </Pressable>
       </View>
       <Text align semiBold size={18}>
         {description}

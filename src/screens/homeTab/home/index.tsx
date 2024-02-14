@@ -101,6 +101,7 @@ const Home = () => {
           style={{
             width: '100%',
             height: '40%',
+            borderWidth: 1,
             marginTop: RF(20),
           }}>
           <ImageBackground

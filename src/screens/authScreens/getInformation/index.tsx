@@ -69,6 +69,8 @@ const GetInformation = () => {
     dispatch(setGetStartedData({...getStartedData, trackKey: title}));
   };
   const handleContent = (title: any) => {
+    console.log('sssssss');
+
     if (currentStep == 0.9) {
       setWorkoutPlan(title);
       dispatch(setGetStartedData({...getStartedData, daysPerWeek: title}));
