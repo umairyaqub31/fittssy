@@ -106,6 +106,9 @@ export const margin: any = {
   top_70: {
     marginTop: RF(70),
   },
+  top_100: {
+    marginTop: RF(100),
+  },
   left_2: {
     marginLeft: RF(2),
   },

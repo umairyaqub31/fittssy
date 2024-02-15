@@ -30,6 +30,9 @@ import AddButton from './addButton';
 import CurrentPlanCard from './currentPlanCard';
 import Current from './currentPlanCard/current';
 import AllPlan from './currentPlanCard/allPlan';
+import NavigateNext from './navigateNext';
+import CheckBox from './checkbox';
+import Line from './line';
 export {
   Search,
   Wrapper,
@@ -63,4 +66,7 @@ export {
   CurrentPlanCard,
   Current,
   AllPlan,
+  NavigateNext,
+  CheckBox,
+  Line,
 };

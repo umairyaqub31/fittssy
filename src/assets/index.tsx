@@ -34,6 +34,9 @@ const stat = require('./stat.png');
 const exercise = require('./exercise.png');
 const copy = require('./copy.png');
 const share = require('./share.png');
+const premium = require('./premium.png');
+const logout = require('./logout.png');
+const cam = require('./cam.png');
 
 export {
   exercise,
@@ -72,4 +75,7 @@ export {
   prof,
   stat,
   share,
+  premium,
+  logout,
+  cam,
 };

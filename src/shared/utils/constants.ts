@@ -168,3 +168,26 @@ export const currentPlanData = [
     dayCardColor: 'rgba(255, 189, 113, 0.14)',
   },
 ];
+
+export const settingsData = [
+  {
+    id: 0,
+    title: 'Default Units of Measure',
+    screen: 'UnitMeasure',
+  },
+  {
+    id: 2,
+    title: 'Notifications',
+    screen: 'Notification',
+  },
+  {
+    id: 3,
+    title: 'App Mode',
+    screen: 'AppMode',
+  },
+  {
+    id: 4,
+    title: 'Connect 3rd Party',
+    screen: 'ThirdParty',
+  },
+];

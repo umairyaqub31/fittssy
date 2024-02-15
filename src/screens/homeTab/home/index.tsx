@@ -108,7 +108,7 @@ const Home = () => {
           colors={['#fff', '#fff']}
           style={{
             width: '100%',
-            height: '40%',
+            height: '45%',
             marginTop: RF(20),
           }}>
           <ImageBackground

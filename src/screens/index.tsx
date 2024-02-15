@@ -31,6 +31,13 @@ import InsightOverview from './insightsStack';
 import CurrentPlan from './insightsStack/currentPlan';
 //................Profile.............//
 import ProfileOverview from './profileStack';
+import EditProfile from './profileStack/editProfile';
+import PrivacyPolicy from './profileStack/policy';
+import Settings from './profileStack/settings';
+import UnitMeasure from './profileStack/settings/unitsMeasure';
+import Notification from './profileStack/settings/notification';
+import AppMode from './profileStack/settings/appMode';
+import ThirdParty from './profileStack/settings/thirdParty';
 
 export {
   GetStarted,
@@ -66,4 +73,11 @@ export {
   CurrentPlan,
   //................Profile.............//
   ProfileOverview,
+  EditProfile,
+  PrivacyPolicy,
+  Settings,
+  UnitMeasure,
+  Notification,
+  AppMode,
+  ThirdParty,
 };
