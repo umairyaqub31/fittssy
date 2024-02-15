@@ -26,6 +26,11 @@ const AllPlan = (props: Props) => {
     openModal();
     setEditRes(desc);
   };
+
+  const switchCard = (i: any) => {
+    // console.log(i, 'dsssss');
+  };
+
   return (
     <View>
       <Pressable style={margin.bottom_20}>
@@ -40,10 +45,11 @@ const AllPlan = (props: Props) => {
         renderItem={({item, index}: any) => {
           return (
             <PlanBox
-              //   onPress={handleCard}
+              onPress={switchCard}
               label={item?.label}
               description={item?.description}
               status={item?.status}
+              index={index}
               onClickEdit={handleEdit}
             />
           );

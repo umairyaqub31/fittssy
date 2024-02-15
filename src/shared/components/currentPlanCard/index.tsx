@@ -43,7 +43,7 @@ const CurrentPlanCard = (props: Props) => {
             size={16}
             semiBold
             color={selected == item.id ? colors.primary : colors.text}>
-            Benji Chest-Back
+            {item.title}
           </Text>
         </View>
       </BorderGradientCard>

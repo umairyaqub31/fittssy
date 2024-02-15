@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {AllPlan, Current, HistoryHeader, Text, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';
 import {flex, margin, RF} from '@theme';
+import {navigate} from '@services';
 
 const MyPlans = () => {
   const theme: any = useTheme();
@@ -12,6 +13,7 @@ const MyPlans = () => {
 
   const handleCard = (item: any) => {
     setSelected(item.id);
+    navigate('StartWorkOut', '');
   };
   return (
     <Wrapper>

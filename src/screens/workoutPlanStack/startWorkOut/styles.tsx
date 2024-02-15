@@ -2,7 +2,7 @@ import {RF} from '@theme';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  main: {alignItems: 'center', justifyContent: 'center'},
+  main: {alignItems: 'flex-end', justifyContent: 'center', height: RF(450)},
   viewBtn: {
     flex: 1,
     flexDirection: 'row',
@@ -10,8 +10,13 @@ const styles = StyleSheet.create({
     marginHorizontal: RF(20),
     justifyContent: 'space-between',
   },
-  image: {height: RF(444), width: '100%'},
-  img: {width: RF(290), height: RF(434), marginTop: RF(20)},
+  image: {width: '100%', marginTop: RF(-50)},
+  img: {
+    width: '100%',
+    height: '90%',
+    alignSelf: 'baseline',
+    resizeMode: 'contain',
+  },
   container: {
     marginTop: RF(40),
     alignItems: 'center',

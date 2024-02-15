@@ -1,4 +1,11 @@
-import {FlatList, Modal, StyleSheet, View, Pressable} from 'react-native';
+import {
+  FlatList,
+  Modal,
+  StyleSheet,
+  View,
+  Pressable,
+  Image,
+} from 'react-native';
 import React, {useState} from 'react';
 import {
   AddButton,
@@ -14,8 +21,8 @@ import {
 } from '@components';
 import {currentPlanData, plan} from '@utils';
 import {useTheme} from '@react-navigation/native';
-import {flex, margin, padding, RF} from '@theme';
-import {copy} from '@assets';
+import {flex, icon, margin, padding, RF} from '@theme';
+import {copy, dots, share} from '@assets';
 import {navigate} from '@services';
 import {useModal} from '@hooks';
 import CurrentPlan from 'screens/insightsStack/currentPlan';
@@ -52,19 +59,36 @@ const Current = (props: Props) => {
   return (
     <View style={[margin.top_16, {flex: 1}]}>
       <BorderGradientCard colors={colors.gradientCard}>
-        <Text size={12} regular center color={colors.grayText}>
-          {/* {item.title1} */}
-          Bulking: 3 Days
-        </Text>
-        <Text
-          size={18}
-          semiBold
-          center
-          style={margin.top_12}
-          color={colors.text}>
-          {/* {item.title2} */}
-          Benji 3 Day Plan
-        </Text>
+        <View style={flex.rowCenter}>
+          <View
+            style={[
+              flex.rowSimple,
+              {position: 'absolute', left: RF(14), top: RF(0)},
+            ]}>
+            <Image source={share} style={icon._16} />
+            <Text style={margin.left_4} color={colors.primary}>
+              Share
+            </Text>
+          </View>
+          <View>
+            <Text size={12} regular center color={colors.grayText}>
+              {/* {item.title1} */}
+              Bulking: 3 Days
+            </Text>
+            <Text
+              size={18}
+              semiBold
+              center
+              style={margin.top_12}
+              color={colors.text}>
+              {/* {item.title2} */}
+              Benji 3 Day Plan
+            </Text>
+          </View>
+          <Pressable style={{position: 'absolute', right: RF(14), top: RF(0)}}>
+            <Image source={dots} style={icon._20} />
+          </Pressable>
+        </View>
       </BorderGradientCard>
       <FlatList
         data={currentPlanData}
@@ -183,7 +207,7 @@ const useStyles = (colors: any) =>
       justifyContent: 'center',
     },
     card: {
-      backgroundColor: 'red',
+      backgroundColor: '#fff',
       paddingTop: RF(12),
       borderRadius: 12,
       marginTop: RF(8),
