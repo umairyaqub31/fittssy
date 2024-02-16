@@ -1,29 +1,20 @@
-import {FlatList, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
-import {
-  AddButton,
-  HistoryHeader,
-  PlanBox,
-  PrimaryButton,
-  Text,
-  Wrapper,
-} from '@components';
-import {plan} from '@utils';
+import {AllPlan, Current, HistoryHeader, Text, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';
 import {flex, margin, RF} from '@theme';
-import {copy} from '@assets';
 import {navigate} from '@services';
 
 const MyPlans = () => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const [select, setSelect] = useState('All');
+  const [selected, setSelected] = useState<any>();
 
-  const handleCreateNew = () => {
-    navigate('CreateNew', '');
+  const handleCard = (item: any) => {
+    setSelected(item.id);
+    navigate('StartWorkOut', '');
   };
-  const handleCopyPrevious = () => {};
-
   return (
     <Wrapper>
       <HistoryHeader title={'MyPlans'} />
@@ -39,38 +30,34 @@ const MyPlans = () => {
           All
         </Text>
       </View>
-      <PrimaryButton
-        title={'Create Personal Workout Plan'}
-        textColor={colors.white}
-      />
+      {select == 'All' && <AllPlan />}
 
-      <View style={margin.top_20}>
-        <FlatList
-          data={plan}
-          style={{height: '58%'}}
-          renderItem={({item, index}: any) => {
-            return (
-              <PlanBox
-                label={item?.label}
-                description={item?.description}
-                status={item?.status}
-              />
-            );
-          }}
-        />
-      </View>
-      <View style={[flex.rowCenter, {gap: RF(60)}]}>
-        <AddButton title={'Create New'} onPress={handleCreateNew} />
-        <AddButton
-          title={'Copy Previous'}
-          source={copy}
-          onPress={handleCopyPrevious}
-        />
-      </View>
+      {select == 'Current' && (
+        <Current onPress={handleCard} selected={selected} />
+      )}
     </Wrapper>
   );
 };
 
 export default MyPlans;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text: {
+    width: '100%',
+    borderTopWidth: 1,
+    borderColor: '#AEADAD',
+    paddingVertical: RF(18),
+  },
+  fadeView: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    padding: RF(20),
+    justifyContent: 'flex-end',
+  },
+  card: {
+    backgroundColor: '#fff',
+    paddingTop: RF(12),
+    borderRadius: 12,
+    marginTop: RF(8),
+  },
+});

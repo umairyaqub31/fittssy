@@ -28,7 +28,6 @@ const useStyles = (colors: any) =>
       alignSelf: 'center',
       height: '100%',
       justifyContent: 'flex-end',
-      alignItems: 'center',
     },
     TabStyle: {flexDirection: 'row', alignItems: 'center', marginTop: RF(16)},
   });

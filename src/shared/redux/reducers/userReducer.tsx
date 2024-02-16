@@ -8,6 +8,7 @@ const initialState: any = {
   isModalVisible: false,
   getStarted: false,
   Info: '',
+  userImg: null,
 };
 
 export const userReducer = createSlice({
@@ -41,6 +42,9 @@ export const userReducer = createSlice({
     setInfo: (state, action) => {
       state.info = action.payload;
     },
+    setUserImg: (state, action) => {
+      state.userImg = action.payload;
+    },
   },
 });
 
@@ -53,6 +57,7 @@ export const {
   setIsModalVisible,
   setGetStarted,
   setInfo,
+  setUserImg,
 } = userReducer.actions;
 
 export default userReducer.reducer;

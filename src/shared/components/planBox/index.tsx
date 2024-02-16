@@ -1,5 +1,5 @@
 import {RF} from '@theme';
-import React from 'react';
+import React, {useState} from 'react';
 import Text from '../text';
 import {useTheme} from '@react-navigation/native';
 import {
@@ -9,31 +9,51 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {dots, greenBox} from '@assets';
+import {dots, greenBox, stat} from '@assets';
 
 const PlanBox = ({
   onPress,
+  onClickEdit,
   label,
   description,
   status,
+  index,
 }: {
   onPress?: any;
   label?: any;
   description?: any;
   status?: any;
+  index?: any;
+  onClickEdit: (i: any) => void;
 }) => {
   const theme: any = useTheme();
   const styles = useStyles(theme);
+  const [cardSwitch, setCardSwitch] = useState<any>('Current');
+  const [condition, setCondition] = useState();
+
+  const handleSwitch = (i: any) => {
+    setCondition(i);
+    // if (condition == i) {
+    //   console.log(condition, '...condition');
+
+    //   setCardSwitch('Current');
+    // } else {
+    //   setCardSwitch('Switch');
+    // }
+  };
+
+  console.log(condition, '......innnn');
 
   return (
     <Pressable onPress={onPress} style={styles.main}>
       <View style={styles.outer}>
-        {status == 'Current' ? (
+        {condition == index ? (
           <ImageBackground
             source={greenBox}
             imageStyle={styles.bgImg}
             style={styles.image}>
             <Text
+              onPress={() => handleSwitch(index)}
               color={theme?.colors?.primary}
               size={14}
               regular
@@ -43,17 +63,20 @@ const PlanBox = ({
           </ImageBackground>
         ) : (
           <Text
+            onPress={() => handleSwitch(index)}
             color={theme?.colors?.primary}
             size={14}
             regular
             style={styles.status}>
-            {status}
+            {condition == index ? 'Current' : 'Switch'}
           </Text>
         )}
         <Text color={'black'} size={12} regular style={styles.ml}>
           {label}
         </Text>
-        <Image source={dots} style={styles.img} />
+        <Pressable onPress={() => onClickEdit(description)}>
+          <Image source={dots} style={styles.img} />
+        </Pressable>
       </View>
       <Text align semiBold size={18}>
         {description}

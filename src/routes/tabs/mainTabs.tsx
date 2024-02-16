@@ -18,10 +18,10 @@ const MainTabs = ({navigation}: any) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const dispatch = useDispatch();
-  const {isModalVisible} = useSelector((state: any) => state.root.user);
 
   const styles = useStyles(colors);
   const [activeStack, setActiveStack] = useState('HomeStack');
+  const {userImg} = useSelector((state: any) => state.root.user);
 
   return (
     <Tab.Navigator
@@ -29,8 +29,7 @@ const MainTabs = ({navigation}: any) => {
         headerShown: false,
         keyboardHidesTabBar: true,
         tabBarStyle: styles.tabBarStyle,
-        tabBarActiveTintColor: '#00538F',
-        tabBarInactiveTintColor: '#949494',
+        tabBarInactiveTintColor: 'red',
         tabBarIconStyle: styles.tabIcon,
         tabBarShowLabel: false,
       })}>
@@ -109,9 +108,11 @@ const MainTabs = ({navigation}: any) => {
           tabBarIcon: ({tintColor, color, focused}: any) => (
             <TabBarIcon
               source={prof}
+              uri={userImg}
               color={colors.card}
-              styles={styles}
               focused={focused}
+              styles={styles}
+              noTintColor
               stack={'ProfileOverview'}
               activeStack={activeStack}
               setActiveStack={setActiveStack}
@@ -146,6 +147,8 @@ const TabBarIcon = ({
   activeStack,
   setActiveStack,
   handleCaptureFlag,
+  noTintColor,
+  uri,
 }: {
   source: any;
   styles?: any;
@@ -153,8 +156,10 @@ const TabBarIcon = ({
   focused?: any;
   colorCode?: any;
   stack: any;
+  uri?: any;
   activeStack?: any;
   setActiveStack?: any;
+  noTintColor?: any;
   handleCaptureFlag?: any;
 }) => {
   return (
@@ -172,31 +177,26 @@ const TabBarIcon = ({
         onPressTab(stack, activeStack, setActiveStack, handleCaptureFlag);
       }}>
       <View
-        style={{
-          height: RF(45),
-          width: RF(45),
-          borderWidth: 1,
-          borderColor: focused ? '#36D8AA' : color,
-          borderRadius: RF(30),
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+        style={[styles.outerLine, {borderColor: focused ? '#36D8AA' : color}]}>
         <View
-          style={{
-            height: RF(35),
-            width: RF(35),
-            borderWidth: 1,
-            borderColor: focused ? '#36D8AA' : color,
-            borderRadius: RF(30),
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+          style={[
+            styles.innerLine,
+            {borderColor: focused ? '#36D8AA' : color},
+          ]}>
           <Image
-            source={source}
+            source={uri ? {uri: uri} : source}
             style={[
               styles.image,
               {
-                tintColor: '#949494',
+                tintColor:
+                  !focused || noTintColor
+                    ? null
+                    : focused
+                    ? '#949494'
+                    : 'rgba(207, 207, 207, 1)',
+                height: (noTintColor && RF(42)) || RF(24),
+                width: (noTintColor && RF(42)) || RF(24),
+                borderRadius: uri ? 50 : 0,
               },
             ]}
             resizeMode={'contain'}
@@ -226,6 +226,23 @@ const useStyles = (colors: any) =>
       paddingBottom: 0,
       elevation: 0,
       borderTopWidth: 0,
+    },
+    innerLine: {
+      height: RF(35),
+      width: RF(35),
+      borderWidth: 1,
+      borderRadius: RF(30),
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    outerLine: {
+      height: RF(45),
+      width: RF(45),
+      borderWidth: 1,
+
+      borderRadius: RF(30),
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   });
 

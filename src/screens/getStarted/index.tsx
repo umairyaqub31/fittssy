@@ -51,12 +51,13 @@ const GetStarted = () => {
           Fittssy
         </Text>
         <View>
-          <PrimaryButton
-            title={'Get Started'}
-            bgColor={colors.primary}
-            textColor={colors.white}
-            onPress={getStarted}
-          />
+          <Pressable onPress={getStarted}>
+            <PrimaryButton
+              title={'Get Started'}
+              bgColor={colors.primary}
+              textColor={colors.white}
+            />
+          </Pressable>
           <View style={styles.signInView}>
             <Text regular color={colors.white}>
               Already have an account?{' '}

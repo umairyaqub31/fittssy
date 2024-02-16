@@ -3,6 +3,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  ScrollView,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -12,6 +13,7 @@ import {useTheme} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import useStyles from './styles';
 import {back, exercise, next} from '@assets';
+import {navigate} from '@services';
 
 const Home = () => {
   const theme: any = useTheme();
@@ -21,8 +23,13 @@ const Home = () => {
   const [selected, setSelected] = useState('');
 
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
-  const handlePressWorkout = () => {
+  const handlePressWorkout = (index: any) => {
+    console.log(index, 'sssss');
+    setSelectedItemIndex(index);
     // navigate('WorkoutDetail', {selectedDate: selected});
+  };
+  const handleCreateNew = () => {
+    navigate('CreateNew', '');
   };
   return (
     <Wrapper>
@@ -41,6 +48,7 @@ const Home = () => {
           <Image source={next} style={styles.ImageStyle} />
         </View>
       </View>
+
       <View style={{width: RF(170), marginTop: RF(20), gap: RF(4)}}>
         <Text size={22} regular color={'rgba(13, 13, 13, 1)'}>
           Welcome back
@@ -100,7 +108,7 @@ const Home = () => {
           colors={['#fff', '#fff']}
           style={{
             width: '100%',
-            height: '40%',
+            height: '45%',
             marginTop: RF(20),
           }}>
           <ImageBackground
@@ -111,25 +119,30 @@ const Home = () => {
           </Text>
         </LinearGradient>
       ) : (
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={[1, 2, 3, 4, 5]}
-          renderItem={({item, index}) => (
-            <WorkoutItem
-              selectedItemIndex={selectedItemIndex}
-              setSelectedItemIndex={setSelectedItemIndex}
-              colors={colors}
-              item={item}
-              index={index}
-              styles={styles}
-              onPress={handlePressWorkout}
-            />
-          )}
-        />
+        <View style={{marginTop: RF(10), flex: 1}}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={[1, 2, 3, 4, 5]}
+            renderItem={({item, index}) => (
+              <WorkoutItem
+                selectedItemIndex={selectedItemIndex}
+                colors={colors}
+                item={item}
+                index={index}
+                onPress={handlePressWorkout}
+              />
+            )}
+          />
+        </View>
       )}
       <View
-        style={{marginTop: selectedTab === 'exerciseOfTheDay' ? RF(80) : 0}}>
-        <AddButton center />
+        style={{
+          position: 'absolute',
+          bottom: RF(15),
+          alignSelf: 'center',
+          zIndex: 100,
+        }}>
+        <AddButton center title={'Create New'} onPress={handleCreateNew} />
       </View>
     </Wrapper>
   );

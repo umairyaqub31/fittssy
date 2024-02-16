@@ -10,11 +10,19 @@ import {gradientFlex, unSelect} from '@assets';
 import Text from '../text';
 import {RF} from '@theme';
 
-const WorkoutItem = (props: any) => {
+interface Props {
+  colors?: any;
+  item?: any;
+  index?: any;
+  selectedItemIndex?: any;
+  onPress: (i: any) => void;
+}
+
+const WorkoutItem = (props: Props) => {
   const {colors, item, index, selectedItemIndex, onPress} = props;
   const styles = useStyles(colors);
   return (
-    <Pressable style={styles.listItemContainer} onPress={onPress}>
+    <Pressable style={styles.listItemContainer} onPress={() => onPress(index)}>
       <ImageBackground
         source={index == selectedItemIndex ? gradientFlex : unSelect}
         imageStyle={{
@@ -42,7 +50,7 @@ const WorkoutItem = (props: any) => {
             style={{
               color: index == selectedItemIndex ? colors.primary : colors.text,
             }}
-            size={14}
+            size={12}
             medium>
             00:40:08{' '}
           </Text>
@@ -69,7 +77,7 @@ const WorkoutItem = (props: any) => {
             style={{
               color: index == selectedItemIndex ? colors.primary : colors.text,
             }}
-            size={14}
+            size={12}
             medium>
             00:13:12{' '}
           </Text>
@@ -95,7 +103,7 @@ const WorkoutItem = (props: any) => {
             style={{
               color: index == selectedItemIndex ? colors.primary : colors.text,
             }}
-            size={14}
+            size={12}
             medium>
             00:27:59{' '}
           </Text>
@@ -114,7 +122,7 @@ const WorkoutItem = (props: any) => {
             style={{
               color: index == selectedItemIndex ? colors.primary : colors.text,
             }}
-            size={14}
+            size={12}
             medium>
             00:00:00{' '}
           </Text>
@@ -141,7 +149,7 @@ const WorkoutItem = (props: any) => {
             style={{
               color: index == selectedItemIndex ? colors.primary : colors.text,
             }}
-            size={14}
+            size={12}
             medium>
             8{' '}
           </Text>
@@ -167,7 +175,7 @@ const WorkoutItem = (props: any) => {
             style={{
               color: index == selectedItemIndex ? colors.primary : colors.text,
             }}
-            size={14}
+            size={12}
             medium>
             6896.0 kg{' '}
           </Text>
