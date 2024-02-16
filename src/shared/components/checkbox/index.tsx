@@ -16,6 +16,7 @@ interface Props {
   activeColor?: any;
   tintColorStart?: any;
   startIcon?: any;
+  square?: any;
 }
 
 const CheckBox = (props: Props) => {
@@ -30,20 +31,24 @@ const CheckBox = (props: Props) => {
     activeColor,
     startIcon,
     tintColorStart,
+    square,
   } = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   return (
     <Pressable
       onPress={() => onPress(title)}
-      style={[flex.rowSimple, margin.top_8, containerStyle, {width: '100%'}]}>
+      style={[flex.rowSimple, containerStyle, {width: '100%'}]}>
       <View
         style={{
           height: checkboxSize ? RF(checkboxSize) : RF(22),
           width: checkboxSize ? RF(checkboxSize) : RF(22),
           borderWidth: 1,
-          borderColor: selected === title ? colors.primary : colors.grayText,
-          borderRadius: checkboxSize ? checkboxSize / 2 : 13,
+          borderColor:
+            selected === title || selected === true
+              ? colors.primary
+              : colors.grayText,
+          borderRadius: checkboxSize ? checkboxSize / 2 : square ? 2 : 13,
           justifyContent: 'center',
           backgroundColor: '#fff',
           alignItems: 'center',
@@ -54,10 +59,10 @@ const CheckBox = (props: Props) => {
             width: '60%',
             // backgroundColor: colors ? colors : '#00276D',
             backgroundColor:
-              selected === title
+              selected === title || selected === true
                 ? activeColor || (!activeColor && colors.primary)
                 : 'transparent',
-            borderRadius: 70,
+            borderRadius: square ? 2 : 70,
           }}></View>
       </View>
 
