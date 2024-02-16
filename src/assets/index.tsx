@@ -33,6 +33,7 @@ const prof = require('./prof.png');
 const stat = require('./stat.png');
 const exercise = require('./exercise.png');
 const copy = require('./copy.png');
+const logsImage = require('./workoutlog.png');
 
 export {
   exercise,
@@ -70,4 +71,5 @@ export {
   workout,
   prof,
   stat,
+  logsImage,
 };

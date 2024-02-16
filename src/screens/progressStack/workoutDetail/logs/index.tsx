@@ -4,6 +4,8 @@ import {useTheme} from '@react-navigation/native';
 import {PrimaryButton} from '@components';
 import {RF} from '@theme';
 import {Text} from '@components';
+import {Image} from 'react-native';
+import {logsImage, p_link} from '@assets';
 
 const WorkoutLogs = () => {
   const theme: any = useTheme();
@@ -11,7 +13,11 @@ const WorkoutLogs = () => {
   const styles = useStyles(colors);
   return (
     <View style={{flex: 1}}>
-      <View style={[styles.row, {justifyContent: 'flex-end', marginTop: 10}]}>
+      <View
+        style={[
+          styles.row,
+          {justifyContent: 'flex-end', marginTop: 7, marginBottom: 16},
+        ]}>
         <PrimaryButton
           width={111}
           height={44}
@@ -60,7 +66,9 @@ const ListItem = (props: any) => {
       </Text>
       <View style={styles.lineStyle} />
       <View style={styles.row}>
-        <View></View>
+        <View style={styles.imageView}>
+          <Image source={logsImage} style={styles.img} />
+        </View>
         <View style={{}}>
           {[1, 2, 3].map((i: any, index: any) => (
             <View style={[styles.row, {marginBottom: 4}]} key={index}>
@@ -112,8 +120,16 @@ const ListItem = (props: any) => {
           </View>
         </View>
       </View>
-
-      <View style={styles.row}></View>
+      <View
+        style={{
+          alignSelf: 'flex-end',
+          zIndex: 10,
+          // position: 'absolute',
+          // bottom: -28,
+          // right: 10,
+        }}>
+        <Image source={p_link} style={styles._link} />
+      </View>
     </View>
   );
 };
@@ -139,5 +155,20 @@ const useStyles = (colors: any) =>
       height: '65%',
       width: 1,
       backgroundColor: colors.grayText,
+    },
+    imageView: {
+      width: 68,
+      height: 68,
+      marginRight: 14,
+    },
+    img: {
+      resizeMode: 'cover',
+      width: 68,
+      height: 68,
+      // transform: [{scale: 0.55}],
+    },
+    _link: {
+      width: 34,
+      height: 34,
     },
   });

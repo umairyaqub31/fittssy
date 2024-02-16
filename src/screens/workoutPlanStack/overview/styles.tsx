@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     fontSize: RF(14),
   },
   view: {
-    marginLeft: RF(25),
+    // marginLeft: RF(25),
   },
   ml: {
     marginLeft: RF(20),

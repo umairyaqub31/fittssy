@@ -1,7 +1,7 @@
 import React from 'react';
 import {next} from '@assets';
 import {navigate} from '@services';
-import {ScrollView} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {BackHeader, CustomInput, DropDown, PrimaryButton} from '@components';
 
 const Exercise = ({navigation}: any) => {
@@ -16,7 +16,7 @@ const Exercise = ({navigation}: any) => {
   };
 
   return (
-    <>
+    <View style={{paddingHorizontal: 20}}>
       <BackHeader
         title={'Create New Exercise'}
         startIcon
@@ -51,7 +51,7 @@ const Exercise = ({navigation}: any) => {
 
         <PrimaryButton title={'Save'} width={263} textColor={'white'} mt={50} />
       </ScrollView>
-    </>
+    </View>
   );
 };
 

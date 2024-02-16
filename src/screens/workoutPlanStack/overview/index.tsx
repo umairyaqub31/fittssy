@@ -51,7 +51,7 @@ const WorkOut = (props: Props) => {
   };
 
   return (
-    <>
+    <View style={{paddingHorizontal: 20}}>
       <BackHeader
         title={'Create New Workout'}
         startIcon
@@ -127,7 +127,7 @@ const WorkOut = (props: Props) => {
           )}
         </>
       )}
-    </>
+    </View>
   );
 };
 

@@ -84,9 +84,11 @@ const useStyles = (colors: any) =>
   StyleSheet.create({
     container: {
       justifyContent: 'center',
-      paddingLeft: RF(25),
+      // paddingLeft: RF(25),
+      width: '100%',
     },
     InputContainer: {
+      width: '100%',
       flexDirection: 'row',
       alignItems: 'center',
       borderColor: colors?.borderGray,
