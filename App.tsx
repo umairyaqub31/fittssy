@@ -10,18 +10,39 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ModalProvider} from '@hooks';
+import {EventRegister} from 'react-native-event-listeners';
 
 const App = () => {
   const [active, setActive] = useState(true);
   const [isSplash, setIsSplash] = useState(true);
-  const [isDarkEnabled, setIsDarkEnabled] = useState(false);
-  let appTheme = isDarkEnabled ? darkThemeStyle : defaultTheme;
+  const Theme = store.getState();
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  let appTheme = isDarkTheme ? darkThemeStyle : defaultTheme;
+  const {isDarkEnabled} = Theme.root.user;
+  console.log('ddd.....', isDarkEnabled);
 
+  useEffect(() => {
+    let listener: any = EventRegister.addEventListener(
+      'appThemeChange',
+      data => {
+        console.log('ddd.....', data);
+
+        setIsDarkTheme(data);
+      },
+    );
+    return () => {
+      EventRegister.removeEventListener(listener);
+    };
+  }, []);
   useEffect(() => {
     setTimeout(() => {
       setIsSplash(false);
       console.log('splash');
     }, 3000);
+
+    if (isDarkEnabled) {
+      setIsDarkTheme(true);
+    }
   }, []);
 
   return (
