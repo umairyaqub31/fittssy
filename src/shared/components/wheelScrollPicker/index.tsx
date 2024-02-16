@@ -48,7 +48,7 @@ const WheelScrollPicker = (props: Props) => {
                   medium
                   center
                   style={{opacity: index === true ? 1 : 0.5}}
-                  color={index === true ? '#000' : colors.grayText}>
+                  color={index === true ? colors.text : colors.grayText}>
                   {item}
                 </Text>
               </>
@@ -60,7 +60,7 @@ const WheelScrollPicker = (props: Props) => {
             // console.log(data);
           }}
           wrapperHeight={RF(250)}
-          wrapperBackground="#FFFFFF"
+          wrapperBackground={colors.background}
           itemHeight={RF(35)}
           highlightColor={'#fff'}
           activeItemTextStyle={styles.height}

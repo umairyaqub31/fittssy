@@ -115,5 +115,6 @@ const useStyles = (colors: any) =>
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: RF(40),
+      backgroundColor: 'transparent',
     },
   });

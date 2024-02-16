@@ -47,6 +47,7 @@ const Login = () => {
       </Text>
       <CustomInput
         label="Email Address"
+        color={colors.text}
         labelStyle={{color: isEmailFocused ? colors.primary : colors.text}}
         inputStyle={{
           borderColor: isEmailFocused ? colors.primary : colors.grayText,
@@ -64,6 +65,7 @@ const Login = () => {
       )}
       <CustomInput
         label="Password"
+        color={colors.text}
         labelStyle={{color: isPasswordFocused ? colors.primary : colors.text}}
         inputStyle={{
           borderColor: isPasswordFocused ? colors.primary : colors.grayText,
@@ -91,7 +93,7 @@ const Login = () => {
         Forgot Password?
       </Text>
       <Pressable style={margin.top_24} onPress={handleFormik}>
-        <PrimaryButton title={'Sign In'} textColor={colors.theme} />
+        <PrimaryButton title={'Sign In'} textColor={colors.text} />
       </Pressable>
       <View style={[flex.rowBetween, margin.Vertical_24]}>
         <View style={styles.line} />

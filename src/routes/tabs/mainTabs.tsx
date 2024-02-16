@@ -10,7 +10,7 @@ import WorkOutStack from '../stacks/workOutStack';
 import ProgressStack from '../stacks/progressStack';
 import IsnsightStack from '../stacks/insightsStack';
 import ProfileStack from '../stacks/profileStack';
-import {RF} from '@theme';
+import {RF, SCREEN_HEIGHT} from '@theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,10 +27,9 @@ const MainTabs = ({navigation}: any) => {
     <Tab.Navigator
       screenOptions={({route: {name}}) => ({
         headerShown: false,
-        keyboardHidesTabBar: true,
         tabBarStyle: styles.tabBarStyle,
-        tabBarInactiveTintColor: 'red',
-        tabBarIconStyle: styles.tabIcon,
+        // tabBarInactiveBackgroundColor: colors.background,
+        // tabBarActiveBackgroundColor: colors.background,
         tabBarShowLabel: false,
       })}>
       <Tab.Screen
@@ -211,21 +210,16 @@ const useStyles = (colors: any) =>
   StyleSheet.create({
     image: {width: 24, height: 24, opacity: 100},
     img: {},
-    tabIcon: {
-      // alignItems: 'center',
-      // justifyContent: 'center',
-    },
+    tabIcon: {},
     tabBarStyle: {
       height: 75,
       width: '100%',
       alignSelf: 'center',
       borderTopRightRadius: 40,
-      borderTopLeftRadius: 40,
-      // backgroundColor: 'rgba(246, 246, 246, 1)',
-      // backgroundColor: 'red',
-      paddingBottom: 0,
-      elevation: 0,
       borderTopWidth: 0,
+      borderTopLeftRadius: 40,
+      backgroundColor: colors.card,
+      position: 'absolute',
     },
     innerLine: {
       height: RF(35),

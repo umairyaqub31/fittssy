@@ -62,6 +62,7 @@ const PrimaryButton = (props: Partial<Props>) => {
           {
             color: border ? theme?.colors?.primary : textColor,
             fontSize: f_Size ? f_Size : RF(16),
+            fontFamily: 'Montserrat-SemiBold',
           },
         ]}>
         {title}

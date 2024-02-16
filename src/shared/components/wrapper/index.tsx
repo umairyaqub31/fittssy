@@ -38,6 +38,7 @@ interface Props extends TouchableOpacityProps {
 }
 const Wrapper = (props: Props) => {
   const theme: any = useTheme();
+  const colors = theme.colors;
   const styles = useStyles(theme.colors);
 
   return (
@@ -46,7 +47,7 @@ const Wrapper = (props: Props) => {
         styles.container,
         props.viewStyle,
         {
-          backgroundColor: props?.bgClr ? props?.bgClr : '#fff',
+          backgroundColor: props?.bgClr ? props?.bgClr : colors.background,
           paddingTop: props?.isTop ? RF(43) : 0,
           paddingHorizontal: props?.isPaddingH ? props?.isPaddingH : RF(20),
           marginHorizontal: props?.isMarginHorizontal ? RF(20) : 0,
@@ -56,9 +57,9 @@ const Wrapper = (props: Props) => {
         hidden={props?.hidden}
         translucent={props.translucent ? true : false}
         backgroundColor={
-          props.statusBarBagColor ? props.statusBarBagColor : 'white'
+          props.statusBarBagColor ? props.statusBarBagColor : colors.background
         }
-        barStyle={props.statusBarStyle ? props.statusBarStyle : 'dark-content'}
+        barStyle={props.statusBarStyle ? props.statusBarStyle : colors.stausbar}
       />
       {props.children}
     </View>
@@ -67,7 +68,7 @@ const Wrapper = (props: Props) => {
 
 const useStyles = StyleSheet.create((color: any) => ({
   container: {
-    flex: 1,
+    flex: 1 / 1.11,
   },
 }));
 

@@ -12,7 +12,7 @@ const useStyles = (colors: any) =>
     ImageView: {
       width: RF(46),
       height: RF(46),
-      backgroundColor: 'rgba(246, 246, 246, 1)',
+      backgroundColor: colors.card,
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: RF(24),
@@ -21,6 +21,7 @@ const useStyles = (colors: any) =>
       width: RF(12),
       height: RF(12),
       resizeMode: 'contain',
+      tintColor: colors.text,
     },
     rowStyles: {flexDirection: 'row', alignItems: 'center'},
     ImageBackgroundStyle: {

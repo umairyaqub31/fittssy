@@ -53,6 +53,7 @@ const SelectWeight = (props: Props) => {
             textAlign: 'right',
             fontSize: RF(20),
             fontFamily: 'Montserrat-SemiBold',
+            color: colors.text,
           }}
         />
         <Text size={20} semiBold color={colors.text}>
@@ -62,7 +63,7 @@ const SelectWeight = (props: Props) => {
       <Pressable style={margin.top_56} onPress={handleWeight}>
         <PrimaryButton
           title={'Next'}
-          textColor={colors.theme}
+          textColor={colors.text}
           containerStyle={margin.top_56}
         />
       </Pressable>

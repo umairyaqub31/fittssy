@@ -60,6 +60,9 @@ const Register = () => {
           </Text>
           <CustomInput
             label="Email Address"
+            inputStyle={{
+              borderColor: colors.grayText,
+            }}
             onChangeText={formik.handleChange('email')}
             value={formik?.values?.email}
           />
@@ -73,6 +76,9 @@ const Register = () => {
             endIcon={hiddenEye}
             onPress={togglePassword}
             secureTextEntry={visible}
+            inputStyle={{
+              borderColor: colors.grayText,
+            }}
             onChangeText={formik.handleChange('password')}
             value={formik?.values?.password}
           />
@@ -87,6 +93,9 @@ const Register = () => {
             endIcon={hiddenEye}
             onPress={togglePassword}
             secureTextEntry={visible}
+            inputStyle={{
+              borderColor: colors.grayText,
+            }}
             onChangeText={formik.handleChange('confirmPassword')}
             value={formik?.values?.confirmPassword}
           />
@@ -100,7 +109,7 @@ const Register = () => {
           <Pressable style={margin.top_32} onPress={handleFormik}>
             <PrimaryButton
               title={'Create an account'}
-              textColor={colors.theme}
+              textColor={colors.text}
             />
           </Pressable>
 
@@ -113,12 +122,18 @@ const Register = () => {
           </View>
 
           <Pressable style={styles.authCard}>
-            <Image source={google} style={icon._20} />
+            <Image
+              source={google}
+              style={{...icon._20, tintColor: colors.text}}
+            />
             <Text color={colors.grayText}>Continue with Google</Text>
           </Pressable>
 
           <Pressable style={[styles.authCard, margin.top_20]}>
-            <Image source={apple} style={icon._20} />
+            <Image
+              source={apple}
+              style={{...icon._20, tintColor: colors.text}}
+            />
             <Text color={colors.grayText}>Continue with Apple ID</Text>
           </Pressable>
 

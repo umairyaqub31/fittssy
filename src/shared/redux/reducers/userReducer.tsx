@@ -10,6 +10,7 @@ const initialState: any = {
   Info: '',
   userImg: null,
   isDarkEnabled: false,
+  enableThame: false,
 };
 
 export const userReducer = createSlice({

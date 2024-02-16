@@ -96,7 +96,7 @@ const CustomInput = (props: Props) => {
               fontWeight: '500',
               paddingHorizontal: RF(20),
               fontSize: fontSize ? fontSize : RF(14),
-              color: color ? color : theme?.colors?.txtGray,
+              color: color ? color : theme?.colors?.text,
             },
           ]}
           {...otherProps}
@@ -112,6 +112,7 @@ const CustomInput = (props: Props) => {
                 width: RF(20),
                 height: RF(20),
                 marginRight: RF(24),
+                tintColor: theme?.colors?.card,
               }}
               resizeMode={'contain'}
             />
