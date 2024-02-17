@@ -9,7 +9,7 @@ const initialState: any = {
   getStarted: false,
   Info: '',
   userImg: null,
-  isDarkEnabled: false,
+  enableTheme: false,
 };
 
 export const userReducer = createSlice({
@@ -46,8 +46,8 @@ export const userReducer = createSlice({
     setUserImg: (state, action) => {
       state.userImg = action.payload;
     },
-    setIsDarkEnabled: (state, action) => {
-      state.isDarkEnabled = action.payload;
+    setEnableTheme: (state, action) => {
+      state.enableTheme = action.payload;
     },
   },
 });
@@ -62,7 +62,7 @@ export const {
   setGetStarted,
   setInfo,
   setUserImg,
-  setIsDarkEnabled,
+  setEnableTheme,
 } = userReducer.actions;
 
 export default userReducer.reducer;

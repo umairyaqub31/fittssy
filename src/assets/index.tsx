@@ -32,6 +32,8 @@ const workout = require('./workout.png');
 const prof = require('./prof.png');
 const stat = require('./stat.png');
 const exercise = require('./exercise.png');
+const exercise1 = require('./exercise1.png');
+
 const copy = require('./copy.png');
 const logsImage = require('./workoutlog.png');
 const share = require('./share.png');
@@ -41,6 +43,7 @@ const cam = require('./cam.png');
 
 export {
   exercise,
+  exercise1,
   line,
   home,
   getstarted3,

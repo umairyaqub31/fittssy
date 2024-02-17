@@ -12,7 +12,7 @@ import {AddButton, Text, WorkoutItem, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import useStyles from './styles';
-import {back, exercise, next} from '@assets';
+import {back, exercise, exercise1, next} from '@assets';
 import {navigate} from '@services';
 
 const Home = () => {
@@ -37,9 +37,9 @@ const Home = () => {
         <View style={styles.ImageView}>
           <Image source={back} style={styles.ImageStyle} />
         </View>
-        <Text size={16} bold color={'rgba(13, 13, 13, 1)'}>
+        <Text size={16} bold color={colors.text}>
           Today
-          <Text size={14} regular color={'rgba(13, 13, 13, 1)'}>
+          <Text size={14} regular color={colors.text}>
             (Wed 27/11/23)
           </Text>
         </Text>
@@ -105,7 +105,7 @@ const Home = () => {
       </View>
       {selectedTab === 'exerciseOfTheDay' ? (
         <LinearGradient
-          colors={['#fff', '#fff']}
+          colors={[colors.background, colors.background]}
           style={{
             width: '100%',
             height: '45%',
@@ -113,8 +113,32 @@ const Home = () => {
           }}>
           <ImageBackground
             source={exercise}
-            style={styles.ImageBackgroundStyle}></ImageBackground>
-          <Text center size={18} medium color={'rgba(209, 209, 209, 1)'}>
+            style={styles.ImageBackgroundStyle}>
+            <LinearGradient
+              end={{x: 0, y: 0}}
+              start={{x: 0, y: 1}}
+              colors={colors.gradientBackground}
+              style={{
+                position: 'absolute',
+                height: RF(90),
+                width: '100%',
+                alignSelf: 'center',
+                backgroundColor: 'transparent',
+                // borderWidth: 1,
+                zIndex: 2,
+              }}></LinearGradient>
+
+            <Image
+              source={exercise1}
+              style={{
+                height: RF(280),
+                width: RF(185),
+                resizeMode: 'contain',
+                alignSelf: 'center',
+              }}
+            />
+          </ImageBackground>
+          <Text center size={18} medium color={colors.grayText}>
             Workout log is empty
           </Text>
         </LinearGradient>

@@ -11,12 +11,11 @@ import {
 import {darkThemeStyle, defaultTheme, margin, RF} from '@theme';
 import ToggleSwitch from 'toggle-switch-react-native';
 import {useTheme} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
-import {stat} from '@assets';
-import {setIsDarkEnabled} from '@redux';
-import Routes from 'routes/routes';
+import {useDispatch} from 'react-redux';
 import {useModal} from '@hooks';
 import {EventRegister} from 'react-native-event-listeners';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {getIsDarkModeEnabled, setIsDarkModeEnabled} from '@utils';
 
 const AppMode = ({navigation}: any) => {
   const theme: any = useTheme();
@@ -24,35 +23,37 @@ const AppMode = ({navigation}: any) => {
   const styles = useStyles(colors);
   const [toggle2, setToggle2] = useState(false);
   const [selected, setSelected] = useState(false);
-  const {isDarkEnabled} = useSelector((state: any) => state.root.user);
-  console.log('dark.....', isDarkEnabled);
 
   const {isModalVisible, openModal, closeModal} = useModal();
+  const [isEnabled, setEnabled] = useState(getIsDarkModeEnabled());
 
   const handleAuto = (title: any) => {
     setSelected(!selected);
   };
-  const dispatch = useDispatch();
 
-  const handleChange = () => {
-    EventRegister.emit('appThemeChange', !isDarkEnabled);
-    dispatch(setIsDarkEnabled(!isDarkEnabled));
+  const handleChange = async (key: any, appTheme: any) => {
+    try {
+      await AsyncStorage.setItem(key, JSON.stringify(appTheme));
+      setEnabled(appTheme);
+      setIsDarkModeEnabled(appTheme);
+      EventRegister.emit('appThemeChange', appTheme);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const handleChange2 = () => {
     openModal();
   };
-
-  const modalCheckbox = () => {};
 
   return (
     <Wrapper isTop>
       <BackHeader title={'App Mode'} startIcon navigation={navigation} />
       <View style={margin.top_32}>
         <ToggleSwitch
-          isOn={isDarkEnabled}
+          isOn={isEnabled}
           onColor={colors.primary}
           offColor={colors.card}
-          circleColor={isDarkEnabled ? colors.white : '#000'}
+          circleColor={isEnabled ? colors.white : '#000'}
           label="Dark"
           trackOffStyle={styles.trackOff}
           trackOnStyle={{position: 'absolute', right: 0}}
@@ -60,7 +61,7 @@ const AppMode = ({navigation}: any) => {
           thumbOffStyle={{backgroundColor: '#000'}}
           labelStyle={styles.label}
           size="medium"
-          onToggle={handleChange}
+          onToggle={() => handleChange('THEME_KEY', !isEnabled)}
         />
         <Line />
         <CheckBox
@@ -75,7 +76,7 @@ const AppMode = ({navigation}: any) => {
           isOn={toggle2}
           onColor={colors.primary}
           offColor={colors.card}
-          circleColor={isDarkEnabled ? colors.white : '#000'}
+          circleColor={isEnabled ? colors.white : '#000'}
           label="Custom"
           trackOffStyle={styles.trackOff}
           trackOnStyle={{position: 'absolute', right: 0}}

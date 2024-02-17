@@ -33,7 +33,7 @@ const Content = (props: Props) => {
         }}>
         <PrimaryButton
           title={'Next'}
-          textColor={colors.theme}
+          textColor={colors.text}
           containerStyle={margin.top_56}
         />
       </Pressable>

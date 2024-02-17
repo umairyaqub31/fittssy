@@ -39,7 +39,7 @@ const SelectAge = (props: Props) => {
       <Pressable style={margin.top_56} onPress={() => handleAge(value)}>
         <PrimaryButton
           title={'Next'}
-          textColor={colors.theme}
+          textColor={colors.text}
           containerStyle={margin.top_56}
         />
       </Pressable>
@@ -57,6 +57,7 @@ const useStyles = (colors: any) =>
       borderRadius: 24,
       marginTop: RF(40),
       borderWidth: 1,
+      color: colors.text,
       borderColor: colors.lightGray,
       textAlign: 'center',
       fontSize: RF(20),
