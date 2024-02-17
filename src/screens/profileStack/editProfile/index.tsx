@@ -23,7 +23,7 @@ const EditProfile = ({navigation}: any) => {
   }, [userImg]);
 
   const launchCamera = () => {
-    ImagePicker.openCamera({
+    ImagePicker.openPicker({
       width: 300,
       height: 400,
       cropping: true,

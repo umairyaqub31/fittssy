@@ -14,6 +14,7 @@ const BackHeader = ({
   startIcon,
   endTitle,
   navigation,
+  isHorizontal,
 }: {
   edit?: any;
   width?: any;
@@ -23,13 +24,14 @@ const BackHeader = ({
   navigation?: any;
   endTitle?: any;
   startIcon?: any;
+  isHorizontal?: any;
 }) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(theme);
 
   return (
-    <View style={styles.main}>
+    <View style={[styles.main, {paddingHorizontal: isHorizontal ? RF(20) : 0}]}>
       {startIcon && (
         <Pressable
           style={[styles.container, {backgroundColor: colors?.card}]}

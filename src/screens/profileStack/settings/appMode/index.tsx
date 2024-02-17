@@ -1,50 +1,49 @@
-import {StyleSheet, View, Modal} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import {StyleSheet, View, Modal, Image} from 'react-native';
+import React, {useState} from 'react';
 import {
   BackHeader,
   CheckBox,
+  CustomSwitch,
   Line,
   PrimaryButton,
   Text,
   Wrapper,
 } from '@components';
-import {darkThemeStyle, defaultTheme, margin, RF} from '@theme';
-import ToggleSwitch from 'toggle-switch-react-native';
+import {margin, RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
-import {stat} from '@assets';
-import {setIsDarkEnabled} from '@redux';
-import Routes from 'routes/routes';
-import {useModal} from '@hooks';
-import {EventRegister} from 'react-native-event-listeners';
 
 const AppMode = ({navigation}: any) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(colors);
-  const [toggle2, setToggle2] = useState(false);
+  const [toggle, setToggle] = useState(false);
   const [selected, setSelected] = useState(false);
-  const [customTheme, setCustomTheme] = useState('');
-  const {isDarkEnabled} = useSelector((state: any) => state.root.user);
-  console.log('dark.....', isDarkEnabled);
-
-  const {isModalVisible, openModal, closeModal} = useModal();
+  const [customTheme, setCustomTheme] = useState('Girly Mode');
+  const [modalVisible, setModalVisible] = useState(false);
+  // const {isModalVisible, openModal, closeModal} = useModal();
 
   const handleAuto = (title: any) => {
     setSelected(!selected);
   };
-  const dispatch = useDispatch();
 
   const handleChange = () => {
-    EventRegister.emit('appThemeChange', !isDarkEnabled);
+    if (toggle == true) {
+      setToggle(!toggle);
+    } else {
+      setModalVisible(true);
+    }
   };
-  const handleChange2 = () => {
-    openModal();
+
+  const handleCancel = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  const handleConfirm = () => {
+    setToggle(!toggle);
+    setModalVisible(!modalVisible);
   };
 
   const modalCheckbox = (title: any) => {
-    console.log(title);
-
     setCustomTheme(title);
   };
 
@@ -52,20 +51,7 @@ const AppMode = ({navigation}: any) => {
     <Wrapper isTop>
       <BackHeader title={'App Mode'} startIcon navigation={navigation} />
       <View style={margin.top_32}>
-        <ToggleSwitch
-          isOn={isDarkEnabled}
-          onColor={colors.primary}
-          offColor={colors.card}
-          circleColor={isDarkEnabled ? colors.white : '#000'}
-          label="Dark"
-          trackOffStyle={styles.trackOff}
-          trackOnStyle={{position: 'absolute', right: 0}}
-          thumbOnStyle={styles.onThumb}
-          thumbOffStyle={{backgroundColor: '#000'}}
-          labelStyle={styles.label}
-          size="medium"
-          onToggle={handleChange}
-        />
+        <CustomSwitch mode={'dark'} />
         <Line />
         <CheckBox
           onPress={handleAuto}
@@ -75,22 +61,14 @@ const AppMode = ({navigation}: any) => {
           containerStyle={styles.checkBoxContainer}
         />
         <Line />
-        <ToggleSwitch
-          isOn={toggle2}
-          onColor={colors.primary}
-          offColor={colors.card}
-          circleColor={isDarkEnabled ? colors.white : '#000'}
-          label="Custom"
-          trackOffStyle={styles.trackOff}
-          trackOnStyle={{position: 'absolute', right: 0}}
-          thumbOnStyle={styles.onThumb}
-          thumbOffStyle={{backgroundColor: '#000'}}
-          labelStyle={styles.label}
-          size="medium"
-          onToggle={handleChange2}
+        <CustomSwitch
+          lablel={'Custom'}
+          mode={'light'}
+          initialState={toggle}
+          onPress={handleChange}
         />
       </View>
-      <Modal visible={isModalVisible} transparent>
+      <Modal visible={modalVisible} transparent animationType="fade">
         <View style={styles.fadeView}>
           <View style={styles.card}>
             <Text size={18} semiBold style={margin.bottom_32}>
@@ -111,7 +89,7 @@ const AppMode = ({navigation}: any) => {
             />
             <View style={styles.viewBtn}>
               <PrimaryButton
-                onPress={closeModal}
+                onPress={handleCancel}
                 height={40}
                 width={120}
                 title={'Cancel'}
@@ -119,7 +97,7 @@ const AppMode = ({navigation}: any) => {
                 bgColor={'transparent'}
               />
               <PrimaryButton
-                onPress={closeModal}
+                onPress={handleConfirm}
                 height={40}
                 width={120}
                 title={'Confirm'}
@@ -143,9 +121,7 @@ const useStyles = (colors: any) =>
       fontSize: RF(16),
       marginLeft: 0,
     },
-    onThumb: {
-      backgroundColor: colors.white,
-    },
+    onThumb: {},
     trackOff: {
       position: 'absolute',
       right: 0,

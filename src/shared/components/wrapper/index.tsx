@@ -47,9 +47,10 @@ const Wrapper = (props: Props) => {
         styles.container,
         props.viewStyle,
         {
+          paddingBottom: 90,
           backgroundColor: props?.bgClr ? props?.bgClr : colors.background,
-          paddingTop: props?.isTop ? RF(43) : 0,
-          paddingHorizontal: props?.isPaddingH ? props?.isPaddingH : RF(20),
+          paddingTop: props?.isTop ? RF(37) : 0,
+          paddingHorizontal: props?.isPaddingH ? 0 : RF(20),
           marginHorizontal: props?.isMarginHorizontal ? RF(20) : 0,
         },
       ]}>
@@ -68,7 +69,7 @@ const Wrapper = (props: Props) => {
 
 const useStyles = StyleSheet.create((color: any) => ({
   container: {
-    flex: 1 / 1.11,
+    flex: 1,
   },
 }));
 

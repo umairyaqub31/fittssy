@@ -3,26 +3,11 @@ import {StyleSheet} from 'react-native';
 
 const useStyles = (colors: any) =>
   StyleSheet.create({
-    MainContainer: {
-      marginTop: RF(24),
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+    buttonView: {
+      alignSelf: 'center',
+      zIndex: 100,
     },
-    ImageView: {
-      width: RF(46),
-      height: RF(46),
-      backgroundColor: colors.card,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: RF(24),
-    },
-    ImageStyle: {
-      width: RF(12),
-      height: RF(12),
-      resizeMode: 'contain',
-      tintColor: colors.text,
-    },
+    text: {width: RF(170), marginTop: RF(20), gap: RF(4)},
     rowStyles: {flexDirection: 'row', alignItems: 'center'},
     ImageBackgroundStyle: {
       width: SCREEN_WIDTH,

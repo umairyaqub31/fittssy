@@ -1,4 +1,28 @@
 export const demo = [{title: 'demo'}];
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+let isDarkThemeEnabled = false;
+
+export function setIsDarkModeEnabled(isEnabled: boolean) {
+  isDarkThemeEnabled = isEnabled;
+}
+
+export function getIsDarkModeEnabled() {
+  return isDarkThemeEnabled;
+}
+
+export async function getDataFromUserDefaults(key: any) {
+  try {
+    let item = await AsyncStorage.getItem(key);
+    if (item !== null) {
+      return item;
+    }
+  } catch (error) {
+    console.log('Error saving data' + error);
+  }
+
+  return undefined;
+}
 
 export const list = [
   {title: 'Existing Workout Plan', index: 0},

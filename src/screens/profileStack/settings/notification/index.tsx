@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
-import {BackHeader, Line, Text, Wrapper} from '@components';
+import {BackHeader, CustomSwitch, Line, Text, Wrapper} from '@components';
 import ToggleSwitch from 'toggle-switch-react-native';
 import {useTheme} from '@react-navigation/native';
 import {margin, RF} from '@theme';
@@ -24,34 +24,19 @@ const Notification = ({navigation}: any) => {
     <Wrapper isTop>
       <BackHeader title={'Notifications'} startIcon navigation={navigation} />
       <View style={margin.top_32}>
-        <ToggleSwitch
-          isOn={toggle}
-          onColor={colors.primary}
-          offColor={colors.card}
-          circleColor={toggle ? colors.white : '#000'}
-          label="Workout Reminders"
-          trackOffStyle={styles.trackOff}
-          trackOnStyle={{position: 'absolute', right: 0}}
-          thumbOnStyle={styles.onThumb}
-          thumbOffStyle={{backgroundColor: '#000'}}
-          labelStyle={styles.label}
-          size="medium"
-          onToggle={handleChange}
+        <CustomSwitch
+          mode={'light'}
+          lablel={'Workout Reminders'}
+          initialState={toggle}
+          onPress={handleChange}
         />
+
         <Line />
-        <ToggleSwitch
-          isOn={toggle2}
-          onColor={colors.primary}
-          offColor={colors.card}
-          circleColor={toggle ? colors.white : '#000'}
-          label="Program Notifications"
-          trackOffStyle={styles.trackOff}
-          trackOnStyle={{position: 'absolute', right: 0}}
-          thumbOnStyle={styles.onThumb}
-          thumbOffStyle={{backgroundColor: '#000'}}
-          labelStyle={styles.label}
-          size="medium"
-          onToggle={handleChange2}
+        <CustomSwitch
+          mode={'light'}
+          lablel={'Program Notifications'}
+          initialState={toggle2}
+          onPress={handleChange2}
         />
       </View>
     </Wrapper>

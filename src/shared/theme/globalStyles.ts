@@ -97,6 +97,10 @@ export const margin: any = {
   top_32: {
     marginTop: RF(32),
   },
+  top_37: {
+    marginTop: RF(37),
+  },
+
   top_40: {
     marginTop: RF(40),
   },
@@ -209,6 +213,9 @@ export const padding: any = {
   },
   Horizontal_16: {
     paddingHorizontal: RF(16),
+  },
+  Horizontal_20: {
+    paddingHorizontal: RF(20),
   },
   Horizontal_24: {
     paddingHorizontal: RF(24),
