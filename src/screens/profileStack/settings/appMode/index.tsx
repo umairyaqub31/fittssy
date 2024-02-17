@@ -24,6 +24,7 @@ const AppMode = ({navigation}: any) => {
   const styles = useStyles(colors);
   const [toggle2, setToggle2] = useState(false);
   const [selected, setSelected] = useState(false);
+  const [customTheme, setCustomTheme] = useState('');
   const {isDarkEnabled} = useSelector((state: any) => state.root.user);
   console.log('dark.....', isDarkEnabled);
 
@@ -41,7 +42,11 @@ const AppMode = ({navigation}: any) => {
     openModal();
   };
 
-  const modalCheckbox = () => {};
+  const modalCheckbox = (title: any) => {
+    console.log(title);
+
+    setCustomTheme(title);
+  };
 
   return (
     <Wrapper isTop>
@@ -91,20 +96,33 @@ const AppMode = ({navigation}: any) => {
             <Text size={18} semiBold style={margin.bottom_32}>
               Select Custom Mode
             </Text>
-            <CheckBox title={'Girly Mode'} textStyle={styles.text} />
+            <CheckBox
+              onPress={modalCheckbox}
+              selected={customTheme}
+              title={'Girly Mode'}
+              textStyle={styles.text}
+            />
             <Line />
-            <CheckBox title={'Macho Mode'} textStyle={styles.text} />
+            <CheckBox
+              onPress={modalCheckbox}
+              selected={customTheme}
+              title={'Macho Mode'}
+              textStyle={styles.text}
+            />
             <View style={styles.viewBtn}>
               <PrimaryButton
+                onPress={closeModal}
                 height={40}
                 width={120}
                 title={'Cancel'}
+                textColor={colors.grayText}
                 bgColor={'transparent'}
               />
               <PrimaryButton
+                onPress={closeModal}
                 height={40}
                 width={120}
-                title={'Skip'}
+                title={'Confirm'}
                 textColor={colors.white}
               />
             </View>
@@ -143,7 +161,7 @@ const useStyles = (colors: any) =>
       justifyContent: 'center',
     },
     card: {
-      backgroundColor: '#fff',
+      backgroundColor: colors.card,
       paddingTop: RF(20),
       padding: RF(12),
       borderRadius: 12,

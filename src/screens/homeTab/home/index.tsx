@@ -50,8 +50,8 @@ const Home = () => {
       </View>
 
       <View style={{width: RF(170), marginTop: RF(20), gap: RF(4)}}>
-        <Text size={22} regular color={'rgba(13, 13, 13, 1)'}>
-          Welcome back
+        <Text size={22} regular color={colors.text}>
+          Welcome back,
         </Text>
         <Text size={24} regular color={'rgba(40, 204, 158, 1)'}>
           Sarah!

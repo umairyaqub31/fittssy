@@ -32,7 +32,7 @@ const BackHeader = ({
     <View style={styles.main}>
       {startIcon && (
         <Pressable
-          style={[styles.container, {backgroundColor: colors?.lightGray}]}
+          style={[styles.container, {backgroundColor: colors?.card}]}
           onPress={() => navigation.goBack()}>
           <Image source={back} style={styles.img} />
         </Pressable>
@@ -81,7 +81,7 @@ const useStyles = (theme: any) =>
       justifyContent: 'center',
       borderColor: theme?.colors?.borderGray,
     },
-    img: {width: RF(6), height: RF(11)},
+    img: {width: RF(6), height: RF(11), tintColor: theme?.colors?.text},
     txtView: {
       // width: '65%',
       alignItems: 'center',
