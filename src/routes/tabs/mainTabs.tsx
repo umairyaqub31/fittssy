@@ -30,6 +30,7 @@ const MainTabs = ({navigation}: any) => {
         tabBarStyle: styles.tabBarStyle,
         // tabBarInactiveBackgroundColor: colors.background,
         // tabBarActiveBackgroundColor: colors.background,
+
         tabBarShowLabel: false,
       })}>
       <Tab.Screen

@@ -36,7 +36,6 @@ const AppMode = ({navigation}: any) => {
 
   const handleChange = () => {
     EventRegister.emit('appThemeChange', !isDarkEnabled);
-    dispatch(setIsDarkEnabled(!isDarkEnabled));
   };
   const handleChange2 = () => {
     openModal();

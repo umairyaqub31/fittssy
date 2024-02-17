@@ -1,9 +1,9 @@
-import {store} from '@redux';
+import {setIsDarkEnabled, store} from '@redux';
 import {Provider} from 'react-redux';
 import 'react-native-gesture-handler';
 import {navigationRef} from '@services';
 import Routes from './src/routes/routes';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {persistor} from './src/shared/redux/store';
 import {defaultTheme, darkThemeStyle} from '@theme';
 import {PersistGate} from 'redux-persist/integration/react';
@@ -26,6 +26,7 @@ const App = () => {
       'appThemeChange',
       data => {
         console.log('ddd.....', data);
+        store.dispatch(setIsDarkEnabled(data));
 
         setIsDarkTheme(data);
       },
@@ -39,11 +40,11 @@ const App = () => {
       setIsSplash(false);
       console.log('splash');
     }, 3000);
-
-    if (isDarkEnabled) {
-      setIsDarkTheme(true);
-    }
   }, []);
+  useLayoutEffect(() => {
+    console.log('theme check.......', isDarkEnabled);
+    setIsDarkTheme(isDarkEnabled);
+  }, [isDarkEnabled]);
 
   return (
     <Provider store={store}>
