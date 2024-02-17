@@ -40,6 +40,7 @@ const share = require('./share.png');
 const premium = require('./premium.png');
 const logout = require('./logout.png');
 const cam = require('./cam.png');
+const upload = require('./upload.png');
 
 export {
   exercise,
@@ -83,4 +84,5 @@ export {
   premium,
   logout,
   cam,
+  upload,
 };
