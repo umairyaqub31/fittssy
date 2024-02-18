@@ -31,7 +31,7 @@ const InsightOverview = () => {
           return (
             <Pressable style={margin.top_20} onPress={() => handleCard(item)}>
               <BorderGradientCard
-                bgColor={colors.white}
+                bgColor={colors.background}
                 colors={
                   selected == item.id
                     ? colors?.gradientCard

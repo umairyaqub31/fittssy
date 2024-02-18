@@ -3,7 +3,8 @@ import Text from '../text';
 import {RF} from '@theme';
 import Gradient from '../gradient';
 import {navigate} from '@services';
-import {FlatList, Pressable, View} from 'react-native';
+import {FlatList, Pressable, StyleSheet, View} from 'react-native';
+import {useTheme} from '@react-navigation/native';
 
 const GradientList = ({
   data,
@@ -14,6 +15,9 @@ const GradientList = ({
   selected?: any;
   setSelected?: any;
 }) => {
+  const theme: any = useTheme();
+  const colors: any = theme.colors;
+
   const onSelect = (item: any, index: any) => {
     setSelected(index);
     if (item == 'Exercise') {
@@ -36,24 +40,27 @@ const GradientList = ({
             <Pressable
               style={{
                 justifyContent: 'center',
+                backgroundColor: colors.background,
+                borderBottomColor: 'gray',
+                borderBottomWidth: StyleSheet.hairlineWidth,
               }}
               onPress={() => onSelect(item, index)}>
               <Gradient clrs={selected == index ? true : false}>
                 <Text
-                  color={selected == index ? 'white' : 'black'}
+                  color={selected == index ? 'white' : colors.text}
                   semiBold
                   style={{marginLeft: RF(28), marginTop: RF(20)}}>
                   {item}
                 </Text>
               </Gradient>
             </Pressable>
-            <View
+            {/* <View
               style={{
                 height: 1,
                 backgroundColor: '#EAEAEA',
                 marginHorizontal: RF(20),
               }}
-            />
+            /> */}
           </>
         );
       }}

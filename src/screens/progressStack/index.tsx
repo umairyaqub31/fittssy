@@ -106,12 +106,16 @@ const ProgressOverview = () => {
               // onPress={() => navigate('GetInformation', '')}
             />
           </View>
-          <View
-            style={[styles.row, {justifyContent: 'center', marginBottom: 20}]}>
+          <Pressable
+            onPress={() => setScreenToShow('calendar')}
+            style={[
+              styles.row,
+              {justifyContent: 'center', marginVertical: 20},
+            ]}>
             <Text style={styles.dateText} size={18} regular>
               {moment(selected).format('MMMM DD, YYYY')}
             </Text>
-          </View>
+          </Pressable>
 
           <View style={{flex: 1}}>
             <FlatList
@@ -319,14 +323,14 @@ const useStyles = (colors: any) =>
   StyleSheet.create({
     calendarTheme: {
       //   contentStyle: {backgroundColor: 'yellow'},
-      backgroundColor: '#ffffff',
-      calendarBackground: '#ffffff',
-      arrowColor: '#000',
+      backgroundColor: colors.background,
+      calendarBackground: colors.background,
+      arrowColor: colors.text,
       //   textSectionTitleColor: '#b6c1cd',
       selectedDayBackgroundColor: colors.primary,
       selectedDayTextColor: '#ffffff',
       todayTextColor: '#00adf5',
-      dayTextColor: '#2d4150',
+      dayTextColor: colors.text,
       dotStyle: {width: 8, height: 8, borderRadius: 4},
     },
     footerContainer: {

@@ -33,6 +33,8 @@ import AllPlan from './currentPlanCard/allPlan';
 import NavigateNext from './navigateNext';
 import CheckBox from './checkbox';
 import Line from './line';
+import CustomSwitch from './customSwitch';
+import SwipeHeader from './swipeHeader';
 export {
   Search,
   Wrapper,
@@ -69,4 +71,6 @@ export {
   NavigateNext,
   CheckBox,
   Line,
+  CustomSwitch,
+  SwipeHeader,
 };

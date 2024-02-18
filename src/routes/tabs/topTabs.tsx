@@ -1,16 +1,20 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {useTheme} from '@react-navigation/native';
 import {WorkoutLogs, WorkoutNotes, WorkoutBody, WorkoutPhotos} from '@screens';
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function TopTabs() {
+  const theme: any = useTheme();
+  const colors = theme.colors;
+
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarLabelStyle: {fontSize: 16, fontWeight: '400', color: '#CFCFCF'},
         tabBarItemStyle: {width: 90},
         tabBarStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: colors.background,
         },
       }}>
       <Tab.Screen name="Logs" component={WorkoutLogs} />

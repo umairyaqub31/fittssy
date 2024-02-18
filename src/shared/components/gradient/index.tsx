@@ -4,11 +4,14 @@ import LinearGradient, {
   LinearGradientProps,
 } from 'react-native-linear-gradient';
 import {StyleSheet} from 'react-native';
+import {useTheme} from '@react-navigation/native';
 
 interface Props extends LinearGradientProps {
   clrs?: any;
 }
 const Gradient = (props: Partial<Props>) => {
+  const theme: any = useTheme();
+  const colors: any = theme.colors;
   const {clrs} = props;
   return (
     <LinearGradient
@@ -17,8 +20,8 @@ const Gradient = (props: Partial<Props>) => {
       style={styles.linearGradient}
       colors={
         clrs
-          ? ['#28CC9E', '#28CC9E', '#FFFFFF']
-          : ['#FFFFFF', '#FFFFFF', '#FFFFFF']
+          ? ['#28CC9E', '#28CC9E', colors.background]
+          : [colors.background, colors.background, colors.background]
       }>
       {props.children}
     </LinearGradient>

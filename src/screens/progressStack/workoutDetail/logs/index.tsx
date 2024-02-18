@@ -138,7 +138,7 @@ const useStyles = (colors: any) =>
   StyleSheet.create({
     listItemContainer: {
       height: RF(143),
-      backgroundColor: colors.white,
+      backgroundColor: colors.background,
       marginBottom: 20,
       borderWidth: 1,
       borderColor: colors.card,

@@ -41,6 +41,7 @@ const premium = require('./premium.png');
 const logout = require('./logout.png');
 const cam = require('./cam.png');
 const upload = require('./upload.png');
+const darkIcon = require('./darkIcon.png');
 
 export {
   exercise,
@@ -85,4 +86,5 @@ export {
   logout,
   cam,
   upload,
+  darkIcon,
 };

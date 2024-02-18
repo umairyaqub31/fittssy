@@ -6,7 +6,10 @@ const Stack = createStackNavigator();
 
 const HomeStack = ({route, navigation}: any) => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="CreateNew" component={CreateNew} />
     </Stack.Navigator>

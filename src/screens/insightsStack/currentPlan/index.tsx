@@ -25,7 +25,9 @@ const CurrentPlan = ({route, navigation}: any) => {
     <Wrapper isTop>
       <BackHeader title={item.title2} startIcon navigation={navigation} />
       <View style={margin.top_32}>
-        <BorderGradientCard colors={colors.gradientCard}>
+        <BorderGradientCard
+          colors={colors.gradientCard}
+          bgColor={colors.background}>
           <Text size={12} regular center color={colors.grayText}>
             {item.title1}
           </Text>

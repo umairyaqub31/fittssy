@@ -5,6 +5,10 @@ import Login from './authScreens/login';
 import Register from './authScreens/createAccount';
 import ForgotPassword from './authScreens/forgotPassword';
 import VerificatioOTP from './authScreens/verificationOTP';
+
+import ExerciseOfDay from './homeTab/exersiceOfDay';
+import PreviousExercise from './homeTab/previousExercise';
+
 //...............Create Workout...........................//
 // import Overview from './creatWorkoutTab/overview';
 import MyPlans from './workoutPlanStack/myPlans';
@@ -52,7 +56,8 @@ export {
   GetInformation,
   WorkOut,
   SearchWorkOut,
-
+  ExerciseOfDay,
+  PreviousExercise,
   //................Progress.............//
   ProgressOverview,
   WorkoutDetail,

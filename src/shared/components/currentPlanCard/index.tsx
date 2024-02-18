@@ -15,7 +15,11 @@ const CurrentPlanCard = (props: Props) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const {onPress, item, selected} = props;
-  const unselectgradientColor = [colors.white, colors.white, colors.white];
+  const unselectgradientColor = [
+    colors.background,
+    colors.background,
+    colors.background,
+  ];
 
   return (
     <Pressable onPress={() => onPress(item)}>
@@ -23,6 +27,7 @@ const CurrentPlanCard = (props: Props) => {
         start={{x: 0, y: 0}}
         end={{x: 0.3, y: 2}}
         style={styles.gradientCard}
+        bgColor={colors.background}
         colors={
           selected == item.id ? colors.gradientCard : unselectgradientColor
         }>

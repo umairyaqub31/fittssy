@@ -76,7 +76,7 @@ export const defaultTheme = {
       'rgba(40, 204, 158, 0)',
       'rgba(40, 204, 158, 1)',
     ],
-    gradientBackground: ['rgba(255, 255, 255, 1)', 'transparent'],
+    gradientBackground: ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0)'],
     stausbar: 'dark-content',
     fadeGray: '#CECECE',
     theme: '#fff',

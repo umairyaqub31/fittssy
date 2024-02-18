@@ -44,13 +44,14 @@ const CheckBox = (props: Props) => {
           height: checkboxSize ? RF(checkboxSize) : RF(22),
           width: checkboxSize ? RF(checkboxSize) : RF(22),
           borderWidth: 1,
+
           borderColor:
             selected === title || selected === true
               ? colors.primary
               : colors.grayText,
           borderRadius: checkboxSize ? checkboxSize / 2 : square ? 2 : 13,
           justifyContent: 'center',
-          backgroundColor: '#fff',
+          backgroundColor: colors.background,
           alignItems: 'center',
         }}>
         <View

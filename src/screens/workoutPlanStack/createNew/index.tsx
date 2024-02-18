@@ -1,4 +1,4 @@
-import {RF} from '@theme';
+import {margin, RF} from '@theme';
 import styles from './styles';
 import {View} from 'react-native';
 import React, {useState} from 'react';
@@ -9,8 +9,13 @@ const CreateNew = ({navigation}: any) => {
   const [data, setData] = useState(['Exercise', 'Workout', 'Workout Plan']);
 
   return (
-    <View>
-      <BackHeader title={'Create New'} startIcon navigation={navigation} />
+    <View style={margin.top_37}>
+      <BackHeader
+        title={'Create New'}
+        startIcon
+        navigation={navigation}
+        isHorizontal
+      />
       <View style={styles.mt} />
       <GradientList data={data} selected={selected} setSelected={setSelected} />
     </View>

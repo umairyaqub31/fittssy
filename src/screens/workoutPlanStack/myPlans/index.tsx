@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import React, {useState} from 'react';
 import {AllPlan, Current, HistoryHeader, Text, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';
@@ -16,7 +16,7 @@ const MyPlans = () => {
     navigate('StartWorkOut', '');
   };
   return (
-    <Wrapper>
+    <Wrapper isTop>
       <HistoryHeader title={'MyPlans'} />
       <View style={[flex.rowCenter, margin.Vertical_16, {gap: RF(40)}]}>
         <Text
@@ -35,6 +35,7 @@ const MyPlans = () => {
       {select == 'Current' && (
         <Current onPress={handleCard} selected={selected} />
       )}
+      {select == 'All' && <AllPlan />}
     </Wrapper>
   );
 };
