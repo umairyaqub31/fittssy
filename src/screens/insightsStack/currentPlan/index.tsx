@@ -11,6 +11,7 @@ import {useTheme} from '@react-navigation/native';
 import {flex, margin, padding, RF} from '@theme';
 import {Pressable} from 'react-native';
 import {currentPlanData} from '@utils';
+import {navigate} from '@services';
 
 const CurrentPlan = ({route, navigation}: any) => {
   const {item} = route.params;
@@ -20,6 +21,7 @@ const CurrentPlan = ({route, navigation}: any) => {
 
   const handleCard = (item: any) => {
     setSelected(item.id);
+    navigate('WorkoutPlanDetail', {item: item});
   };
   return (
     <Wrapper isTop>

@@ -1,7 +1,7 @@
 import {back, next} from '@assets';
 import {View, Image} from 'react-native';
 
-export const props = (styles: any) => ({
+export const Innerprops = (styles: any) => ({
   buttonWrapperStyle: styles.buttonWrapper,
   activeDot: <View style={styles.null} />,
   dot: <View style={styles.nul} />,

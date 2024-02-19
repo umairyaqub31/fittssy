@@ -215,3 +215,22 @@ export const settingsData = [
     screen: 'ThirdParty',
   },
 ];
+
+export const detailData = [
+  {
+    id: 0,
+    name: 'Crunch',
+  },
+  {
+    id: 1,
+    name: 'Lateral Stretch',
+  },
+  {
+    id: 2,
+    name: 'Cross-Legged Forward Fold',
+  },
+  {
+    id: 3,
+    name: 'Toe Touchers',
+  },
+];

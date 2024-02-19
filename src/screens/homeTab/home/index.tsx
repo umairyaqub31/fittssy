@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Modal, ScrollView} from 'react-native';
+import {View} from 'react-native';
 import {padding} from '@theme';
 import {AddButton, SwipeHeader, Text, Wrapper} from '@components';
 import {useTheme} from '@react-navigation/native';

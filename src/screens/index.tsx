@@ -5,7 +5,6 @@ import Login from './authScreens/login';
 import Register from './authScreens/createAccount';
 import ForgotPassword from './authScreens/forgotPassword';
 import VerificatioOTP from './authScreens/verificationOTP';
-
 import ExerciseOfDay from './homeTab/exersiceOfDay';
 import PreviousExercise from './homeTab/previousExercise';
 
@@ -33,6 +32,10 @@ import WorkoutPhotos from './progressStack/workoutDetail/photos';
 //..............Insight....................//
 import InsightOverview from './insightsStack';
 import CurrentPlan from './insightsStack/currentPlan';
+import WorkoutPlanDetail from './insightsStack/workoutPlanDetail';
+
+import PlanDetailGraph from './insightsStack/planDetailGraph';
+
 //................Profile.............//
 import ProfileOverview from './profileStack';
 import EditProfile from './profileStack/editProfile';
@@ -76,6 +79,9 @@ export {
   //................Insight.............//
   InsightOverview,
   CurrentPlan,
+  WorkoutPlanDetail,
+  PlanDetailGraph,
+
   //................Profile.............//
   ProfileOverview,
   EditProfile,

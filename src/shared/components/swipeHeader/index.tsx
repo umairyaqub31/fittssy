@@ -2,16 +2,18 @@ import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
-import Swiper from 'react-native-swiper';
+import Swiper, {SwiperProps} from 'react-native-swiper';
 import Text from '../text';
-import {props} from './props';
+import {Innerprops} from './props';
 
-const SwipeHeader = () => {
+interface Props extends SwiperProps {}
+
+const SwipeHeader = (props: Props) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(colors);
   return (
-    <Swiper {...props(styles)}>
+    <Swiper {...props} {...Innerprops(styles)}>
       <View style={styles.contentView}>
         <Text size={16} bold color={colors.text}>
           Today
