@@ -8,26 +8,18 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {
-  AddButton,
-  AllPlan,
   BorderGradientCard,
   CurrentPlanCard,
-  HistoryHeader,
-  PlanBox,
   PrimaryButton,
   Text,
-  Wrapper,
   CustomInput,
 } from '@components';
-import {currentPlanData, plan} from '@utils';
+import {currentPlanData} from '@utils';
 import {useTheme} from '@react-navigation/native';
-import {flex, icon, margin, padding, RF} from '@theme';
-import {copy, dots, share} from '@assets';
-import {navigate} from '@services';
+import {flex, icon, margin, padding, RF, SCREEN_HEIGHT} from '@theme';
+import {dots, share} from '@assets';
 import {useModal} from '@hooks';
-import CurrentPlan from 'screens/insightsStack/currentPlan';
-import {Line} from 'react-native-svg';
-
+import {navigate} from '@services';
 interface Props {
   selected?: any;
   onPress: (i: any) => void;
@@ -46,6 +38,11 @@ const Current = (props: Props) => {
     openModal();
   };
 
+  const save = () => {
+    closeModal();
+    navigate('BuildWorkout', '');
+  };
+
   const goals = ['Maintaining', 'Bulking', 'Cutting'];
   const level = ['Beginner', 'Intermediate', 'Advanced'];
 
@@ -56,59 +53,77 @@ const Current = (props: Props) => {
   const handleGoalLevel = (level: any) => {
     setGoalLevel(level);
   };
+  const handleEdit = () => {
+    console.log('sssss');
+  };
   return (
-    <View style={[margin.top_16, {flex: 1}]}>
-      <BorderGradientCard colors={colors.gradientCard}>
-        <View style={flex.rowCenter}>
-          <View
-            style={[
-              flex.rowSimple,
-              {position: 'absolute', left: RF(14), top: RF(0)},
-            ]}>
-            <Image source={share} style={icon._16} />
-            <Text style={margin.left_4} color={colors.primary}>
-              Share
-            </Text>
+    <View style={[margin.top_8]}>
+      <View style={margin.bottom_8}>
+        <BorderGradientCard colors={colors.gradientCard}>
+          <View style={flex.rowCenter}>
+            <View
+              style={[
+                flex.rowSimple,
+                {position: 'absolute', left: RF(14), top: RF(0)},
+              ]}>
+              <Image source={share} style={icon._16} />
+              <Text style={margin.left_4} color={colors.primary}>
+                Share
+              </Text>
+            </View>
+            <View>
+              <Text size={12} regular center color={colors.grayText}>
+                {/* {item.title1} */}
+                Bulking: 3 Days
+              </Text>
+              <Text
+                size={18}
+                semiBold
+                center
+                style={margin.top_12}
+                color={colors.text}>
+                Benji 3 Day Plan
+              </Text>
+            </View>
+            <Pressable
+              style={{position: 'absolute', right: RF(14), top: RF(0)}}>
+              <Image source={dots} style={icon._20} />
+            </Pressable>
           </View>
-          <View>
-            <Text size={12} regular center color={colors.grayText}>
-              {/* {item.title1} */}
-              Bulking: 3 Days
-            </Text>
-            <Text
-              size={18}
-              semiBold
-              center
-              style={margin.top_12}
-              color={colors.text}>
-              {/* {item.title2} */}
-              Benji 3 Day Plan
-            </Text>
-          </View>
-          <Pressable style={{position: 'absolute', right: RF(14), top: RF(0)}}>
-            <Image source={dots} style={icon._20} />
-          </Pressable>
-        </View>
-      </BorderGradientCard>
+        </BorderGradientCard>
+      </View>
       <FlatList
         data={currentPlanData}
         renderItem={({item}: any) => {
           return (
             <CurrentPlanCard
+              dotsIcon={true}
               item={item}
               selected={selected}
               onPress={onPress}
+              onDotPress={handleEdit}
+              renderDesc={() => (
+                <>
+                  <View>
+                    <Text size={12} color={colors.grayText}>
+                      8 exercises, 69 min
+                    </Text>
+                    <Text size={12} color={colors.grayText}>
+                      Last performed: Nov 18, 2023
+                    </Text>
+                  </View>
+                </>
+              )}
             />
           );
         }}
       />
-      <Pressable style={margin.bottom_20} onPress={AddPlan}>
-        <PrimaryButton
-          title={'Add Days to This Routine'}
-          textColor={colors.white}
-        />
-      </Pressable>
-      <Modal visible={isModalVisible} transparent animationType="slide">
+      <PrimaryButton
+        onPress={AddPlan}
+        title={'Add Days to This Routine'}
+        textColor={colors.white}
+      />
+      <Modal visible={isModalVisible} transparent animationType="fade">
         <View style={styles.fadeView}>
           <View style={styles.card}>
             <Text color={colors.primary} style={styles.text}>
@@ -182,7 +197,7 @@ const Current = (props: Props) => {
                   onPress={closeModal}>
                   Cancel
                 </Text>
-                <Pressable style={styles.save} onPress={closeModal}>
+                <Pressable style={styles.save} onPress={save}>
                   <Text size={16} semiBold color={colors.white}>
                     Save
                   </Text>
@@ -201,7 +216,7 @@ export default Current;
 const useStyles = (colors: any) =>
   StyleSheet.create({
     fadeView: {
-      flex: 1,
+      height: SCREEN_HEIGHT,
       backgroundColor: 'rgba(0,0,0,0.4)',
       padding: RF(20),
       justifyContent: 'center',

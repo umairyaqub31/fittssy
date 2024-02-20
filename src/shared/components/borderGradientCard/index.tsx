@@ -19,10 +19,10 @@ const BorderGradientCard = (props: Props) => {
   return (
     <View>
       <LinearGradient
+        {...props}
         start={{x: 0, y: 0.6}}
         end={{x: 0.3, y: 2}}
-        style={styles.linearGradient}
-        {...props}>
+        style={styles.linearGradient}>
         <View
           style={[
             styles.innerContainer,
