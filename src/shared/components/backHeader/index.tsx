@@ -65,6 +65,7 @@ const useStyles = (theme: any) =>
   StyleSheet.create({
     border: {
       height: RF(35),
+      width: RF(73),
       borderWidth: 1,
       borderRadius: 20,
       borderColor: theme?.colors?.primary,
@@ -85,14 +86,13 @@ const useStyles = (theme: any) =>
     txtView: {
       // width: '65%',
       position: 'absolute',
-      alignSelf: 'center',
-      textAlign: 'center',
+      right: 0,
+      left: 0,
     },
     main: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      borderWidth: 1,
     },
     container: {
       width: RF(46),

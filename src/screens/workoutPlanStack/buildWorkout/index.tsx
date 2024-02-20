@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {BackHeader, Wrapper} from '@components';
+import {AddButton, BackHeader, Wrapper} from '@components';
+import {margin} from '@theme';
 
 const BuildWorkout = ({navigation}: any) => {
   return (
@@ -11,6 +12,7 @@ const BuildWorkout = ({navigation}: any) => {
         startIcon
         navigation={navigation}
       />
+      <AddButton title={'Add Exercise'} style={margin.top_32} />
     </Wrapper>
   );
 };
