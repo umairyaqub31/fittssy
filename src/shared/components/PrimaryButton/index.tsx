@@ -1,13 +1,7 @@
 import React from 'react';
 import {RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacityProps,
-  Pressable,
-} from 'react-native';
+import {StyleSheet, Text, TouchableOpacityProps, Pressable} from 'react-native';
 
 interface Props extends TouchableOpacityProps {
   mt?: any;

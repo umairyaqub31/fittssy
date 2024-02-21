@@ -20,6 +20,7 @@ import AbsExercise from './workoutPlanStack/absExercise';
 import NewWorkOut from './workoutPlanStack/newWorkout';
 import EditWorkOut from './workoutPlanStack/EditWorkOut';
 import StartWorkOut from './workoutPlanStack/startWorkOut';
+import BuildWorkout from './workoutPlanStack/buildWorkout';
 
 //..............Progress....................//
 import ProgressOverview from './progressStack';
@@ -75,6 +76,7 @@ export {
   EditWorkOut,
   StartWorkOut,
   MyPlans,
+  BuildWorkout,
 
   //................Insight.............//
   InsightOverview,

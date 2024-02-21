@@ -10,20 +10,24 @@ interface Props {
   center?: any;
   title?: any;
   source?: any;
+  style?: any;
 }
 
 const AddButton = (props: Props) => {
-  const {onPress, center, title, source} = props;
+  const {onPress, center, title, source, style} = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(colors);
 
   return (
     <View
-      style={{
-        alignSelf: center ? 'center' : 'auto',
-        alignItems: 'center',
-      }}>
+      style={[
+        {
+          alignSelf: center ? 'center' : 'auto',
+          alignItems: 'center',
+        },
+        style,
+      ]}>
       <Pressable style={styles.innerView} onPress={onPress}>
         <Image source={source ? source : plus} style={styles.pImg} />
       </Pressable>

@@ -11,6 +11,7 @@ import {
   StartWorkOut,
   WorkOut,
   MyPlans,
+  BuildWorkout,
 } from '@screens';
 
 const Stack = createStackNavigator();
@@ -22,6 +23,8 @@ const WorkOutStack = ({route}: any) => {
       <Stack.Screen name="MyPlans" component={MyPlans} />
       <Stack.Screen name="CreateNew" component={CreateNew} />
       <Stack.Screen name="Exercise" component={Exercise} />
+      <Stack.Screen name="BuildWorkout" component={BuildWorkout} />
+
       <Stack.Screen name="NewWorkOut" component={NewWorkOut} />
       <Stack.Screen name="WorkOut" component={WorkOut} />
 

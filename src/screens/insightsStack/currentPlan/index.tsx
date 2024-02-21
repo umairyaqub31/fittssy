@@ -8,8 +8,7 @@ import {
   Wrapper,
 } from '@components';
 import {useTheme} from '@react-navigation/native';
-import {flex, margin, padding, RF} from '@theme';
-import {Pressable} from 'react-native';
+import {margin, RF} from '@theme';
 import {currentPlanData} from '@utils';
 import {navigate} from '@services';
 
@@ -24,7 +23,7 @@ const CurrentPlan = ({route, navigation}: any) => {
     navigate('WorkoutPlanDetail', {item: item});
   };
   return (
-    <Wrapper isTop>
+    <Wrapper>
       <BackHeader title={item.title2} startIcon navigation={navigation} />
       <View style={margin.top_32}>
         <BorderGradientCard

@@ -35,7 +35,6 @@ const MyPlans = () => {
       {select == 'Current' && (
         <Current onPress={handleCard} selected={selected} />
       )}
-      {select == 'All' && <AllPlan />}
     </Wrapper>
   );
 };

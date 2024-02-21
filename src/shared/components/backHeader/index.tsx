@@ -40,7 +40,7 @@ const BackHeader = ({
         </Pressable>
       )}
 
-      <View style={[styles.txtView, {width: width ? width : '70%'}]}>
+      <View style={[styles.txtView]}>
         <Text bold size={16} center>
           {title}
         </Text>
@@ -64,14 +64,13 @@ const BackHeader = ({
 const useStyles = (theme: any) =>
   StyleSheet.create({
     border: {
-      width: RF(73),
       height: RF(35),
+      width: RF(73),
       borderWidth: 1,
       borderRadius: 20,
       borderColor: theme?.colors?.primary,
       alignItems: 'center',
       justifyContent: 'center',
-      marginRight: 30,
     },
     image: {width: RF(25), height: RF(25)},
     imgView: {
@@ -86,11 +85,14 @@ const useStyles = (theme: any) =>
     img: {width: RF(6), height: RF(11), tintColor: theme?.colors?.text},
     txtView: {
       // width: '65%',
-      alignItems: 'center',
+      position: 'absolute',
+      right: 0,
+      left: 0,
     },
     main: {
       flexDirection: 'row',
       alignItems: 'center',
+      justifyContent: 'space-between',
     },
     container: {
       width: RF(46),

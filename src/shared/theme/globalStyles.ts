@@ -211,6 +211,9 @@ export const padding: any = {
   Horizontal_12: {
     paddingHorizontal: RF(12),
   },
+  Horizontal_14: {
+    paddingHorizontal: RF(14),
+  },
   Horizontal_16: {
     paddingHorizontal: RF(16),
   },
