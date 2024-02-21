@@ -1,9 +1,9 @@
-import {FlatList, Modal, StyleSheet, View, Pressable} from 'react-native';
+import {FlatList, StyleSheet, View, Pressable} from 'react-native';
 import React, {useState} from 'react';
-
+import Modal from 'react-native-modal';
 import {AddButton, PlanBox, PrimaryButton, Text} from '@components';
 import {plan} from '@utils';
-import {flex, margin, padding, RF} from '@theme';
+import {flex, margin, padding, RF, SCREEN_HEIGHT, SCREEN_WIDTH} from '@theme';
 import {copy} from '@assets';
 import {useModal} from '@hooks';
 import {navigate} from '@services';
@@ -15,15 +15,15 @@ const AllPlan = (props: Props) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const [editRes, setEditRes] = useState('');
-  const {isModalVisible, openModal, closeModal} = useModal();
+  const [modalVisible, setModalVisible] = useState(false);
 
   const handleCreateNew = () => {
     navigate('CreateNew', '');
   };
   const handleCopyPrevious = () => {};
 
-  const handleEdit = (desc: any) => {
-    openModal();
+  const handleDots = (desc: any) => {
+    setModalVisible(true);
     setEditRes(desc);
   };
 
@@ -50,7 +50,7 @@ const AllPlan = (props: Props) => {
               description={item?.description}
               status={item?.status}
               index={index}
-              onClickEdit={handleEdit}
+              onClickEdit={handleDots}
             />
           );
         }}
@@ -63,45 +63,49 @@ const AllPlan = (props: Props) => {
           onPress={handleCopyPrevious}
         />
       </View>
-      <Modal visible={isModalVisible} transparent animationType="slide">
-        <View style={styles.fadeView}>
-          <View style={styles.card}>
-            <Text center size={13} color={colors.text} medium>
-              Edit Workout Plan
-            </Text>
-            <Text center size={13} color={colors.text} style={margin.bottom_12}>
-              {editRes}
-            </Text>
-            <Text
-              style={styles.text}
-              center
-              size={20}
-              color={'rgba(36, 145, 255, 1)'}>
-              Edit
-            </Text>
-            <Text
-              style={styles.text}
-              center
-              size={20}
-              color={'rgba(36, 145, 255, 1)'}>
-              Duplicate
-            </Text>
-            <Text
-              style={styles.text}
-              center
-              size={20}
-              color={'rgba(36, 145, 255, 1)'}>
-              Delete
-            </Text>
-          </View>
-          <Pressable
-            style={[styles.card, padding.Vertical_16]}
-            onPress={closeModal}>
-            <Text color={'rgba(36, 145, 255, 1)'} center size={20} bold>
-              Cancel
-            </Text>
-          </Pressable>
+
+      <Modal
+        isVisible={modalVisible}
+        style={{
+          justifyContent: 'flex-end',
+        }}
+        onBackdropPress={() => setModalVisible(false)}>
+        <View style={styles.card}>
+          <Text center size={13} color={colors.text} medium>
+            Edit Workout Plan
+          </Text>
+          <Text center size={13} color={colors.text} style={margin.bottom_12}>
+            {editRes}
+          </Text>
+          <Text
+            style={styles.text}
+            center
+            size={20}
+            color={'rgba(36, 145, 255, 1)'}>
+            Edit
+          </Text>
+          <Text
+            style={styles.text}
+            center
+            size={20}
+            color={'rgba(36, 145, 255, 1)'}>
+            Duplicate
+          </Text>
+          <Text
+            style={styles.text}
+            center
+            size={20}
+            color={'rgba(36, 145, 255, 1)'}>
+            Delete
+          </Text>
         </View>
+        <Pressable
+          style={[styles.card, padding.Vertical_16]}
+          onPress={() => setModalVisible(false)}>
+          <Text color={'rgba(36, 145, 255, 1)'} center size={20} bold>
+            Cancel
+          </Text>
+        </Pressable>
       </Modal>
     </View>
   );

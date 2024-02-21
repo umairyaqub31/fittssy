@@ -48,7 +48,7 @@ export const darkThemeStyle = {
       'rgba(40, 204, 158, 1)',
     ],
     gradientBackground: ['rgba(0,0,0,1)', 'transparent'],
-    primaryOpacity: '#DEFAF6',
+    primaryOpacity: '#101917',
     theme: '#000',
     background: '#000',
     white: '#FFFFFF',
