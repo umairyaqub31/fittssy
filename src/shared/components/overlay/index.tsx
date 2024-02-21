@@ -32,7 +32,8 @@ const CustomOverlay = (props: Partial<Props>) => {
 
 const styles = StyleSheet.create({
   main: {
-    borderRadius: 30,
+    padding: 0,
+    borderRadius: 20,
   },
 });
 

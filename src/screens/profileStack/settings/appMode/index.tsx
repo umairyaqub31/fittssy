@@ -57,6 +57,8 @@ const AppMode = ({navigation}: any) => {
           onPress={handleAuto}
           selected={selected}
           title={'Auto'}
+          f_size={16}
+          f_weight={'600'}
           square={true}
           containerStyle={styles.checkBoxContainer}
         />

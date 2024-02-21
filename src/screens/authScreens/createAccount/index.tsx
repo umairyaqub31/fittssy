@@ -60,6 +60,8 @@ const Register = () => {
           </Text>
           <CustomInput
             label="Email Address"
+            placeHolder={'Sarah145@mail'}
+            placeholderTextColor={colors.grayText}
             inputStyle={{
               borderColor: colors.grayText,
             }}
@@ -73,6 +75,8 @@ const Register = () => {
           )}
           <CustomInput
             label="Password"
+            placeHolder={'Sw1998_@'}
+            placeholderTextColor={colors.grayText}
             endIcon={hiddenEye}
             onPress={togglePassword}
             secureTextEntry={visible}
@@ -90,6 +94,8 @@ const Register = () => {
 
           <CustomInput
             label="Confirm Password"
+            placeHolder={'Sw1998_@'}
+            placeholderTextColor={colors.grayText}
             endIcon={hiddenEye}
             onPress={togglePassword}
             secureTextEntry={visible}

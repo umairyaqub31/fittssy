@@ -9,6 +9,7 @@ import ShiftCards from '../../shiftCards';
 import WheelScrollPicker from '../../wheelScrollPicker';
 import {useDispatch, useSelector} from 'react-redux';
 import {setGetStartedData} from '@redux';
+import {arrayRange} from '@utils';
 interface Props {}
 
 const SelectHeight = (props: Props) => {
@@ -21,18 +22,16 @@ const SelectHeight = (props: Props) => {
   const [selected, setSelected] = useState('ft');
   const {getStartedData} = useSelector((state: any) => state.root.general);
   const dispatch = useDispatch();
-  console.log(getStartedData, '.......getStartedData');
+  const CM_OPTIONS = arrayRange(80, 230, 1).map(String);
 
   const handleShiftCards = (text: any) => {
     setSelected(text);
   };
   const handleFeet = (value: any) => {
-    console.log(value, '.......feet');
     setFeet(value);
   };
   const handleInch = (value: any) => {
     setInch(value);
-    console.log(value, '.......Inch');
   };
   const concatHeight = `${feet}'${inch} `;
 
@@ -86,22 +85,7 @@ const SelectHeight = (props: Props) => {
         </View>
       ) : (
         <View style={[styles.wheelContainer, {justifyContent: 'center'}]}>
-          <WheelScrollPicker
-            data={[
-              '171',
-              '172',
-              '173',
-              '174',
-              '175',
-              '176',
-              '177',
-              '178',
-              '179',
-              '180',
-              '181',
-            ]}
-            handleChange={handleFeet}
-          />
+          <WheelScrollPicker data={CM_OPTIONS} handleChange={handleFeet} />
           <Text color={colors.text} medium size={18}>
             cm
           </Text>

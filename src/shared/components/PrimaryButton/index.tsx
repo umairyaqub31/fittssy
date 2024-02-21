@@ -1,7 +1,13 @@
 import React from 'react';
 import {RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
-import {StyleSheet, Text, View, TouchableOpacityProps} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacityProps,
+  Pressable,
+} from 'react-native';
 
 interface Props extends TouchableOpacityProps {
   mt?: any;
@@ -34,7 +40,8 @@ const PrimaryButton = (props: Partial<Props>) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   return (
-    <View
+    <Pressable
+      {...otherProps}
       style={[
         styles.button,
         containerStyle && containerStyle,
@@ -56,7 +63,6 @@ const PrimaryButton = (props: Partial<Props>) => {
         },
       ]}>
       <Text
-        {...otherProps}
         style={[
           styles.medium,
           {
@@ -67,7 +73,7 @@ const PrimaryButton = (props: Partial<Props>) => {
         ]}>
         {title}
       </Text>
-    </View>
+    </Pressable>
   );
 };
 
@@ -79,7 +85,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 34,
-    alignSelf: 'center',
+
+    // alignSelf: 'center',
   },
   medium: {color: '#fff'},
 });

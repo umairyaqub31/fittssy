@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <Wrapper isTop>
       <Text semiBold size={22} color={colors.text} style={margin.bottom_24}>
-        Welcome back, Sarah!
+        Welcome back
       </Text>
       <CustomInput
         label="Email Address"

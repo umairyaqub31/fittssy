@@ -12,33 +12,36 @@ const ExerciseOfDay = () => {
   const styles = useStyles(colors);
   return (
     <>
-      <ImageBackground source={exercise} style={styles.ImageBackgroundStyle}>
-        <LinearGradient
-          end={{x: 0, y: 0}}
-          start={{x: 0, y: 1}}
-          colors={colors.gradientBackground}
-          style={{
-            position: 'absolute',
-            height: RF(90),
-            width: '100%',
-            alignSelf: 'center',
-            backgroundColor: 'transparent',
-            zIndex: 1,
-          }}></LinearGradient>
-
-        <Image
-          source={exercise1}
-          style={{
-            height: RF(300),
-            width: RF(185),
-            resizeMode: 'contain',
-            alignSelf: 'center',
-          }}
-        />
-        <Text center size={18} medium color={colors.text}>
-          Workout log is empty
-        </Text>
-      </ImageBackground>
+      <Image
+        source={exercise}
+        style={{
+          height: 337.5,
+          width: SCREEN_WIDTH,
+          // resizeMode: 'contain',
+          // alignSelf: 'center',
+        }}
+      />
+      <LinearGradient
+        end={{x: 0, y: 0}}
+        start={{x: 0, y: 1}}
+        colors={colors.gradientBackground}
+        style={{
+          position: 'absolute',
+          height: RF(90),
+          width: '100%',
+          alignSelf: 'center',
+          backgroundColor: 'transparent',
+          zIndex: 1,
+          bottom: 130,
+        }}></LinearGradient>
+      <Text
+        center
+        size={18}
+        medium
+        color={colors.grayText}
+        style={{marginTop: -15}}>
+        Workout log is empty
+      </Text>
     </>
   );
 };
@@ -69,7 +72,7 @@ const useStyles = (colors: any) =>
     ImageBackgroundStyle: {
       width: SCREEN_WIDTH,
       alignSelf: 'center',
-      height: '100%',
+      height: 337.5,
       justifyContent: 'flex-end',
     },
     TabStyle: {flexDirection: 'row', alignItems: 'center', marginTop: RF(16)},

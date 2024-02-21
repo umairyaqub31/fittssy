@@ -35,6 +35,7 @@ import CheckBox from './checkbox';
 import Line from './line';
 import CustomSwitch from './customSwitch';
 import SwipeHeader from './swipeHeader';
+import CustomDropDown from './DropDownLib';
 export {
   Search,
   Wrapper,
@@ -73,4 +74,5 @@ export {
   Line,
   CustomSwitch,
   SwipeHeader,
+  CustomDropDown,
 };

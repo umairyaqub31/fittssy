@@ -26,6 +26,8 @@ const SelectGender = (props: Props) => {
     getStartedData?.gender == 'Male' ? squareGradient : graySquare;
   const femaleCard =
     getStartedData?.gender == 'Female' ? squareGradient : graySquare;
+  const NottosayCard =
+    getStartedData?.gender == 'Nottosay' ? squareGradient : graySquare;
 
   const handleGender = (text: any) => {
     dispatch(setGetStartedData({...getStartedData, gender: text}));
@@ -101,6 +103,42 @@ const SelectGender = (props: Props) => {
           </ImageBackground>
         </Pressable>
       </View>
+      <Pressable
+        style={[styles.card, {alignSelf: 'center'}]}
+        onPress={() => handleGender('Nottosay')}>
+        <ImageBackground
+          source={NottosayCard}
+          resizeMode="contain"
+          style={{
+            height: RF(134),
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text
+            size={20}
+            semiBold
+            style={margin.top_16}
+            color={
+              getStartedData?.gender == 'Nottosay'
+                ? colors.primary
+                : colors.text
+            }>
+            Prefer
+          </Text>
+          <Text
+            size={20}
+            semiBold
+            // style={margin.top_16}
+            color={
+              getStartedData?.gender == 'Nottosay'
+                ? colors.primary
+                : colors.text
+            }>
+            not to say
+          </Text>
+        </ImageBackground>
+      </Pressable>
     </>
   );
 };

@@ -24,6 +24,12 @@ export async function getDataFromUserDefaults(key: any) {
   return undefined;
 }
 
+export const arrayRange = (start: number, stop: number, step: number) =>
+  Array.from(
+    {length: (stop - start) / step + 1},
+    (value, index) => start + index * step,
+  );
+
 export const list = [
   {title: 'Existing Workout Plan', index: 0},
   {title: 'New Workout Plan', index: 1},
@@ -115,15 +121,15 @@ export const data5 = [
   },
   {
     id: 1,
-    heading: '3 to 4',
+    heading: '3',
   },
   {
     id: 2,
-    heading: '5 to 6',
+    heading: '4',
   },
   {
     id: 3,
-    heading: 'More than 7',
+    heading: '5 or more',
   },
 ];
 export const data6 = [

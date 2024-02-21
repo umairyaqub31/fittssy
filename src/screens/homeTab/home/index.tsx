@@ -28,9 +28,9 @@ const Home = () => {
         </View>
       </View>
       <HomeTopTabs />
-      <View style={styles.buttonView}>
+      {/* <View style={styles.buttonView}>
         <AddButton center title={'Create New'} onPress={handleCreateNew} />
-      </View>
+      </View> */}
     </Wrapper>
   );
 };

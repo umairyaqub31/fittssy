@@ -6,6 +6,7 @@ import {useTheme} from '@react-navigation/native';
 
 interface Props {
   width?: any;
+  height?: any;
   selected?: any;
   title?: any;
   textColor?: any;
@@ -17,6 +18,9 @@ interface Props {
   tintColorStart?: any;
   startIcon?: any;
   square?: any;
+  f_size?: any;
+  f_weight?: any;
+  bgColor?: any;
 }
 
 const CheckBox = (props: Props) => {
@@ -32,6 +36,11 @@ const CheckBox = (props: Props) => {
     startIcon,
     tintColorStart,
     square,
+    f_size,
+    f_weight,
+    width,
+    height,
+    bgColor,
   } = props;
   const theme: any = useTheme();
   const colors = theme.colors;
@@ -51,7 +60,7 @@ const CheckBox = (props: Props) => {
               : colors.grayText,
           borderRadius: checkboxSize ? checkboxSize / 2 : square ? 2 : 13,
           justifyContent: 'center',
-          backgroundColor: colors.background,
+          backgroundColor: bgColor ? bgColor : colors.background,
           alignItems: 'center',
         }}>
         <View
@@ -69,8 +78,10 @@ const CheckBox = (props: Props) => {
 
       {title && (
         <Text
-          size={16}
-          semiBold
+          size={f_size}
+          regular={f_weight == '500' ? true : false}
+          semiBold={f_weight == '600' ? true : false}
+          thin={f_weight == '400' ? true : false}
           color={textColor ? textColor : colors.text}
           style={[textStyle]}>
           {title}
@@ -81,8 +92,8 @@ const CheckBox = (props: Props) => {
           <Image
             source={startIcon}
             style={{
-              width: RF(32),
-              height: RF(32),
+              width: width ? width : RF(32),
+              height: height ? height : RF(32),
               tintColor: tintColorStart,
             }}
             resizeMode={'contain'}
