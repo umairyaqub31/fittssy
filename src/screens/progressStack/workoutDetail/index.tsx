@@ -16,7 +16,7 @@ const WorkoutDetail = (props: Partial<Props>) => {
   const {selectedDate}: any = props.route?.params;
 
   return (
-    <View style={{flex: 1, paddingHorizontal: 20}}>
+    <View style={{flex: 1, paddingHorizontal: 20, paddingTop: 20}}>
       <BackHeader
         title={moment(selectedDate).format('MMMM DD, YYYY')}
         width={'100%'}
