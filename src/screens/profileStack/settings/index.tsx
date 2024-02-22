@@ -6,7 +6,7 @@ import {margin} from '@theme';
 
 const Settings = ({navigation}: any) => {
   return (
-    <Wrapper isTop>
+    <Wrapper>
       <BackHeader title={'Settings'} startIcon navigation={navigation} />
       <FlatList
         data={settingsData}

@@ -240,3 +240,8 @@ export const detailData = [
     name: 'Toe Touchers',
   },
 ];
+export const profileData = [
+  {id: 0, title: 'Edit Profile', screen: 'EditProfile'},
+  {id: 1, title: 'Privacy Policy', screen: 'PrivacyPolicy'},
+  {id: 2, title: 'Settings', screen: 'Settings'},
+];

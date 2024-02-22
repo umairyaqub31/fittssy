@@ -22,7 +22,7 @@ const NavigateNext = (props: Props) => {
       <Text semiBold color={colors.text} size={16}>
         {title}
       </Text>
-      <Image source={next} style={icon._14} />
+      <Image source={next} style={icon._14} tintColor={colors.text} />
     </Pressable>
   );
 };

@@ -3,9 +3,10 @@ import {
   ImageBackground,
   PressableProps,
   StyleSheet,
+  View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {margin, RF} from '@theme';
+import {margin, padding, RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
 import Text from '../../text';
 import GradientCard from '../../gradientCard';
@@ -48,19 +49,17 @@ const SelectCard = (props: Props) => {
       {noFlatList ? null : (
         <FlatList
           data={data}
-          contentContainerStyle={margin.top_40}
+          contentContainerStyle={[margin.Vertical_20, {paddingBottom: 180}]}
           renderItem={({item}: any) => {
             return (
-              <>
-                <GradientCard
-                  {...props}
-                  cardStyle={cardStyle}
-                  innerSyle={innerSyle}
-                  onPress={() => onPress && onPress(item.heading)}
-                  item={item}
-                  initialState={initialState}
-                />
-              </>
+              <GradientCard
+                {...props}
+                cardStyle={cardStyle}
+                innerSyle={innerSyle}
+                onPress={() => onPress && onPress(item.heading)}
+                item={item}
+                initialState={initialState}
+              />
             );
           }}
         />

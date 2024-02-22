@@ -4,6 +4,7 @@ import Text from '../text';
 import {back, plus} from '@assets';
 import {useTheme} from '@react-navigation/native';
 import {Image, Pressable, StyleSheet, View} from 'react-native';
+import {navigationRef} from '@services';
 
 const BackHeader = ({
   edit,
@@ -30,12 +31,16 @@ const BackHeader = ({
   const colors = theme.colors;
   const styles = useStyles(theme);
 
+  const handleBack = () => {
+    navigationRef.current.goBack();
+  };
+
   return (
     <View style={[styles.main, {paddingHorizontal: isHorizontal ? RF(20) : 0}]}>
       {startIcon && (
         <Pressable
-          style={[styles.container, {backgroundColor: colors?.card}]}
-          onPress={() => navigation.goBack()}>
+          style={[styles.container, {backgroundColor: colors.card}]}
+          onPress={handleBack}>
           <Image source={back} style={styles.img} />
         </Pressable>
       )}

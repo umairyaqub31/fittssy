@@ -36,6 +36,8 @@ import Line from './line';
 import CustomSwitch from './customSwitch';
 import SwipeHeader from './swipeHeader';
 import CustomDropDown from './DropDownLib';
+import UpGradeCard from './upgradeCard';
+import ProfileHeader from './profileHeader';
 export {
   Search,
   Wrapper,
@@ -75,4 +77,6 @@ export {
   CustomSwitch,
   SwipeHeader,
   CustomDropDown,
+  UpGradeCard,
+  ProfileHeader,
 };

@@ -99,7 +99,6 @@ const CustomInput = (props: Props) => {
               color: color ? color : theme?.colors?.text,
             },
           ]}
-          {...otherProps}
           {...props}
         />
 

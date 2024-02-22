@@ -23,7 +23,7 @@ const ExerciseOfDay = () => {
       />
       <LinearGradient
         end={{x: 0, y: 0}}
-        start={{x: 0, y: 1}}
+        start={{x: 0, y: 0.9}}
         colors={colors.gradientBackground}
         style={{
           position: 'absolute',
@@ -32,7 +32,7 @@ const ExerciseOfDay = () => {
           alignSelf: 'center',
           backgroundColor: 'transparent',
           zIndex: 1,
-          bottom: 130,
+          bottom: 110,
         }}></LinearGradient>
       <Text
         center

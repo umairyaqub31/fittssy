@@ -48,8 +48,8 @@ const AppMode = ({navigation}: any) => {
   };
 
   return (
-    <Wrapper isTop>
-      <BackHeader title={'App Mode'} startIcon navigation={navigation} />
+    <Wrapper>
+      <BackHeader title={'App Mode'} startIcon />
       <View style={margin.top_32}>
         <CustomSwitch mode={'dark'} />
         <Line />

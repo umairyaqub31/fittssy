@@ -1,12 +1,19 @@
-import {StyleSheet, Image, View, Pressable} from 'react-native';
+import {StyleSheet, Image, View, Pressable, FlatList} from 'react-native';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {setIsLoggedIn} from '@redux';
-import {Text, Wrapper} from '@components';
-import {logout, next, premium, prof} from '@assets';
+import {
+  NavigateNext,
+  ProfileHeader,
+  Text,
+  UpGradeCard,
+  Wrapper,
+} from '@components';
+import {logout, next, prof} from '@assets';
 import {flex, icon, margin, RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
 import {navigate} from '@services';
+import {profileData} from '@utils';
 
 const ProfileOverview = () => {
   const theme: any = useTheme();
@@ -20,51 +27,20 @@ const ProfileOverview = () => {
   };
 
   return (
-    <Wrapper isTop viewStyle={styles.justify}>
-      <View style={styles.container}>
-        <View style={styles.imgView}>
-          <Image
-            source={userImg ? {uri: userImg} : prof}
-            style={styles.prof_Image}
-          />
-        </View>
-        <Text bold color={colors.text} size={22}>
-          Sarah Wegan
-        </Text>
-        <View style={[flex.rowSimple, styles.gap]}>
-          <Image source={premium} style={icon._14} />
-          <Text medium color={colors.primary} size={16}>
-            Premium User
-          </Text>
-        </View>
-        <Text color={colors.grayText} style={margin.top_8}>
-          Joined: 2 months ago
-        </Text>
-        <Pressable
-          style={styles.between}
-          onPress={() => navigate('EditProfile', '')}>
-          <Text semiBold color={colors.text} size={16}>
-            Edit Profile
-          </Text>
-          <Image source={next} style={icon._14} />
-        </Pressable>
-        <Pressable
-          style={styles.between}
-          onPress={() => navigate('PrivacyPolicy', '')}>
-          <Text semiBold color={colors.text} size={16}>
-            Privacy Policy
-          </Text>
-          <Image source={next} style={icon._14} />
-        </Pressable>
-        <Pressable
-          style={[styles.between, {borderBottomWidth: 0}]}
-          onPress={() => navigate('Settings', '')}>
-          <Text semiBold color={colors.text} size={16}>
-            Settings
-          </Text>
-          <Image source={next} style={icon._14} />
-        </Pressable>
+    <Wrapper viewStyle={styles.justify}>
+      <ProfileHeader userImg={userImg} />
+      <View>
+        <FlatList
+          data={profileData}
+          renderItem={({item, index}: any) => {
+            return <NavigateNext title={item.title} onPress={item.screen} />;
+          }}
+        />
       </View>
+
+      {/* .............Premium Card.......... */}
+      <UpGradeCard />
+
       <Pressable style={styles.logOut} onPress={handleLogout}>
         <Image source={logout} style={icon._24} />
         <Text semiBold color={colors.primary} size={16}>
@@ -79,24 +55,6 @@ export default ProfileOverview;
 
 const useStyles = (colors: any) =>
   StyleSheet.create({
-    container: {
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    imgView: {
-      height: RF(104),
-      width: RF(104),
-      borderRadius: 55,
-      marginBottom: RF(8),
-      overflow: 'hidden',
-    },
-    prof_Image: {
-      height: '100%',
-      width: '100%',
-    },
-    gap: {
-      gap: 5,
-    },
     between: {
       flexDirection: 'row',
       width: '100%',

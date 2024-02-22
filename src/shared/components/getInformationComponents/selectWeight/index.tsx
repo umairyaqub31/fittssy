@@ -60,13 +60,14 @@ const SelectWeight = (props: Props) => {
           {selected}
         </Text>
       </View>
-      <Pressable style={margin.top_56} onPress={handleWeight}>
+      <View style={margin.top_56}>
         <PrimaryButton
+          onPress={handleWeight}
           title={'Next'}
           textColor={colors.text}
           containerStyle={margin.top_56}
         />
-      </Pressable>
+      </View>
     </>
   );
 };

@@ -57,15 +57,14 @@ const SelectHeight = (props: Props) => {
         value={selected == 'ft' ? `${feet}'${inch}"` : `${feet}${inch}`}
         style={styles.input}
       />
-      <Pressable
-        style={margin.top_56}
-        onPress={() => handleHeight(concatHeight)}>
+      <View style={margin.top_56}>
         <PrimaryButton
+          onPress={() => handleHeight(concatHeight)}
           title={'Next'}
           textColor={colors.text}
           containerStyle={margin.top_56}
         />
-      </Pressable>
+      </View>
       {selected == 'ft' ? (
         <View style={styles.wheelContainer}>
           <WheelScrollPicker

@@ -23,8 +23,7 @@ const Content = (props: Props) => {
       <Text size={13} center style={[margin.top_16]} color={colors.grayText}>
         {desc_2}
       </Text>
-      <Pressable
-        onPress={onPress}
+      <View
         style={{
           position: 'absolute',
           bottom: RF(40),
@@ -32,11 +31,12 @@ const Content = (props: Props) => {
           left: 20,
         }}>
         <PrimaryButton
+          onPress={onPress}
           title={'Next'}
           textColor={colors.text}
           containerStyle={margin.top_56}
         />
-      </Pressable>
+      </View>
     </>
   );
 };

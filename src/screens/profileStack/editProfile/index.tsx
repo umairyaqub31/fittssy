@@ -44,8 +44,8 @@ const EditProfile = ({navigation}: any) => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <Wrapper isTop>
-        <BackHeader startIcon navigation={navigation} />
+      <Wrapper>
+        <BackHeader startIcon />
         <View style={styles.imgView}>
           <Image
             source={userImg ? {uri: userImg} : prof}
@@ -53,15 +53,18 @@ const EditProfile = ({navigation}: any) => {
           />
           <View style={styles.assetView}>
             <Pressable style={styles.innerView} onPress={launchCamera}>
-              <Image source={cam} style={icon._18} />
+              <Image
+                source={cam}
+                style={{...icon._18, tintColor: colors.text}}
+              />
             </Pressable>
           </View>
         </View>
         <View style={[margin.top_70, margin.bottom_24]}>
-          <CustomInput label="First Name" />
-          <CustomInput label="Last Name" />
-          <CustomInput label="Email" />
-          <CustomInput label="Confirm Email" />
+          <CustomInput label="First Name" inputStyle={styles.input} />
+          <CustomInput label="Last Name" inputStyle={styles.input} />
+          <CustomInput label="Email" inputStyle={styles.input} />
+          <CustomInput label="Confirm Email" inputStyle={styles.input} />
         </View>
         <PrimaryButton title={'Save'} textColor={colors.white} />
       </Wrapper>
@@ -94,7 +97,7 @@ const useStyles = (colors: any) =>
       height: RF(42),
       width: RF(42),
       borderRadius: 22,
-      backgroundColor: '#fff',
+      backgroundColor: colors.background,
       padding: RF(5),
     },
     innerView: {
@@ -105,4 +108,5 @@ const useStyles = (colors: any) =>
       alignItems: 'center',
       backgroundColor: colors.card,
     },
+    input: {borderWidth: 1, borderColor: colors.card},
   });

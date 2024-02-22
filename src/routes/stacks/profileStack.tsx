@@ -1,11 +1,13 @@
 import React from 'react';
 import {
   AppMode,
+  EditPaymentCard,
   EditProfile,
-  InsightOverview,
   Notification,
+  Payment,
   PrivacyPolicy,
   ProfileOverview,
+  SelectPlan,
   Settings,
   ThirdParty,
   UnitMeasure,
@@ -25,6 +27,9 @@ const ProfileStack = ({route, navigation}: any) => {
       <Stack.Screen name="Notification" component={Notification} />
       <Stack.Screen name="AppMode" component={AppMode} />
       <Stack.Screen name="ThirdParty" component={ThirdParty} />
+      <Stack.Screen name="SelectPlan" component={SelectPlan} />
+      <Stack.Screen name="Payment" component={Payment} />
+      <Stack.Screen name="EditPaymentCard" component={EditPaymentCard} />
     </Stack.Navigator>
   );
 };
