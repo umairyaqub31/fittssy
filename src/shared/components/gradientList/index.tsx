@@ -21,11 +21,11 @@ const GradientList = ({
   const onSelect = (item: any, index: any) => {
     setSelected(index);
     if (item == 'Exercise') {
-      navigate('Exercise', '');
+      navigate('Exercise', {});
     } else if (item == 'Workout') {
-      navigate('WorkOut', '');
+      navigate('WorkOut', {});
     } else if (item == 'Workout Plan') {
-      navigate('Workout_Plan', '');
+      navigate('Workout_Plan', {});
     }
   };
 
@@ -38,29 +38,33 @@ const GradientList = ({
         return (
           <>
             <Pressable
-              style={{
-                justifyContent: 'center',
-                backgroundColor: colors.background,
-                borderBottomColor: 'gray',
-                borderBottomWidth: StyleSheet.hairlineWidth,
-              }}
+              style={
+                {
+                  // justifyContent: 'center',
+                  // backgroundColor: colors.background,
+                  // borderBottomColor: colors.grayText,
+                  // borderBottomWidth: StyleSheet.hairlineWidth,
+                }
+              }
               onPress={() => onSelect(item, index)}>
               <Gradient clrs={selected == index ? true : false}>
                 <Text
                   color={selected == index ? 'white' : colors.text}
                   semiBold
-                  style={{marginLeft: RF(28), marginTop: RF(20)}}>
+                  // style={{marginLeft: RF(28), marginTop: RF(20)}}
+                >
                   {item}
                 </Text>
               </Gradient>
             </Pressable>
-            {/* <View
+
+            <View
               style={{
                 height: 1,
                 backgroundColor: '#EAEAEA',
                 marginHorizontal: RF(20),
               }}
-            /> */}
+            />
           </>
         );
       }}

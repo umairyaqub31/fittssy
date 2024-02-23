@@ -1,8 +1,10 @@
 import {RF} from '@theme';
 import {tick} from '@assets';
 import React, {useState} from 'react';
-import {BackHeader, Gradient, Search, Text} from '@components';
+import {BackHeader, Gradient, Search, Text, Wrapper} from '@components';
 import {FlatList, Image, Pressable, StyleSheet, View} from 'react-native';
+import {useTheme} from '@react-navigation/native';
+import {LogBox} from 'react-native';
 
 interface Props {
   data?: any;
@@ -17,7 +19,11 @@ const SearchToSelect = (props: Partial<Props>) => {
   const [selected, setSelected] = useState<any>();
   const [selectick, setSelecTick] = useState<any>();
   const [selectedGradient, setSelectedGradient] = useState<any>();
-
+  const theme = useTheme();
+  const colors = theme.colors;
+  LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ]);
   const onSubmitEditing = () => {};
 
   const onSelectGradient = (item: any, index: any) => {
@@ -38,9 +44,11 @@ const SearchToSelect = (props: Partial<Props>) => {
   };
 
   return (
-    <View>
-      <BackHeader title={title} endIcon={endIcon} />
-      <Search onSubmitEditing={onSubmitEditing} />
+    <Wrapper isPaddingH>
+      <View style={{paddingHorizontal: 20}}>
+        <BackHeader title={title} startIcon />
+        <Search onSubmitEditing={onSubmitEditing} />
+      </View>
 
       <FlatList
         data={data}
@@ -57,7 +65,7 @@ const SearchToSelect = (props: Partial<Props>) => {
                     <Text
                       semiBold
                       style={styles.txt}
-                      color={selectedGradient == index ? 'white' : 'black'}>
+                      color={selectedGradient == index ? 'white' : colors.text}>
                       {item?.title}
                     </Text>
                   </Gradient>
@@ -69,7 +77,7 @@ const SearchToSelect = (props: Partial<Props>) => {
                   <Text
                     semiBold
                     style={styles.txt}
-                    color={selectick == index ? 'black' : 'black'}>
+                    color={selectick == index ? colors.text : colors.text}>
                     {item?.title}
                   </Text>
                   <>
@@ -84,7 +92,7 @@ const SearchToSelect = (props: Partial<Props>) => {
           );
         }}
       />
-    </View>
+    </Wrapper>
   );
 };
 
@@ -101,16 +109,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   pressable: {
-    justifyContent: 'center',
+    // height: 64,
+    // justifyContent: 'center',
   },
-  txt: {marginLeft: RF(28), marginTop: RF(20)},
+  // txt: {marginLeft: RF(28), marginTop: RF(20)},
   view: {
-    height: 1,
+    height: 0.5,
     backgroundColor: '#EAEAEA',
     marginHorizontal: RF(20),
   },
   _view: {
-    height: 1,
+    height: 0.5,
     backgroundColor: '#EAEAEA',
     marginHorizontal: RF(20),
     marginTop: RF(20),

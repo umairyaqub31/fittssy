@@ -6,6 +6,7 @@ import {
   CustomInput,
   CustomOverlay,
   PrimaryButton,
+  Wrapper,
 } from '@components';
 import {plus} from '@assets';
 import styles from './styles';
@@ -51,7 +52,7 @@ const WorkOut = (props: Props) => {
   };
 
   return (
-    <View style={{paddingHorizontal: 20}}>
+    <Wrapper>
       <BackHeader
         title={'Create New Workout'}
         startIcon
@@ -81,17 +82,26 @@ const WorkOut = (props: Props) => {
             />
 
             <View style={styles.view}>
-              <Text style={styles.txt}>Add to</Text>
-
-              <ToggleList data={list} onToggle={onToggle} selected={selected} />
+              <Text semiBold size={14} style={styles.txt}>
+                Add to
+              </Text>
+              <ScrollView horizontal scrollEnabled={false}>
+                <ToggleList
+                  data={list}
+                  onToggle={onToggle}
+                  selected={selected}
+                />
+              </ScrollView>
             </View>
 
-            <PrimaryButton
-              mt={50}
-              width={263}
-              title={'Next'}
-              textColor={'white'}
-            />
+            <View style={{alignItems: 'center'}}>
+              <PrimaryButton
+                mt={50}
+                width={263}
+                title={'Next'}
+                textColor={'white'}
+              />
+            </View>
           </ScrollView>
 
           {overlay && (
@@ -105,6 +115,7 @@ const WorkOut = (props: Props) => {
                   renderItem={({item, index}: any) => {
                     return (
                       <PlanBox
+                        key={index}
                         label={item?.label}
                         description={item?.description}
                         status={item?.status}
@@ -127,7 +138,7 @@ const WorkOut = (props: Props) => {
           )}
         </>
       )}
-    </View>
+    </Wrapper>
   );
 };
 

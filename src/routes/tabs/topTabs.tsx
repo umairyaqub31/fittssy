@@ -4,7 +4,9 @@ import {WorkoutLogs, WorkoutNotes, WorkoutBody, WorkoutPhotos} from '@screens';
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function TopTabs() {
+export default function TopTabs(props: any) {
+  const {selectedDate} = props;
+  console.log('ppp...', selectedDate);
   const theme: any = useTheme();
   const colors = theme.colors;
 
@@ -18,7 +20,10 @@ export default function TopTabs() {
         },
       }}>
       <Tab.Screen name="Logs" component={WorkoutLogs} />
-      <Tab.Screen name="Notes" component={WorkoutNotes} />
+      <Tab.Screen
+        name="Notes"
+        children={() => <WorkoutNotes selectedDate={selectedDate} />}
+      />
       <Tab.Screen name="Body" component={WorkoutBody} />
       <Tab.Screen name="Photos" component={WorkoutPhotos} />
     </Tab.Navigator>

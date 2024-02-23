@@ -6,7 +6,7 @@ import {Image, Pressable, StyleSheet, TextInput} from 'react-native';
 
 const Search = ({onSubmitEditing}: {onSubmitEditing?: any}) => {
   const theme: any = useTheme();
-  const styles = useStyles(theme);
+  const styles = useStyles(theme.colors);
 
   return (
     <Pressable style={styles.main}>
@@ -26,10 +26,11 @@ const useStyles = (colors: any) =>
     main: {
       borderWidth: 1,
       height: RF(48),
+      width: '100%',
       borderRadius: 35,
-      marginHorizontal: RF(25),
+      // marginHorizontal: RF(25),
       marginVertical: RF(20),
-      borderColor: colors?.colors?.lightGray,
+      borderColor: colors?.lightGray,
       flexDirection: 'row',
       alignItems: 'center',
     },
@@ -42,6 +43,7 @@ const useStyles = (colors: any) =>
       fontWeight: '600',
       marginLeft: RF(20),
       width: '80%',
+      color: colors.text,
     },
   });
 export default Search;

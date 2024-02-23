@@ -27,6 +27,7 @@ const PlanBox = ({
   onClickEdit: (i: any) => void;
 }) => {
   const theme: any = useTheme();
+  const colors: any = theme.colors;
   const styles = useStyles(theme);
   const [cardSwitch, setCardSwitch] = useState<any>('Current');
   const [condition, setCondition] = useState();
@@ -71,7 +72,7 @@ const PlanBox = ({
             {condition == index ? 'Current' : 'Switch'}
           </Text>
         )}
-        <Text color={'black'} size={12} regular style={styles.ml}>
+        <Text color={colors.text} size={12} regular style={styles.ml}>
           {label}
         </Text>
         <Pressable onPress={() => onClickEdit(description)}>

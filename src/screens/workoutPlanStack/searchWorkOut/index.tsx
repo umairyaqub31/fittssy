@@ -23,13 +23,7 @@ const SearchWorkOut = (props: Props) => {
 
   return (
     <>
-      <SearchToSelect
-        endIcon
-        gradient
-        title={title}
-        data={category}
-        onOpen={onOpen}
-      />
+      <SearchToSelect gradient title={title} data={category} onOpen={onOpen} />
     </>
   );
 };

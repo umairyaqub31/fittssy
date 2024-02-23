@@ -165,6 +165,22 @@ export const category = [
   {title: 'Other'},
 ];
 
+export const typeData = [
+  {title: 'Weight and Reps'},
+  {title: 'Distance and Time'},
+  {title: 'Weight and Distance'},
+  {title: 'Weight and Time'},
+  {title: 'Reps and Distance'},
+  {title: 'Reps and Time'},
+  {title: 'Weight'},
+];
+
+export const WeightUnit = [
+  {title: 'Default (kgs)'},
+  {title: 'Metric (kgs)'},
+  {title: 'Imperial (lbs)'},
+];
+
 export const abs = [
   {title: 'Ab-Wheel Rollout'},
   {title: 'Cable Crunch'},

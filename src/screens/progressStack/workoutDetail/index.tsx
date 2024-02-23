@@ -23,7 +23,7 @@ const WorkoutDetail = (props: Partial<Props>) => {
         // onEdit={onEdit}
       />
       <View style={{flex: 1, marginTop: 10}}>
-        <TopTabs />
+        <TopTabs selectedDate={selectedDate} />
       </View>
       {/* <Text>WorkoutDetail</Text> */}
     </View>

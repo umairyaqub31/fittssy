@@ -12,6 +12,7 @@ import {
 import {useTheme} from '@react-navigation/native';
 import {next} from '@assets';
 import {getDataFromUserDefaults} from '@utils';
+import {navigate} from '@services';
 
 const BODYPARTS = [
   {label: 'Abs', value: 'Abs'},
@@ -25,7 +26,8 @@ const BODYPARTS = [
   {label: 'Thigh', value: 'Thigh'},
   {label: 'Calf', value: 'Calf'},
 ];
-const WorkoutNotes = () => {
+const WorkoutNotes = (props: any) => {
+  const {selectedDate} = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   const [showModal, setShowModal] = useState(false);
@@ -38,6 +40,7 @@ const WorkoutNotes = () => {
   };
   const handleNotePress = () => {
     console.log('Note Press');
+    navigate('NotePad', {selectedDate: selectedDate});
   };
 
   const handelOpenModal = () => {
@@ -279,39 +282,3 @@ const Content = (props: any) => {
     </View>
   );
 };
-
-// const Content = (props: any) => {
-//   const {colors} = props;
-//   return (
-//     <View style={{flex: 1, padding: 20}}>
-//       <Text size={18} semiBold color={colors.text}>
-//         Select an exercise from
-//       </Text>
-//       <PrimaryButton
-//         f_Size={14}
-//         border
-//         mt={20}
-//         title={'Current Plan'}
-//         height={45}
-//         // onPress={handleNotePress}
-//       />
-//       <PrimaryButton
-//         f_Size={14}
-//         mt={14}
-//         border
-//         title={'Fittssy Exercises Liabrary'}
-//         height={45}
-
-//         // onPress={handleNotePress}
-//       />
-//       <PrimaryButton
-//         f_Size={14}
-//         mt={14}
-//         border
-//         title={'Custom Exercises'}
-//         height={45}
-//         // onPress={handleNotePress}
-//       />
-//     </View>
-//   );
-// };

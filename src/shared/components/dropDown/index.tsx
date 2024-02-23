@@ -14,6 +14,7 @@ interface Props extends TextInputProps {
   tintColor?: any;
   m_Vertical?: any;
   tintColorStart?: any;
+  value?: any;
   onPress?: () => void;
   placeHolder?: any;
   title?: any;
@@ -32,6 +33,7 @@ const DropDown = (props: Props) => {
     tintColorStart,
     placeHolder,
     title,
+    value,
     ...otherProps
   } = props;
   const theme: any = useTheme();
@@ -44,7 +46,11 @@ const DropDown = (props: Props) => {
         {marginVertical: m_Vertical, marginTop: m_Top ? m_Top : RF(20)},
       ]}
       onPress={() => onPress(title)}>
-      {label && <Text style={styles.label}>{label}</Text>}
+      {label && (
+        <Text semiBold size={14} style={styles.label}>
+          {label}
+        </Text>
+      )}
 
       <View style={[styles.InputContainer]}>
         {startIcon && (
@@ -59,9 +65,15 @@ const DropDown = (props: Props) => {
             resizeMode={'contain'}
           />
         )}
-        <Text style={styles.input} medium>
-          {title}
-        </Text>
+        {value ? (
+          <Text style={styles.input} medium size={14}>
+            {value}
+          </Text>
+        ) : (
+          <Text style={styles.input} regular size={14}>
+            {title}
+          </Text>
+        )}
 
         {endIcon && (
           <Image
@@ -91,8 +103,8 @@ const useStyles = (colors: any) =>
       width: '100%',
       flexDirection: 'row',
       alignItems: 'center',
-      borderColor: colors?.borderGray,
-      borderWidth: 1,
+      borderColor: colors?.dimGray,
+      borderWidth: 0.8,
       height: RF(48),
       borderRadius: 35,
       marginRight: RF(20),
@@ -100,12 +112,12 @@ const useStyles = (colors: any) =>
     label: {
       fontWeight: '600',
       marginBottom: RF(15),
+      color: colors.text,
     },
     input: {
       flex: 1,
-      color: '#858585',
+      color: colors.text,
       alignItems: 'center',
-      fontSize: RF(14),
       paddingHorizontal: RF(20),
     },
     errorInput: {

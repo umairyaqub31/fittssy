@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleButton from '../toggleButton';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, ScrollView, StyleSheet, View} from 'react-native';
 import Text from '../text';
 import {RF} from '@theme';
 

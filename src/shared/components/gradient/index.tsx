@@ -31,6 +31,8 @@ const Gradient = (props: Partial<Props>) => {
 const styles = StyleSheet.create({
   linearGradient: {
     height: RF(64),
+    justifyContent: 'center',
+    paddingHorizontal: 20,
   },
 });
 

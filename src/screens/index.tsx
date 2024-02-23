@@ -29,7 +29,7 @@ import WorkoutLogs from './progressStack/workoutDetail/logs';
 import WorkoutNotes from './progressStack/workoutDetail/notes';
 import WorkoutBody from './progressStack/workoutDetail/body';
 import WorkoutPhotos from './progressStack/workoutDetail/photos';
-
+import NotePad from './progressStack/workoutDetail/notepad';
 //..............Insight....................//
 import InsightOverview from './insightsStack';
 import CurrentPlan from './insightsStack/currentPlan';
@@ -69,6 +69,7 @@ export {
   WorkoutNotes,
   WorkoutBody,
   WorkoutPhotos,
+  NotePad,
 
   // Workout,
   AbsExercise,

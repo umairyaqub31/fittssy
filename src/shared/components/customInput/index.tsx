@@ -131,7 +131,7 @@ const useStyles = (colors: any) =>
     InputContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      borderColor: colors?.borderGray,
+      borderColor: colors?.dimGray,
       borderWidth: 1,
       height: RF(48),
       borderRadius: 35,

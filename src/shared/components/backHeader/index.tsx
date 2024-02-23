@@ -3,7 +3,14 @@ import {RF} from '@theme';
 import Text from '../text';
 import {back, plus} from '@assets';
 import {useTheme} from '@react-navigation/native';
-import {Image, Pressable, StyleSheet, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {navigationRef} from '@services';
 
 const BackHeader = ({
   edit,
@@ -35,8 +42,12 @@ const BackHeader = ({
       {startIcon && (
         <Pressable
           style={[styles.container, {backgroundColor: colors?.card}]}
-          onPress={() => navigation.goBack()}>
-          <Image source={back} style={styles.img} />
+          onPress={() => navigationRef.current.goBack()}>
+          <Image
+            source={back}
+            style={styles.img}
+            // onPress={() => navigation.goBack()}
+          />
         </Pressable>
       )}
 
@@ -95,6 +106,8 @@ const useStyles = (theme: any) =>
       justifyContent: 'space-between',
     },
     container: {
+      // flex: 1,
+
       width: RF(46),
       height: RF(46),
       borderRadius: 100,

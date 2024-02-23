@@ -92,9 +92,11 @@ const Login = () => {
         color={colors.primary}>
         Forgot Password?
       </Text>
-      <Pressable style={margin.top_24} onPress={handleFormik}>
-        <PrimaryButton title={'Sign In'} textColor={colors.text} />
-      </Pressable>
+      <PrimaryButton
+        title={'Sign In'}
+        textColor={colors.text}
+        onPress={handleFormik}
+      />
       <View style={[flex.rowBetween, margin.Vertical_24]}>
         <View style={styles.line} />
         <Text bold color={colors.grayText}>

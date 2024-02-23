@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {plus} from '@assets';
 import styles from './styles';
 import {FlatList, Image, Pressable, View} from 'react-native';
-import {BackHeader, CrunchBox, PrimaryButton, Text} from '@components';
+import {BackHeader, CrunchBox, PrimaryButton, Text, Wrapper} from '@components';
 import {RouteProp} from '@react-navigation/native';
 import {navigate} from '@services';
 
@@ -39,7 +39,7 @@ const NewWorkOut = (props: Props) => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <Wrapper style={{flex: 1}}>
       <BackHeader
         title={'Create New Workout'}
         edit
@@ -51,7 +51,7 @@ const NewWorkOut = (props: Props) => {
         <FlatList
           data={list}
           renderItem={({item, index}: any) => {
-            return <CrunchBox data={item} endImg />;
+            return <CrunchBox key={index} data={item} endImg />;
           }}
         />
       </View>
@@ -73,7 +73,7 @@ const NewWorkOut = (props: Props) => {
           />
         </View>
       </View>
-    </View>
+    </Wrapper>
   );
 };
 
