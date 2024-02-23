@@ -1,49 +1,57 @@
-import {StyleSheet, View, Image} from 'react-native';
+import {StyleSheet, View, Image, Pressable} from 'react-native';
 import React from 'react';
 import BorderGradientCard from '../borderGradientCard';
 import {useTheme} from '@react-navigation/native';
 import Text from '../text';
 import {icon, margin, RF} from '@theme';
 import {next} from '@assets';
+import {navigate} from '@services';
 
 const UpGradeCard = () => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(colors);
   return (
-    <BorderGradientCard
-      innerStyle={styles.gradientInnerCard}
-      colors={['transparent', 'transparent']}
-      bgColor={colors.background}>
+    <Pressable onPress={() => navigate('SelectPlan')}>
       <BorderGradientCard
-        mainCardStyle={{height: 25, width: 58}}
-        colors={colors.gradientCard}
-        bgColor={colors.primaryOpacity}>
-        <Text size={12} semiBold center color={colors.primary}>
-          PRO
+        innerStyle={styles.gradientInnerCard}
+        colors={['transparent', 'transparent']}
+        bgColor={colors.background}>
+        <BorderGradientCard
+          mainCardStyle={{height: 25, width: 58}}
+          colors={colors.gradientCard}
+          bgColor={colors.primaryOpacity}>
+          <Text size={12} semiBold center color={colors.primary}>
+            PRO
+          </Text>
+        </BorderGradientCard>
+        <Text
+          size={16}
+          semiBold
+          center
+          color={colors.text}
+          style={margin.top_8}>
+          Upgrade to Premium
         </Text>
+        <Text
+          size={12}
+          semiBold
+          center
+          color={colors.grayText}
+          style={margin.top_4}>
+          This subscription is auto-renewable
+        </Text>
+        <Image
+          source={next}
+          style={{
+            ...icon._14,
+            position: 'absolute',
+            right: RF(24),
+          }}
+          tintColor={colors.text}
+        />
       </BorderGradientCard>
-      <Text size={16} semiBold center color={colors.text} style={margin.top_8}>
-        Upgrade to Premium
-      </Text>
-      <Text
-        size={12}
-        semiBold
-        center
-        color={colors.grayText}
-        style={margin.top_4}>
-        This subscription is auto-renewable
-      </Text>
-      <Image
-        source={next}
-        style={{
-          ...icon._14,
-          position: 'absolute',
-          right: RF(24),
-        }}
-        tintColor={colors.text}
-      />
-    </BorderGradientCard>
+    </Pressable>
   );
 };
 

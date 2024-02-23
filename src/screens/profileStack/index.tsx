@@ -12,7 +12,6 @@ import {
 import {logout, next, prof} from '@assets';
 import {flex, icon, margin, RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
-import {navigate} from '@services';
 import {profileData} from '@utils';
 
 const ProfileOverview = () => {

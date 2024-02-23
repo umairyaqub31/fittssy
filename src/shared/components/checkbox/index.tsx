@@ -11,7 +11,8 @@ interface Props {
   title?: any;
   textColor?: any;
   checkboxSize?: any;
-  onPress: (title: any) => void;
+  onPress?: (title: any) => void;
+  renderContent?: any;
   textStyle?: any;
   containerStyle?: any;
   activeColor?: any;
@@ -21,6 +22,9 @@ interface Props {
   f_size?: any;
   f_weight?: any;
   bgColor?: any;
+  contentContainerStyle?: any;
+  disabled?: any;
+  item?: any;
 }
 
 const CheckBox = (props: Props) => {
@@ -41,13 +45,18 @@ const CheckBox = (props: Props) => {
     width,
     height,
     bgColor,
+    renderContent,
+    contentContainerStyle,
+    disabled,
+    item,
   } = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   return (
     <Pressable
-      onPress={() => onPress(title)}
-      style={[flex.rowSimple, containerStyle, {width: '100%'}]}>
+      disabled={disabled}
+      onPress={() => onPress && onPress(title)}
+      style={[flex.rowSimple, containerStyle]}>
       <View
         style={{
           height: checkboxSize ? RF(checkboxSize) : RF(22),
@@ -55,7 +64,7 @@ const CheckBox = (props: Props) => {
           borderWidth: 1,
 
           borderColor:
-            selected === title || selected === true
+            selected === title || selected === true || selected === item
               ? colors.primary
               : colors.grayText,
           borderRadius: checkboxSize ? checkboxSize / 2 : square ? 2 : 13,
@@ -69,13 +78,18 @@ const CheckBox = (props: Props) => {
             width: '60%',
             // backgroundColor: colors ? colors : '#00276D',
             backgroundColor:
-              selected === title || selected === true
+              selected === title || selected === true || selected === item
                 ? activeColor || (!activeColor && colors.primary)
                 : 'transparent',
             borderRadius: square ? 2 : 70,
           }}></View>
       </View>
 
+      {renderContent && (
+        <View style={[{flex: 1}, contentContainerStyle]}>
+          {renderContent()}
+        </View>
+      )}
       {title && (
         <Text
           size={f_size}

@@ -2,6 +2,7 @@ import React from 'react';
 import {RF} from '@theme';
 import {useTheme} from '@react-navigation/native';
 import {StyleSheet, Text, TouchableOpacityProps, Pressable} from 'react-native';
+import {useSelector} from 'react-redux';
 
 interface Props extends TouchableOpacityProps {
   mt?: any;
@@ -33,20 +34,19 @@ const PrimaryButton = (props: Partial<Props>) => {
   } = props;
   const theme: any = useTheme();
   const colors = theme.colors;
+  const {isLoggedIn} = useSelector((state: any) => state.root.user);
+
   return (
     <Pressable
       {...otherProps}
       style={[
         styles.button,
-        containerStyle && containerStyle,
+
         {
           color: textColor,
-          fontSize: f_Size ? f_Size : RF(16),
-          fontWeight: f_Weight ? f_Weight : '600',
           marginTop: mt ? mt : RF(10),
-
           height: height ? height : RF(50),
-          width: width ? RF(width) : '100%',
+          width: width ? RF(width) : isLoggedIn ? RF(263) : '100%',
           backgroundColor: bgColor
             ? bgColor
             : border
@@ -55,12 +55,17 @@ const PrimaryButton = (props: Partial<Props>) => {
           borderWidth: border ? 1 : 0,
           borderColor: border ? theme?.colors?.primary : null,
         },
+        containerStyle && containerStyle,
       ]}>
       <Text
         style={[
           styles.medium,
           {
-            color: border ? theme?.colors?.primary : textColor,
+            color: border
+              ? theme?.colors?.primary
+              : textColor
+              ? textColor
+              : colors.white,
             fontSize: f_Size ? f_Size : RF(16),
             fontFamily: 'Montserrat-SemiBold',
           },
@@ -79,6 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 34,
+    alignSelf: 'center',
 
     // alignSelf: 'center',
   },

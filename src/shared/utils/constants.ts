@@ -245,3 +245,39 @@ export const profileData = [
   {id: 1, title: 'Privacy Policy', screen: 'PrivacyPolicy'},
   {id: 2, title: 'Settings', screen: 'Settings'},
 ];
+export const planData = [
+  {
+    id: 0,
+    title: 'Donation',
+    desc: 'Pay as much you like',
+    price: '0.00',
+    perplan: ' / one off',
+  },
+  {
+    id: 1,
+    title: 'Monthly',
+    desc: 'Pay monthly, cancel any time',
+    price: '9.99',
+    perplan: ' / m',
+  },
+  {
+    id: 2,
+    title: 'Yearly',
+    desc: 'Pay for a full year',
+    price: '99.99',
+    perplan: ' / y',
+  },
+  {
+    id: 3,
+    title: 'Lifetime Supporter',
+    desc: 'All future features included',
+    price: '249.99',
+    perplan: ' / y',
+  },
+];
+export const cardData = [{id: 1}, {id: 2}];
+export const paymentMethod = [
+  {id: 0, title: 'Apple Pay'},
+  {id: 1, title: 'Google Pay'},
+  {id: 2, title: 'Bank Pay'},
+];

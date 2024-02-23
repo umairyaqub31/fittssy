@@ -38,6 +38,8 @@ import SwipeHeader from './swipeHeader';
 import CustomDropDown from './DropDownLib';
 import UpGradeCard from './upgradeCard';
 import ProfileHeader from './profileHeader';
+import AuthButtons from './authButton';
+import VISACard from './visaCard';
 export {
   Search,
   Wrapper,
@@ -79,4 +81,6 @@ export {
   CustomDropDown,
   UpGradeCard,
   ProfileHeader,
+  AuthButtons,
+  VISACard,
 };

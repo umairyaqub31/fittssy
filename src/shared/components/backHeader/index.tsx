@@ -12,7 +12,7 @@ const BackHeader = ({
   title,
   onEdit,
   endIcon,
-  startIcon,
+  noIcon,
   endTitle,
   navigation,
   isHorizontal,
@@ -24,7 +24,7 @@ const BackHeader = ({
   endIcon?: any;
   navigation?: any;
   endTitle?: any;
-  startIcon?: any;
+  noIcon?: any;
   isHorizontal?: any;
 }) => {
   const theme: any = useTheme();
@@ -32,12 +32,14 @@ const BackHeader = ({
   const styles = useStyles(theme);
 
   const handleBack = () => {
+    console.log('ssss');
+
     navigationRef.current.goBack();
   };
 
   return (
     <View style={[styles.main, {paddingHorizontal: isHorizontal ? RF(20) : 0}]}>
-      {startIcon && (
+      {noIcon ? null : (
         <Pressable
           style={[styles.container, {backgroundColor: colors.card}]}
           onPress={handleBack}>
@@ -102,7 +104,8 @@ const useStyles = (theme: any) =>
     container: {
       width: RF(46),
       height: RF(46),
-      borderRadius: 100,
+      zIndex: 100,
+      borderRadius: 25,
       alignItems: 'center',
       justifyContent: 'center',
     },
