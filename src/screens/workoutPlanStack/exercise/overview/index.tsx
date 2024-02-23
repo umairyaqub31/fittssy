@@ -109,6 +109,7 @@ const Exercise = ({navigation}: any) => {
             width={263}
             textColor={'white'}
             mt={50}
+            onPress={() => navigate('CreateNew', {})}
           />
         </View>
       </ScrollView>

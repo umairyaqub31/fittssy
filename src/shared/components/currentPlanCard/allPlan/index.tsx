@@ -37,6 +37,7 @@ const AllPlan = (props: Props) => {
         <PrimaryButton
           title={'Create Personal Workout Plan'}
           textColor={colors.white}
+          width={'100%'}
         />
       </Pressable>
       <FlatList
