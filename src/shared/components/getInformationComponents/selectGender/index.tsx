@@ -12,6 +12,7 @@ import {useTheme} from '@react-navigation/native';
 import {female, graySquare, male, squareGradient} from '@assets';
 import {useDispatch, useSelector} from 'react-redux';
 import {setGetStartedData} from '@redux';
+import BorderGradientCard from '../../borderGradientCard';
 
 interface Props {}
 
@@ -22,13 +23,6 @@ const SelectGender = (props: Props) => {
   const styles = useStyles(colors);
   const dispatch = useDispatch();
   const {getStartedData} = useSelector((state: any) => state.root.general);
-  const maleCard =
-    getStartedData?.gender == 'Male' ? squareGradient : graySquare;
-  const femaleCard =
-    getStartedData?.gender == 'Female' ? squareGradient : graySquare;
-  const NottosayCard =
-    getStartedData?.gender == 'Nottosay' ? squareGradient : graySquare;
-
   const handleGender = (text: any) => {
     dispatch(setGetStartedData({...getStartedData, gender: text}));
   };
@@ -41,20 +35,32 @@ const SelectGender = (props: Props) => {
       <Text size={13} center style={[margin.top_16]} color={colors.grayText}>
         Help us customize workout plans, calculate BMI and session calories.
       </Text>
-      <View style={flex.rowBetween}>
-        <Pressable style={[styles.card]} onPress={() => handleGender('Female')}>
-          <ImageBackground
-            source={femaleCard}
-            resizeMode="contain"
-            style={{
-              height: RF(134),
-              width: '100%',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+      <View
+        style={{
+          borderColor: 'red',
+          width: '100%',
+          marginTop: RF(40),
+          justifyContent: 'space-between',
+          flexDirection: 'row',
+        }}>
+        <Pressable
+          onPress={() => handleGender('Female')}
+          style={{width: '47%'}}>
+          <BorderGradientCard
+            colors={
+              getStartedData?.gender == 'Female'
+                ? colors.gradientCard
+                : ['transparent', 'transparent']
+            }
+            bgColor={
+              getStartedData?.gender == 'Female'
+                ? colors.primaryOpacity
+                : colors.card
+            }
+            mainCardStyle={{height: RF(134)}}>
             <Image
               source={female}
-              style={icon._54}
+              style={[icon._54, {alignSelf: 'center'}]}
               tintColor={
                 getStartedData?.gender == 'Female'
                   ? colors.primary
@@ -64,6 +70,7 @@ const SelectGender = (props: Props) => {
             <Text
               size={20}
               semiBold
+              center
               style={margin.top_16}
               color={
                 getStartedData?.gender == 'Female'
@@ -72,21 +79,24 @@ const SelectGender = (props: Props) => {
               }>
               Female
             </Text>
-          </ImageBackground>
+          </BorderGradientCard>
         </Pressable>
-        <Pressable style={[styles.card]} onPress={() => handleGender('Male')}>
-          <ImageBackground
-            source={maleCard}
-            resizeMode="contain"
-            style={{
-              height: RF(134),
-              width: '100%',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+        <Pressable onPress={() => handleGender('Male')} style={{width: '47%'}}>
+          <BorderGradientCard
+            colors={
+              getStartedData?.gender == 'Male'
+                ? colors.gradientCard
+                : ['transparent', 'transparent']
+            }
+            bgColor={
+              getStartedData?.gender == 'Male'
+                ? colors.primaryOpacity
+                : colors.card
+            }
+            mainCardStyle={{height: RF(134)}}>
             <Image
               source={male}
-              style={icon._54}
+              style={[icon._54, {alignSelf: 'center'}]}
               tintColor={
                 getStartedData?.gender == 'Male' ? colors.primary : colors.text
               }
@@ -94,30 +104,39 @@ const SelectGender = (props: Props) => {
             <Text
               size={20}
               semiBold
+              center
               style={margin.top_16}
               color={
                 getStartedData?.gender == 'Male' ? colors.primary : colors.text
               }>
               Male
             </Text>
-          </ImageBackground>
+          </BorderGradientCard>
         </Pressable>
       </View>
       <Pressable
-        style={[styles.card, {alignSelf: 'center'}]}
-        onPress={() => handleGender('Nottosay')}>
-        <ImageBackground
-          source={NottosayCard}
-          resizeMode="contain"
-          style={{
-            height: RF(134),
-            width: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+        onPress={() => handleGender('Nottosay')}
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: RF(32),
+        }}>
+        <BorderGradientCard
+          colors={
+            getStartedData?.gender == 'Nottosay'
+              ? colors.gradientCard
+              : ['transparent', 'transparent']
+          }
+          bgColor={
+            getStartedData?.gender == 'Nottosay'
+              ? colors.primaryOpacity
+              : colors.card
+          }
+          mainCardStyle={{height: RF(134), width: '47%'}}>
           <Text
             size={20}
             semiBold
+            center
             style={margin.top_16}
             color={
               getStartedData?.gender == 'Nottosay'
@@ -129,6 +148,7 @@ const SelectGender = (props: Props) => {
           <Text
             size={20}
             semiBold
+            center
             // style={margin.top_16}
             color={
               getStartedData?.gender == 'Nottosay'
@@ -137,7 +157,7 @@ const SelectGender = (props: Props) => {
             }>
             not to say
           </Text>
-        </ImageBackground>
+        </BorderGradientCard>
       </Pressable>
     </>
   );

@@ -18,12 +18,8 @@ const ThirdParty = ({navigation}: any) => {
   };
 
   return (
-    <Wrapper isTop>
-      <BackHeader
-        title={'Connect 3rd party'}
-        startIcon
-        navigation={navigation}
-      />
+    <Wrapper>
+      <BackHeader title={'Connect 3rd party'} startIcon />
       <FlatList
         data={data}
         style={margin.top_32}

@@ -33,6 +33,9 @@ const prof = require('./prof.png');
 const stat = require('./stat.png');
 const exercise = require('./exercise.png');
 const exercise1 = require('./exercise1.png');
+const Mask = require('./Mask.png');
+const Visa = require('./Visa.png');
+const check = require('./check.png');
 
 const copy = require('./copy.png');
 const logsImage = require('./workoutlog.png');
@@ -42,6 +45,8 @@ const logout = require('./logout.png');
 const cam = require('./cam.png');
 const upload = require('./upload.png');
 const darkIcon = require('./darkIcon.png');
+const edit = require('./edit.png');
+const del = require('./del.png');
 
 export {
   exercise,
@@ -87,4 +92,9 @@ export {
   cam,
   upload,
   darkIcon,
+  check,
+  Visa,
+  Mask,
+  edit,
+  del,
 };

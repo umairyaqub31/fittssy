@@ -46,6 +46,9 @@ export const margin: any = {
   Vertical_16: {
     marginVertical: RF(16),
   },
+  Vertical_20: {
+    marginVertical: RF(20),
+  },
   Vertical_24: {
     marginVertical: RF(24),
   },

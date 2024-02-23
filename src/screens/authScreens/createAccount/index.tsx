@@ -49,7 +49,7 @@ const Register = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <KeyboardAvoidingView>
-        <Wrapper isTop>
+        <Wrapper>
           <Text semiBold size={22} color={colors.text}>
             Create your account
           </Text>
@@ -112,12 +112,13 @@ const Register = () => {
             </Text>
           )}
 
-          <Pressable style={margin.top_32} onPress={handleFormik}>
+          <View style={margin.top_32}>
             <PrimaryButton
+              onPress={handleFormik}
               title={'Create an account'}
               textColor={colors.text}
             />
-          </Pressable>
+          </View>
 
           <View style={[flex.rowBetween, margin.Vertical_24]}>
             <View style={styles.line} />

@@ -91,7 +91,7 @@ const GetInformation = () => {
   console.log(currentStep, '........currentStep');
 
   return (
-    <Wrapper isTop>
+    <Wrapper>
       <View style={flex.rowSimple}>
         <Pressable
           style={{
@@ -179,21 +179,19 @@ const GetInformation = () => {
         </>
       )}
       {currentStep == 0.9 && (
-        <>
+        <View>
           <SelectCard
-            cardStyle={{height: RF(70)}}
             title={'How many days per week you workout?'}
             desc_2={'This determines the number of days in your workout plan.'}
             data={data5}
             onPress={handleContent}
             initialState={workoutPlan}
           />
-        </>
+        </View>
       )}
       {currentStep == 0.99 && (
         <>
           <SelectCard
-            cardStyle={{height: RF(85)}}
             innerSyle={{paddingLeft: RF(14), alignItems: 'flex-start'}}
             title={'Select a Workout Plan'}
             desc_2={

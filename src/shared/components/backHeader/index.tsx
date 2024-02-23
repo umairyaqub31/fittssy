@@ -3,13 +3,7 @@ import {RF} from '@theme';
 import Text from '../text';
 import {back, plus} from '@assets';
 import {useTheme} from '@react-navigation/native';
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, Pressable, StyleSheet, View} from 'react-native';
 import {navigationRef} from '@services';
 
 const BackHeader = ({
@@ -18,7 +12,7 @@ const BackHeader = ({
   title,
   onEdit,
   endIcon,
-  startIcon,
+  noIcon,
   endTitle,
   navigation,
   isHorizontal,
@@ -30,24 +24,24 @@ const BackHeader = ({
   endIcon?: any;
   navigation?: any;
   endTitle?: any;
-  startIcon?: any;
+  noIcon?: any;
   isHorizontal?: any;
 }) => {
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(theme);
 
+  const handleBack = () => {
+    navigationRef.current.goBack();
+  };
+
   return (
     <View style={[styles.main, {paddingHorizontal: isHorizontal ? RF(20) : 0}]}>
-      {startIcon && (
+      {noIcon ? null : (
         <Pressable
-          style={[styles.container, {backgroundColor: colors?.card}]}
-          onPress={() => navigationRef.current.goBack()}>
-          <Image
-            source={back}
-            style={styles.img}
-            // onPress={() => navigation.goBack()}
-          />
+          style={[styles.container, {backgroundColor: colors.card}]}
+          onPress={handleBack}>
+          <Image source={back} style={styles.img} />
         </Pressable>
       )}
 
@@ -110,7 +104,8 @@ const useStyles = (theme: any) =>
 
       width: RF(46),
       height: RF(46),
-      borderRadius: 100,
+      zIndex: 100,
+      borderRadius: 25,
       alignItems: 'center',
       justifyContent: 'center',
     },

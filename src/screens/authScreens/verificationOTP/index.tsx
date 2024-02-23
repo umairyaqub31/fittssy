@@ -21,7 +21,7 @@ const VerificatioOTP = () => {
   };
 
   return (
-    <Wrapper isTop>
+    <Wrapper>
       <Text semiBold size={22} color={colors.text}>
         Verification
       </Text>
@@ -38,9 +38,13 @@ const VerificatioOTP = () => {
           console.log(`Code is ${code}, you are good to go!`);
         }}
       />
-      <Pressable style={margin.top_24} onPress={handleVerify}>
-        <PrimaryButton title={'Send'} textColor={colors.theme} />
-      </Pressable>
+      <View style={margin.top_24}>
+        <PrimaryButton
+          onPress={handleVerify}
+          title={'Send'}
+          textColor={colors.theme}
+        />
+      </View>
       <Text
         center
         medium
@@ -94,14 +98,14 @@ const useStyles = (colors: any) =>
     },
     modalContainer: {
       flex: 1,
-      backgroundColor: 'rgba(0,0,0,0.55)',
+      backgroundColor: 'rgba(0,0,0,0.8)',
       justifyContent: 'center',
       padding: RF(20),
     },
     card: {
       height: RF(170),
       width: '100%',
-      backgroundColor: '#fff',
+      backgroundColor: colors.card,
       padding: RF(30),
       borderRadius: 20,
       alignItems: 'center',

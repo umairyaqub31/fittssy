@@ -41,12 +41,14 @@ const Login = () => {
     // dispatch(setIsLoggedIn(true));
   };
   return (
-    <Wrapper isTop>
+    <Wrapper>
       <Text semiBold size={22} color={colors.text} style={margin.bottom_24}>
         Welcome back
       </Text>
       <CustomInput
         label="Email Address"
+        placeHolder={'Sarah145@mail'}
+        placeholderTextColor={colors.grayText}
         color={colors.text}
         labelStyle={{color: isEmailFocused ? colors.primary : colors.text}}
         inputStyle={{
@@ -65,6 +67,8 @@ const Login = () => {
       )}
       <CustomInput
         label="Password"
+        placeholder="••••••••••"
+        placeholderTextColor={colors.grayText}
         color={colors.text}
         labelStyle={{color: isPasswordFocused ? colors.primary : colors.text}}
         inputStyle={{
@@ -92,11 +96,9 @@ const Login = () => {
         color={colors.primary}>
         Forgot Password?
       </Text>
-      <PrimaryButton
-        title={'Sign In'}
-        textColor={colors.text}
-        onPress={handleFormik}
-      />
+      <View style={margin.top_24}>
+        <PrimaryButton onPress={handleFormik} title={'Sign In'} />
+      </View>
       <View style={[flex.rowBetween, margin.Vertical_24]}>
         <View style={styles.line} />
         <Text bold color={colors.grayText}>
@@ -105,11 +107,11 @@ const Login = () => {
         <View style={styles.line} />
       </View>
       <Pressable style={styles.authCard}>
-        <Image source={google} style={icon._20} />
+        <Image source={google} style={{...icon._20, tintColor: colors.text}} />
         <Text color={colors.grayText}>Continue with Google</Text>
       </Pressable>
       <Pressable style={[styles.authCard, margin.top_20]}>
-        <Image source={apple} style={icon._20} />
+        <Image source={apple} style={{...icon._20, tintColor: colors.text}} />
         <Text color={colors.grayText}>Continue with Apple ID</Text>
       </Pressable>
       <Text center medium color={colors.text} style={margin.Vertical_40}>

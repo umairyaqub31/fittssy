@@ -6,8 +6,8 @@ import {margin} from '@theme';
 
 const Settings = ({navigation}: any) => {
   return (
-    <Wrapper isTop>
-      <BackHeader title={'Settings'} startIcon navigation={navigation} />
+    <Wrapper>
+      <BackHeader title={'Settings'} startIcon />
       <FlatList
         data={settingsData}
         style={margin.top_32}

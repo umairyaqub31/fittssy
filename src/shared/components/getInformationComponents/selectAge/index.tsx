@@ -36,13 +36,12 @@ const SelectAge = (props: Props) => {
         onChangeText={v => setValue(v)}
         autoFocus
       />
-      <Pressable style={margin.top_56} onPress={() => handleAge(value)}>
-        <PrimaryButton
-          title={'Next'}
-          textColor={colors.text}
-          containerStyle={margin.top_56}
-        />
-      </Pressable>
+      <PrimaryButton
+        onPress={() => handleAge(value)}
+        title={'Next'}
+        textColor={colors.text}
+        containerStyle={margin.top_56}
+      />
     </>
   );
 };

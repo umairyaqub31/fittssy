@@ -1,15 +1,7 @@
-import {
-  FlatList,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {gradientFlex, unSelect} from '@assets';
 import Text from '../text';
 import {margin, padding, RF} from '@theme';
-import GradientCard from '../gradientCard';
 import BorderGradientCard from '../borderGradientCard';
 
 interface Props {
@@ -21,7 +13,7 @@ interface Props {
 }
 
 const WorkoutItem = (props: Props) => {
-  const {colors, item, index, selectedItemIndex, onPress} = props;
+  const {colors, index, selectedItemIndex, onPress} = props;
   const styles = useStyles(colors);
   return (
     <>

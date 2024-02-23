@@ -15,7 +15,7 @@ const Home = () => {
     navigate('CreateNew', '');
   };
   return (
-    <Wrapper isTop isPaddingH>
+    <Wrapper isPaddingH>
       <SwipeHeader />
       <View style={padding.Horizontal_20}>
         <View style={styles.text}>

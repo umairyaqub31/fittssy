@@ -194,8 +194,8 @@ const TabBarIcon = ({
                     : focused
                     ? '#949494'
                     : 'rgba(207, 207, 207, 1)',
-                height: (noTintColor && RF(42)) || RF(24),
-                width: (noTintColor && RF(42)) || RF(24),
+                height: (noTintColor && RF(38)) || RF(24),
+                width: (noTintColor && RF(38)) || RF(24),
                 borderRadius: uri ? 50 : 0,
               },
             ]}

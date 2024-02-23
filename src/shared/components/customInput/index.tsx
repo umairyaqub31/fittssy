@@ -20,7 +20,7 @@ interface Props extends TextInputProps {
   label?: string;
   error?: string;
   startIcon?: any;
-  tintColor?: any;
+  endIcontintColor?: any;
   m_Vertical?: any;
   VerifyButton?: any;
   OptionalText?: any;
@@ -43,7 +43,7 @@ const CustomInput = (props: Props) => {
     endIcon,
     fontSize,
     startIcon,
-    tintColor,
+    endIcontintColor,
     m_Vertical,
     VerifyButton,
     OptionalText,
@@ -99,20 +99,20 @@ const CustomInput = (props: Props) => {
               color: color ? color : theme?.colors?.text,
             },
           ]}
-          {...otherProps}
           {...props}
         />
 
         {endIcon && (
           <TouchableOpacity onPress={onPress}>
             <Image
-              tintColor={tintColor}
               source={endIcon}
               style={{
                 width: RF(20),
                 height: RF(20),
                 marginRight: RF(24),
-                tintColor: theme?.colors?.card,
+                tintColor: endIcontintColor
+                  ? endIcontintColor
+                  : theme?.colors?.card,
               }}
               resizeMode={'contain'}
             />

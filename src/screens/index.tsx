@@ -46,6 +46,9 @@ import UnitMeasure from './profileStack/settings/unitsMeasure';
 import Notification from './profileStack/settings/notification';
 import AppMode from './profileStack/settings/appMode';
 import ThirdParty from './profileStack/settings/thirdParty';
+import SelectPlan from './profileStack/premiumPlan/selectPlan';
+import EditPaymentCard from './profileStack/premiumPlan/editPaymentCard';
+import Payment from './profileStack/premiumPlan/payment';
 
 export {
   GetStarted,
@@ -94,4 +97,7 @@ export {
   Notification,
   AppMode,
   ThirdParty,
+  SelectPlan,
+  EditPaymentCard,
+  Payment,
 };

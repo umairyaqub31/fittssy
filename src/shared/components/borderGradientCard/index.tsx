@@ -19,22 +19,20 @@ const BorderGradientCard = (props: Props) => {
   const colors = theme.colors;
   const styles = useStyles(colors);
   return (
-    <View>
-      <LinearGradient
-        {...props}
-        start={{x: 0, y: 0.6}}
-        end={{x: 0.3, y: 2}}
-        style={[styles.linearGradient, mainCardStyle]}>
-        <View
-          style={[
-            styles.innerContainer,
-            {backgroundColor: bgColor ? bgColor : colors.white},
-            innerStyle,
-          ]}>
-          {children}
-        </View>
-      </LinearGradient>
-    </View>
+    <LinearGradient
+      {...props}
+      start={{x: 0, y: 0.6}}
+      end={{x: 0.3, y: 2}}
+      style={[styles.linearGradient, mainCardStyle]}>
+      <View
+        style={[
+          styles.innerContainer,
+          {backgroundColor: bgColor ? bgColor : colors.white},
+          innerStyle,
+        ]}>
+        {children}
+      </View>
+    </LinearGradient>
   );
 };
 

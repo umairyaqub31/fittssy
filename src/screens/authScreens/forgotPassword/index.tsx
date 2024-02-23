@@ -26,7 +26,7 @@ const ForgotPassword = () => {
     formik?.handleSubmit();
   };
   return (
-    <Wrapper isTop>
+    <Wrapper>
       <Text semiBold size={22} color={colors.text}>
         Forgot Password?
       </Text>
@@ -50,9 +50,13 @@ const ForgotPassword = () => {
           {formik?.errors?.email}
         </Text>
       )}
-      <Pressable style={margin.top_24} onPress={handleFormik}>
-        <PrimaryButton title={'Send'} textColor={colors.theme} />
-      </Pressable>
+      <View style={margin.top_24}>
+        <PrimaryButton
+          onPress={handleFormik}
+          title={'Send'}
+          textColor={colors.theme}
+        />
+      </View>
       <Text
         center
         medium
