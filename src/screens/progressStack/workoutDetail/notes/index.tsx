@@ -8,6 +8,7 @@ import {
   DropDown,
   PrimaryButton,
   Text,
+  Wrapper,
 } from '@components';
 import {useTheme} from '@react-navigation/native';
 import {next} from '@assets';
@@ -63,33 +64,28 @@ const WorkoutNotes = (props: any) => {
 
   return (
     <View style={{flex: 1}}>
-      <View
-        style={[
-          flex.row,
-          {justifyContent: 'space-between', marginVertical: 20},
-        ]}>
-        <View style={{width: 165}}>
-          <PrimaryButton
-            mt={0}
-            bgColor={colors.background}
-            f_Size={14}
-            border
-            title={'Take a Note'}
-            height={45}
-            onPress={handleNotePress}
-          />
-        </View>
-        <View style={{width: 165}}>
-          <PrimaryButton
-            bgColor={colors.background}
-            mt={0}
-            f_Size={14}
-            border
-            title={'Mark injured'}
-            height={45}
-            onPress={handleInjuredPress}
-          />
-        </View>
+      <View style={[flex.row, {justifyContent: 'space-between'}]}>
+        <PrimaryButton
+          mt={24}
+          bgColor={colors.background}
+          f_Size={14}
+          border
+          title={'Take a Note'}
+          height={45}
+          width={161}
+          onPress={handleNotePress}
+        />
+
+        <PrimaryButton
+          bgColor={colors.background}
+          mt={24}
+          f_Size={14}
+          border
+          title={'Mark injured'}
+          height={45}
+          width={161}
+          onPress={handleInjuredPress}
+        />
       </View>
       <View>
         <FlatList

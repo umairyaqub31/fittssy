@@ -62,7 +62,7 @@ const Exercise = ({navigation}: any) => {
     <Wrapper>
       <BackHeader
         title={'Create New Exercise'}
-        startIcon
+        // startIcon
         navigation={navigation}
       />
       <ScrollView showsVerticalScrollIndicator={false}>

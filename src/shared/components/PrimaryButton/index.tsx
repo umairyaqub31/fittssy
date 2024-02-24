@@ -46,7 +46,7 @@ const PrimaryButton = (props: Partial<Props>) => {
           color: textColor,
           marginTop: mt ? mt : RF(10),
           height: height ? height : RF(50),
-          width: width ? width : isLoggedIn ? RF(263) : '100%',
+          width: width ? width : '100%',
           backgroundColor: bgColor
             ? bgColor
             : border
