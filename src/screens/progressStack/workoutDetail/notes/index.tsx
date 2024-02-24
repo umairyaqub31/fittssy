@@ -71,8 +71,8 @@ const WorkoutNotes = (props: any) => {
           f_Size={14}
           border
           title={'Take a Note'}
-          height={45}
-          width={161}
+          height={RF(45)}
+          width={'47%'}
           onPress={handleNotePress}
         />
 
@@ -83,7 +83,7 @@ const WorkoutNotes = (props: any) => {
           border
           title={'Mark injured'}
           height={45}
-          width={161}
+          width={'47%'}
           onPress={handleInjuredPress}
         />
       </View>

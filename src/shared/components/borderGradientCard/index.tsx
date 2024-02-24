@@ -11,18 +11,20 @@ interface Props extends LinearGradientProps {
   bgColor?: any;
   innerStyle?: any;
   mainCardStyle?: any;
+  start?: any;
+  end?: any;
 }
 
 const BorderGradientCard = (props: Props) => {
-  const {children, bgColor, innerStyle, mainCardStyle} = props;
+  const {children, bgColor, innerStyle, mainCardStyle, start, end} = props;
   const theme: any = useTheme();
   const colors = theme.colors;
   const styles = useStyles(colors);
   return (
     <LinearGradient
       {...props}
-      start={{x: 0, y: 0.6}}
-      end={{x: 0.3, y: 2}}
+      start={start ? start : {x: 0, y: 0.6}}
+      end={end ? end : {x: 0.3, y: 2}}
       style={[styles.linearGradient, mainCardStyle]}>
       <View
         style={[

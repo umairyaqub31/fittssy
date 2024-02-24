@@ -13,8 +13,18 @@ export default function TopTabs(props: any) {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarLabelStyle: {fontSize: 16, fontWeight: '400', color: '#CFCFCF'},
-        tabBarItemStyle: {width: 90},
+        tabBarLabelStyle: {
+          fontSize: 16,
+          fontWeight: '400',
+          color: '#CFCFCF',
+          margin: 0,
+          marginHorizontal: 0,
+        },
+        tabBarItemStyle: {
+          // borderWidth: 1,
+          paddingRight: 0,
+          paddingLeft: 0,
+        },
         tabBarStyle: {
           backgroundColor: colors.background,
         },
