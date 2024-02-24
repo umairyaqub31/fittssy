@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {RouteProp} from '@react-navigation/native';
-import {BackHeader} from '@components';
+import {BackHeader, Wrapper} from '@components';
 import moment from 'moment';
 import TopTabs from '../../../routes/tabs/topTabs';
 
@@ -16,7 +16,7 @@ const WorkoutDetail = (props: Partial<Props>) => {
   const {selectedDate}: any = props.route?.params;
 
   return (
-    <View style={{flex: 1, paddingHorizontal: 20, paddingTop: 20}}>
+    <Wrapper style={{flex: 1}}>
       <BackHeader
         title={moment(selectedDate).format('MMMM DD, YYYY')}
         width={'100%'}
@@ -26,7 +26,7 @@ const WorkoutDetail = (props: Partial<Props>) => {
         <TopTabs selectedDate={selectedDate} />
       </View>
       {/* <Text>WorkoutDetail</Text> */}
-    </View>
+    </Wrapper>
   );
 };
 

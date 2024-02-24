@@ -1,4 +1,5 @@
 import {
+  FlatList,
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
@@ -18,6 +19,7 @@ import moment from 'moment';
 import {useTheme} from '@react-navigation/native';
 import {SCREEN_HEIGHT, flex} from '@theme';
 import {next} from '@assets';
+import {category} from '@utils';
 
 const NotePad = (props: any) => {
   const {selectedDate} = props.route.params;
@@ -29,13 +31,11 @@ const NotePad = (props: any) => {
   const colors: any = theme.colors;
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 0 : SCREEN_HEIGHT / 10;
   const onOpen = (title: any) => {
-    console.log('tt...', title);
     setShowModal(true);
   };
   return (
     <Wrapper>
       <BackHeader
-        startIcon
         title={moment(selectedDate).format('MMMM DD, YYYY')}
         width={'100%'}
         // onEdit={onEdit}
@@ -48,6 +48,7 @@ const NotePad = (props: any) => {
         numberOfLines={4}
         onChangeText={text => setNotes(text)}
         value={notes}
+        style={{color: colors.text}}
       />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -158,36 +159,83 @@ const styles = StyleSheet.create({});
 
 const Content = (props: any) => {
   const {colors} = props;
+  const [plan, setPlan] = useState('');
+  const handlePlanPress = (type: any) => {
+    setPlan(type);
+  };
   return (
-    <View style={{flex: 1, padding: 20}}>
-      <Text size={18} semiBold color={colors.text}>
-        Select an exercise from
-      </Text>
-      <PrimaryButton
-        f_Size={14}
-        border
-        mt={20}
-        title={'Current Plan'}
-        height={45}
-        // onPress={handleNotePress}
-      />
-      <PrimaryButton
-        f_Size={14}
-        mt={14}
-        border
-        title={'Fittssy Exercises Liabrary'}
-        height={45}
+    <>
+      {plan ? (
+        <View
+          style={{
+            flex: 1,
+            padding: 20,
+            backgroundColor: colors.card,
+            borderRadius: 20,
+          }}>
+          <Text size={18} semiBold color={colors.text}>
+            Select an exercise from
+          </Text>
 
-        // onPress={handleNotePress}
-      />
-      <PrimaryButton
-        f_Size={14}
-        mt={14}
-        border
-        title={'Custom Exercises'}
-        height={45}
-        // onPress={handleNotePress}
-      />
-    </View>
+          <FlatList
+            data={category}
+            numColumns={3}
+            renderItem={({item}: any) => (
+              <PrimaryButton
+                f_Size={14}
+                mt={14}
+                border
+                title={item.title}
+                height={41}
+                width={94}
+                bgColor={colors.card}
+                containerStyle={{marginRight: 14}}
+                // onPress={() => handlePlanPress('Fittssy Exercises Liabrary')}
+              />
+            )}
+            keyExtractor={(item: any) => item.title}
+          />
+        </View>
+      ) : (
+        <View
+          style={{
+            flex: 1,
+            padding: 20,
+            backgroundColor: colors.card,
+            borderRadius: 20,
+          }}>
+          <Text size={18} semiBold color={colors.text}>
+            Select an exercise from
+          </Text>
+          <PrimaryButton
+            f_Size={14}
+            border
+            mt={20}
+            title={'Current Plan'}
+            height={45}
+            bgColor={colors.card}
+            onPress={() => handlePlanPress('Current Plan')}
+          />
+          <PrimaryButton
+            f_Size={14}
+            mt={14}
+            border
+            title={'Fittssy Exercises Liabrary'}
+            height={45}
+            bgColor={colors.card}
+            onPress={() => handlePlanPress('Fittssy Exercises Liabrary')}
+          />
+          <PrimaryButton
+            f_Size={14}
+            mt={14}
+            border
+            bgColor={colors.card}
+            title={'Custom Exercises'}
+            height={45}
+            onPress={() => handlePlanPress('Custom Exercises')}
+          />
+        </View>
+      )}
+    </>
   );
 };
