@@ -39,7 +39,6 @@ const SelectAge = (props: Props) => {
       <PrimaryButton
         onPress={() => handleAge(value)}
         title={'Next'}
-        textColor={colors.text}
         containerStyle={margin.top_56}
       />
     </>

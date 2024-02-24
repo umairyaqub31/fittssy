@@ -105,7 +105,11 @@ const GetInformation = () => {
         <Progress.Bar {...bar_props(colors, styles, currentStep)} />
       </View>
       {currentStep == 0.99 && (
-        <Text center color={colors.primary} style={margin.top_12}>
+        <Text
+          onPress={handlePlan}
+          center
+          color={colors.primary}
+          style={margin.top_12}>
           Skip
         </Text>
       )}

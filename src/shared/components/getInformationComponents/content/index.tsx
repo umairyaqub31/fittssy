@@ -33,7 +33,6 @@ const Content = (props: Props) => {
         <PrimaryButton
           onPress={onPress}
           title={'Next'}
-          textColor={colors.text}
           containerStyle={margin.top_56}
         />
       </View>

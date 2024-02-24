@@ -113,11 +113,7 @@ const Register = () => {
           )}
 
           <View style={margin.top_32}>
-            <PrimaryButton
-              onPress={handleFormik}
-              title={'Create an account'}
-              textColor={colors.text}
-            />
+            <PrimaryButton onPress={handleFormik} title={'Create an account'} />
           </View>
 
           <View style={[flex.rowBetween, margin.Vertical_24]}>

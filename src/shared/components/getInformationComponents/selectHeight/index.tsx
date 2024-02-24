@@ -61,7 +61,6 @@ const SelectHeight = (props: Props) => {
         <PrimaryButton
           onPress={() => handleHeight(concatHeight)}
           title={'Next'}
-          textColor={colors.text}
           containerStyle={margin.top_56}
         />
       </View>

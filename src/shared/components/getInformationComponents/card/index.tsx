@@ -48,6 +48,7 @@ const SelectCard = (props: Props) => {
       )}
       {noFlatList ? null : (
         <FlatList
+          showsVerticalScrollIndicator={false}
           data={data}
           contentContainerStyle={[margin.Vertical_20, {paddingBottom: 180}]}
           renderItem={({item}: any) => {

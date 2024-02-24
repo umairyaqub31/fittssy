@@ -64,7 +64,6 @@ const SelectWeight = (props: Props) => {
         <PrimaryButton
           onPress={handleWeight}
           title={'Next'}
-          textColor={colors.text}
           containerStyle={margin.top_56}
         />
       </View>
